@@ -9,3 +9,5 @@ DOMAIN-SUFFIX,gdufs.icu
 #airport
 DOMAIN-SUFFIX,xfltd.top
 DOMAIN-SUFFIX,xftld.org
+# 常用软件
+DOMAIN,flow.logitech.io
