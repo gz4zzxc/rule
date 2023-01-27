@@ -1,5 +1,5 @@
-!Title: my-adfilter
-!Version: 202208141652
+!Title: adfilter
+!Version: 2023012710000
 !!!This list only applies to "AdGuard Home".
 =================================================================
 !白名单
