@@ -12,3 +12,6 @@ DOMAIN-SUFFIX,xftld.org
 DOMAIN,flow.logitech.io
 DOMAIN-SUFFIX,logitechg.com
 DOMAIN-SUFFIX,logitech.com.cn
+# others
+DOMAIN-SUFFIX,cpu-monkey.com
+DOMAIN-SUFFIX,gpu-monkey.com
