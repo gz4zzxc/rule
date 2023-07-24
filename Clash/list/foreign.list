@@ -7,6 +7,8 @@ DOMAIN-SUFFIX,macat.vip
 DOMAIN-SUFFIX,carbon.pm
 # bing
 DOMAIN-SUFFIX,bing.com
+# Steam
+DOMAIN-SUFFIX,steamcommunity.com
 # blackmagicdesign
 DOMAIN-SUFFIX,downloads.blackmagicdesign.com
 DOMAIN-SUFFIX,sw.blackmagicdesign.com
