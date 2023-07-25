@@ -15,3 +15,6 @@ DOMAIN-SUFFIX,logitech.com.cn
 # others
 DOMAIN-SUFFIX,cpu-monkey.com
 DOMAIN-SUFFIX,gpu-monkey.com
+# blackmagicdesign
+DOMAIN-SUFFIX,downloads.blackmagicdesign.com
+DOMAIN-SUFFIX,sw.blackmagicdesign.com
