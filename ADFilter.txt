@@ -10,6 +10,8 @@
 @@||log.mmstat.com^
 # ele
 @@||waimai-guide.ele.me^
+@@||ipassport.ele.me^
+@@||alsc-buy2.ele.me^
 =================================================================
 !黑名单
 #乐播投屏
