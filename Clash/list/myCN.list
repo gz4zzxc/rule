@@ -21,3 +21,5 @@ DOMAIN-SUFFIX,gpu-monkey.com
 # blackmagicdesign
 DOMAIN-SUFFIX,downloads.blackmagicdesign.com
 DOMAIN-SUFFIX,sw.blackmagicdesign.com
+# 进程规则
+PROCESS-NAME,aria2c,DIRECT
