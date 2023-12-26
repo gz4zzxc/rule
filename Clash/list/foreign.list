@@ -33,3 +33,5 @@ DOMAIN-SUFFIX,51cg1.com
 DOMAIN-SUFFIX,app7.rthk.hk
 # Foreign media
 DOMAIN-SUFFIX,buzzsprout.com
+# software
+DOMAIN-SUFFIX,nmap.org
