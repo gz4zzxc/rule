@@ -44,13 +44,6 @@
 #xmind破解版
 127.0.0.1 www.xmind.net
 127.0.0.1 www.xmind.cn
-#vmix破解
-127.0.0.1 vmix.com
-127.0.0.1 2534.vmix.com
-127.0.0.1 vmixcloud.com
-127.0.0.1 vmix.com.au
-127.0.0.1 2266.vmix.com
-127.0.0.1 www.vmix.com
 #capture one 破解版
 0.0.0.0 activation.phaseone.com
 127.0.0.1 industrial.phaseone.com
@@ -59,28 +52,6 @@
 127.0.0.1 industrial.phaseone.com
 127.0.0.1 coweb.phaseone.com
 127.0.0.1 help.phaseone.com
-#Luminar Neo
-127.0.0.1 auth.macphun.com
-127.0.0.1 luminar3win.update.skylum.com
-127.0.0.1 luminar3.s3-accelerate.amazonaws.com
-127.0.0.1 luminar4win.update.skylum.com
-127.0.0.1 luminar4.s3-accelerate.amazonaws.com
-127.0.0.1 stats-api.skylum.com
-127.0.0.1 geotargetly-1a441.appspot.com
-127.0.0.1 fx.macphun.com
-127.0.0.1 canonicalizer.ucsuri.tcs
-127.0.0.1 auth.macphun.com
-127.0.0.1 stats-api.skylum.com
-127.0.0.1 api.photolemur.com
-127.0.0.1 media.macphun.com
-127.0.0.1 luminaraiwin.skylum.com
-127.0.0.1 luminarneowin.skylum.com
-# Topaz 全家桶
-127.0.0.1 topazlabs.com
-127.0.0.1 auth.topazlabs.com
-127.0.0.1 et.topazlabs.com
-127.0.0.1 104.22.33.115
-127.0.0.1 172.67.37.186
 # MIUI
 127.0.0.1 157.148.47.204
 # 微软诊断数据
