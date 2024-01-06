@@ -49,6 +49,7 @@ DOMAIN-SUFFIX,2047.one
 DOMAIN-SUFFIX,nmap.org
 DOMAIN-SUFFIX,openwrt.ai
 DOMAIN-SUFFIX,obsidian.md
+DOMAIN,playwright.azureedge.net
 # Blog
 DOMAIN-SUFFIX,songchenwen.com
 DOMAIN-SUFFIX,duangks.com
