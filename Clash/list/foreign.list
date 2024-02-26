@@ -19,6 +19,10 @@ DOMAIN-SUFFIX,api.v1.mk
 DOMAIN-SUFFIX,singleogin.re
 DOMAIN-SUFFIX,xinchuan.live
 DOMAIN-SUFFIX,singlelogin.re
+# MJJ
+DOMAIN-SUFFIX,hostloc.me
+DOMAIN-SUFFIX,hostloc.com
+DOMAIN-SUFFIX,hostloc.wiki
 # bing
 DOMAIN-SUFFIX,bing.com
 # Steam
