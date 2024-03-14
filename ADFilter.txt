@@ -12,6 +12,10 @@
 @@||waimai-guide.ele.me^
 @@||ipassport.ele.me^
 @@||alsc-buy2.ele.me^
+@@||shopping.ele.me^$important
+@@||h-adashx.ut.ele.me^$important
+@@||app-monitor.ele.me^$important
+# 123网盘
 @@||statics.123pan.com^$important
 # 百度api
 @@||aip.baidubce.com^$important
