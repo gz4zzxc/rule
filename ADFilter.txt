@@ -13,6 +13,8 @@
 @@||ipassport.ele.me^
 @@||alsc-buy2.ele.me^
 @@||statics.123pan.com^$important
+# 百度api
+@@||aip.baidubce.com^$important
 =================================================================
 !黑名单
 #乐播投屏
