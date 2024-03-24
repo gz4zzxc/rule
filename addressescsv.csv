@@ -1,0 +1,81 @@
+﻿IP地址,端口,TLS,数据中心,地区,城市,网络延迟,下载速度
+20.58.24.221,2086,false,LHR,Europe,London,1 ms,4126 kB/s
+20.203.143.117,2095,false,MXP,Europe,Milan,3 ms,2009 kB/s
+20.203.143.112,2086,false,MXP,Europe,Milan,2 ms,1982 kB/s
+51.107.211.177,2082,false,CPH,Europe,Copenhagen,1 ms,1931 kB/s
+20.203.143.114,2087,false,MXP,Europe,Milan,3 ms,1815 kB/s
+51.107.211.177,2096,false,CPH,Europe,Copenhagen,1 ms,1789 kB/s
+51.107.211.178,2087,false,CPH,Europe,Copenhagen,1 ms,1779 kB/s
+51.107.211.178,2083,false,CPH,Europe,Copenhagen,2 ms,1753 kB/s
+20.203.143.117,2082,false,MXP,Europe,Milan,3 ms,1711 kB/s
+51.107.211.178,2095,false,CPH,Europe,Copenhagen,1 ms,1666 kB/s
+20.203.143.114,2086,false,MXP,Europe,Milan,3 ms,1655 kB/s
+20.203.143.117,2096,false,MXP,Europe,Milan,2 ms,1626 kB/s
+20.203.143.114,2053,false,MXP,Europe,Milan,3 ms,1538 kB/s
+51.107.211.177,2095,false,CPH,Europe,Copenhagen,1 ms,1526 kB/s
+20.203.143.114,2082,false,MXP,Europe,Milan,3 ms,1408 kB/s
+20.203.143.112,2083,false,MXP,Europe,Milan,2 ms,1335 kB/s
+20.203.143.112,2087,false,MXP,Europe,Milan,3 ms,1269 kB/s
+20.203.143.112,2095,false,MXP,Europe,Milan,2 ms,1269 kB/s
+20.203.143.117,2086,false,MXP,Europe,Milan,3 ms,1209 kB/s
+20.203.143.114,2095,false,MXP,Europe,Milan,2 ms,1154 kB/s
+51.107.211.177,2053,false,CPH,Europe,Copenhagen,1 ms,1132 kB/s
+51.107.211.178,2053,false,CPH,Europe,Copenhagen,1 ms,1130 kB/s
+20.203.143.114,2083,false,MXP,Europe,Milan,2 ms,1119 kB/s
+51.107.211.178,2096,false,CPH,Europe,Copenhagen,2 ms,1089 kB/s
+51.107.211.177,2052,false,CPH,Europe,Copenhagen,1 ms,1075 kB/s
+51.107.211.178,2052,false,CPH,Europe,Copenhagen,1 ms,1075 kB/s
+20.203.143.112,2096,false,MXP,Europe,Milan,3 ms,964 kB/s
+20.203.143.112,2052,false,MXP,Europe,Milan,3 ms,946 kB/s
+20.203.143.112,2053,false,MXP,Europe,Milan,0 ms,894 kB/s
+20.203.143.112,2082,false,MXP,Europe,Milan,2 ms,730 kB/s
+20.203.143.117,2087,false,MXP,Europe,Milan,3 ms,508 kB/s
+20.203.143.114,2096,false,MXP,Europe,Milan,2 ms,433 kB/s
+51.11.142.112,80,false,LHR,Europe,London,0 ms,150 kB/s
+20.157.120.71,80,false,LHR,Europe,London,0 ms,95 kB/s
+40.115.253.187,80,false,LAX,North America,Los Angeles,4 ms,90 kB/s
+20.92.32.172,80,false,SYD,Oceania,Sydney,0 ms,88 kB/s
+51.116.109.243,80,false,AMS,Europe,Amsterdam,0 ms,87 kB/s
+40.115.253.187,8080,false,HKG,Asia Pacific,Hong Kong,0 ms,78 kB/s
+52.187.35.233,80,false,SIN,Asia Pacific,Singapore,0 ms,52 kB/s
+20.70.120.90,80,false,SYD,Oceania,Sydney,1 ms,50 kB/s
+20.243.87.182,80,false,HKG,Asia Pacific,Hong Kong,0 ms,43 kB/s
+20.102.24.191,80,false,IAD,North America,Ashburn,1 ms,35 kB/s
+172.162.242.200,80,false,MXP,Europe,Milan,5 ms,25 kB/s
+20.22.128.5,80,false,IAD,North America,Ashburn,4 ms,25 kB/s
+13.94.60.131,80,false,HKG,Asia Pacific,Hong Kong,2 ms,19 kB/s
+20.204.43.57,80,false,BOM,Asia Pacific,Mumbai,0 ms,15 kB/s
+20.81.104.97,80,false,IAD,North America,Ashburn,4 ms,8 kB/s
+40.83.203.12,80,false,SJC,North America,San Jose,4 ms,5 kB/s
+20.213.13.247,80,false,SYD,Oceania,Sydney,2 ms,2 kB/s
+52.236.148.143,80,false,AMS,Europe,Amsterdam,4 ms,2 kB/s
+20.243.248.205,80,false,NRT,Asia Pacific,Tokyo,3 ms,1 kB/s
+20.240.40.44,80,false,CPH,Europe,Copenhagen,3 ms,1 kB/s
+20.18.32.188,8080,false,NRT,Asia Pacific,Tokyo,3 ms,1 kB/s
+20.18.32.188,80,false,NRT,Asia Pacific,Tokyo,3 ms,1 kB/s
+20.18.32.188,443,false,NRT,Asia Pacific,Tokyo,3 ms,1 kB/s
+20.78.2.61,80,false,NRT,Asia Pacific,Tokyo,3 ms,1 kB/s
+20.89.149.18,80,false,NRT,Asia Pacific,Tokyo,3 ms,1 kB/s
+74.226.216.102,80,false,NRT,Asia Pacific,Tokyo,3 ms,1 kB/s
+20.230.159.201,80,false,SEA,North America,Seattle,0 ms,1 kB/s
+20.55.38.130,80,false,IAD,North America,Ashburn,3 ms,1 kB/s
+20.118.131.247,80,false,LAX,North America,Los Angeles,3 ms,1 kB/s
+20.230.56.138,80,false,IAD,North America,Ashburn,2 ms,1 kB/s
+172.167.242.53,80,false,LHR,Europe,London,1 ms,0 kB/s
+20.172.220.126,80,false,IAD,North America,Ashburn,2 ms,0 kB/s
+20.121.139.153,80,false,IAD,North America,Ashburn,2 ms,0 kB/s
+4.227.214.97,80,false,IAD,North America,Ashburn,0 ms,0 kB/s
+4.227.245.157,8080,false,IAD,North America,Ashburn,0 ms,0 kB/s
+172.188.16.197,80,false,SIN,Asia Pacific,Singapore,2 ms,0 kB/s
+20.222.251.148,80,false,HKG,Asia Pacific,Hong Kong,2 ms,0 kB/s
+20.203.143.117,2052,false,MXP,Europe,Milan,3 ms,0 kB/s
+51.107.211.178,2086,false,CPH,Europe,Copenhagen,2 ms,0 kB/s
+20.104.218.53,80,false,YYZ,North America,Toronto,0 ms,0 kB/s
+51.107.211.177,2087,false,CPH,Europe,Copenhagen,1 ms,0 kB/s
+51.107.211.177,2086,false,CPH,Europe,Copenhagen,1 ms,0 kB/s
+20.193.145.135,80,false,BOM,Asia Pacific,Mumbai,2 ms,0 kB/s
+51.107.211.178,2082,false,CPH,Europe,Copenhagen,2 ms,0 kB/s
+13.66.189.79,80,false,SEA,North America,Seattle,0 ms,0 kB/s
+20.2.219.45,80,false,HKG,Asia Pacific,Hong Kong,2 ms,0 kB/s
+20.40.103.32,80,false,LAX,North America,Los Angeles,2 ms,0 kB/s
+52.245.249.122,80,false,IAD,North America,Ashburn,2 ms,0 kB/s
