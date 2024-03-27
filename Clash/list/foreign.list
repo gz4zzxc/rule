@@ -46,6 +46,8 @@ DOMAIN-SUFFIX,nmap.org
 DOMAIN-SUFFIX,openwrt.ai
 DOMAIN-SUFFIX,obsidian.md
 DOMAIN,playwright.azureedge.net
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,chat-preview.lobehub.com
 # Blog
 DOMAIN-SUFFIX,songchenwen.com
 DOMAIN-SUFFIX,duangks.com
