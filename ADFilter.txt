@@ -19,6 +19,8 @@
 @@||statics.123pan.com^$important
 # 百度api
 @@||aip.baidubce.com^$important
+# tencent cloud
+@@||qcloudimg.tencent-cloud.cn^$important
 =================================================================
 !黑名单
 #乐播投屏
