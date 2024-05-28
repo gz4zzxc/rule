@@ -99,3 +99,4 @@
 0.0.0.0 120.233.19.186
 # sentry
 127.0.0.1 o1098464.ingest.sentry.io
+127.0.0.1 analytics.wondershare.cc
