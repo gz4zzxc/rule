@@ -1,0 +1,5 @@
+# perplexity ai rules
+
+DOMAIN,www.perplexity.com
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,pplx.ai
