@@ -1,7 +1,6 @@
 # Google Play
 DOMAIN-SUFFIX,services.googleapis.cn
 DOMAIN-SUFFIX,xn--ngstr-1ra8j.com
-# airport
 DOMAIN-SUFFIX,xfltd.org
 DOMAIN-SUFFIX,xfltd.xyz
 DOMAIN-SUFFIX,xfltd.link
@@ -14,7 +13,6 @@ DOMAIN,cos.cat
 DOMAIN-SUFFIX,nvzhuang.wushidi.gay
 DOMAIN,eggtartcloud.shop
 DOMAIN-SUFFIX,www.acaisbest.com
-#资源站
 DOMAIN-SUFFIX,macat.vip
 DOMAIN-SUFFIX,macked.app
 DOMAIN-SUFFIX,carbon.pm
@@ -51,19 +49,14 @@ DOMAIN-SUFFIX,explainthis.io
 DOMAIN-SUFFIX,vercel.app
 DOMAIN-SUFFIX,vercel.com
 DOMAIN-SUFFIX,readwise.io
-# MJJ
 DOMAIN-SUFFIX,hostloc.me
 DOMAIN-SUFFIX,hostloc.com
 DOMAIN-SUFFIX,hostloc.wiki
-# HK
 DOMAIN-SUFFIX,app7.rthk.hk
-# TW
 DOMAIN-SUFFIX,airitilibrary.com
-# Foreign media
 DOMAIN-SUFFIX,buzzsprout.com
 DOMAIN-SUFFIX,copymanga.site
 DOMAIN-SUFFIX,2047.one
-# software
 DOMAIN-SUFFIX,nmap.org
 DOMAIN-SUFFIX,openwrt.ai
 DOMAIN-SUFFIX,obsidian.md
@@ -73,14 +66,11 @@ DOMAIN-SUFFIX,chat-preview.lobehub.com
 DOMAIN-SUFFIX,termius.com
 DOMAIN-SUFFIX,zotero.org
 DOMAIN-SUFFIX,assets.burn.hair
-# Blog
 DOMAIN-SUFFIX,songchenwen.com
 DOMAIN-SUFFIX,duangks.com
 DOMAIN-SUFFIX,bulianglin.com
 DOMAIN-SUFFIX,darmau.design
-# org
 DOMAIN-SUFFIX,chinademocrats.org
-
 DOMAIN-SUFFIX,juchats.com
 DOMAIN-SUFFIX,hermchats.com
 DOMAIN,chat.gaazeon.com

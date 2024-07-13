@@ -9,18 +9,10 @@ DOMAIN-SUFFIX,hdarea.club
 # 资源站
 # site
 DOMAIN-SUFFIX,gdufs.icu
-DOMAIN,nas.xinchuan.live
-DOMAIN,307.xinchuan.live
 DOMAIN-SUFFIX,foxirj.com
 DOMAIN-SUFFIX,appstorrent.ru
 # download,DIRECT
 DOMAIN-SUFFIX,download-send.com
-#airport
-DOMAIN-SUFFIX,xfltd.top
-DOMAIN-SUFFIX,xftld.org
-DOMAIN-SUFFIX,xfltd.net
-DOMAIN-SUFFIX,xf.kg
-DOMAIN-SUFFIX,cdn.cos.cat
 # 常用软件
 DOMAIN,flow.logitech.io
 DOMAIN-SUFFIX,logitechg.com
