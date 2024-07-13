@@ -55,10 +55,6 @@ DOMAIN-SUFFIX,readwise.io
 DOMAIN-SUFFIX,hostloc.me
 DOMAIN-SUFFIX,hostloc.com
 DOMAIN-SUFFIX,hostloc.wiki
-# bing
-DOMAIN-SUFFIX,bing.com
-# Steam
-DOMAIN-SUFFIX,steamcommunity.com
 # HK
 DOMAIN-SUFFIX,app7.rthk.hk
 # TW
