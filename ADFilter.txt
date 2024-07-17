@@ -100,3 +100,6 @@
 # sentry
 127.0.0.1 o1098464.ingest.sentry.io
 127.0.0.1 analytics.wondershare.cc
+# launchdarkly
+127.0.0.1 mobile.launchdarkly.com
+127.0.0.1 clientstream.launchdarkly.com
