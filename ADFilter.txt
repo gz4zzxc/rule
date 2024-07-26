@@ -21,6 +21,8 @@
 @@||aip.baidubce.com^$important
 # tencent cloud
 @@||qcloudimg.tencent-cloud.cn^$important
+# twikoo
+@@||cdn.staticfile.org^$important
 =================================================================
 !黑名单
 #乐播投屏
