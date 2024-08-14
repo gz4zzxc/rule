@@ -142,7 +142,7 @@ proxy-groups:
   - name: ✈️ 手动选择
     type: select
     include-all: true
-    filter: '^(?!.*ℹ️).*'
+    filter: '^(?!ℹ️ ).*'
     
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
