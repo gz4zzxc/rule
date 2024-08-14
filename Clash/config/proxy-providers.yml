@@ -1,0 +1,14 @@
+######### anchor zone START #########
+x-pp: &x-pp
+  type: http
+  interval: 3600
+  health-check:
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+######### anchor zone END #########
+
+# proxy-providers:
+#   provider1:
+#     <<: *x-pp
+#     url: ""

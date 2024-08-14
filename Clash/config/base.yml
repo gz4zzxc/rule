@@ -1,0 +1,595 @@
+# general
+mixed-port: 7890
+ipv6: false
+allow-lan: true
+external-controller: 127.0.0.1:9090
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+##### anchor area START #####
+x-pg:
+  select-region-full: &x-pp-select-region
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - 📥 大流量分流
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+      - 🇰🇵 朝鲜优选
+      - 🇮🇳 印度优选
+      - 🇬🇧 英国优选
+      - 🇫🇷 法国优选
+      - 🇨🇦 加拿大优选
+      - 🇦🇺 澳大利亚优选
+      - 🇮🇪 爱尔兰优选
+      - 🇷🇺 俄罗斯优选
+      - 🇹🇷 土耳其优选
+      - 🇦🇷 阿根廷优选
+      - 🇧🇷 巴西优选
+      - 🇨🇳 回国选择
+
+  select-region-full-direct: &x-pp-select-region-direct
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+      - 📥 大流量分流
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+      - 🇰🇵 朝鲜优选
+      - 🇮🇳 印度优选
+      - 🇬🇧 英国优选
+      - 🇫🇷 法国优选
+      - 🇨🇦 加拿大优选
+      - 🇦🇺 澳大利亚优选
+      - 🇮🇪 爱尔兰优选
+      - 🇷🇺 俄罗斯优选
+      - 🇹🇷 土耳其优选
+      - 🇦🇷 阿根廷优选
+      - 🇧🇷 巴西优选
+      - 🇨🇳 回国选择
+
+  # select-region-mini: &x-pp-select-region
+  #   type: select
+  #   proxies:
+  #     - 🔰 节点选择
+  #     - 🎯 全部直连
+  #     - 📥 大流量分流
+  #     - ✈️ 手动选择
+  #     - 🎩 私有节点
+  #     - 🇭🇰 香港优选
+  #     - 🇺🇸 美国优选
+  #     - 🇯🇵 日本优选
+  #     - 🇹🇼 台湾优选
+  #     - 🇸🇬 新加坡优选
+  #     - 🇰🇷 韩国优选
+
+  # select-region-mini-direct: &x-pp-select-region-direct
+  #   type: select
+  #   proxies:
+  #     - 🎯 全部直连
+  #     - 🔰 节点选择
+  #     - 📥 大流量分流
+  #     - ✈️ 手动选择
+  #     - 🎩 私有节点
+  #     - 🇭🇰 香港优选
+  #     - 🇺🇸 美国优选
+  #     - 🇯🇵 日本优选
+  #     - 🇹🇼 台湾优选
+  #     - 🇸🇬 新加坡优选
+  #     - 🇰🇷 韩国优选
+
+  urltest-region: &x-pp-region
+    type: url-test
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
+    lazy: true
+    include-all: true
+    hidden: true
+    exclude-filter: '(?i:专用)'
+
+  # select-region: &x-pp-region
+  #   type: select
+  #   include-all: true
+  #   hidden: true
+
+##### anchor area END #####
+proxy-groups:
+  - name: ℹ️ 订阅信息
+    type: select
+    include-all: true
+    filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
+
+  - name: 🔰 节点选择
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - 🇯🇵 日本优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇰🇷 韩国优选
+      - 🇰🇵 朝鲜优选
+      - 🇮🇳 印度优选
+      - 🇬🇧 英国优选
+      - 🇫🇷 法国优选
+      - 🇨🇦 加拿大优选
+      - 🇦🇺 澳大利亚优选
+      - 🇮🇪 爱尔兰优选
+      - 🇷🇺 俄罗斯优选
+      - 🇹🇷 土耳其优选
+      - 🇦🇷 阿根廷优选
+      - 🇧🇷 巴西优选
+      - 🇨🇳 回国选择
+
+  - name: ✈️ 手动选择
+    type: select
+    include-all: true
+
+  - name: 🍭 谷歌服务
+    <<: *x-pp-select-region
+
+  - name: Ⓜ️ 微软服务
+    <<: *x-pp-select-region
+
+  - name: ☁️ Onedrive
+    <<: *x-pp-select-region
+
+  - name: 🤖 Developer
+    <<: *x-pp-select-region
+
+  - name: 🍎 苹果服务
+    <<: *x-pp-select-region-direct
+
+  - name: 🎮 Steam
+    <<: *x-pp-select-region
+
+  - name: 🎵 Spotify
+    <<: *x-pp-select-region
+
+  - name: 🎵 Qobuz
+    <<: *x-pp-select-region
+
+  - name: 🎵 TIDAL
+    <<: *x-pp-select-region
+
+  - name: 🎥 Emby 服务
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 📥 大流量分流
+      - 🎩 私有节点
+    include-all: true
+    # filter: "(?i:Emby)"
+
+  - name: 🎥 Youtube
+    <<: *x-pp-select-region
+
+  - name: 🎥 Netflix
+    <<: *x-pp-select-region
+    include-all: true
+    filter: "(?i:Netflix|网飞|奈飞|NF)"
+
+  - name: 🎥 TikTok
+    <<: *x-pp-select-region
+
+  - name: 🌍 国外媒体
+    <<: *x-pp-select-region
+
+  - name: 🎵 网易云音乐
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+      - ✈️ 手动选择
+      - 📥 大流量分流
+      - 🎩 私有节点
+      - 🇨🇳 回国选择
+
+  - name: 🌍 国内媒体-港澳台版切换
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+      - ✈️ 手动选择
+      - 📥 大流量分流
+      - 🎩 私有节点
+      - 🇭🇰 香港优选
+      - 🇹🇼 台湾优选
+      - 🇸🇬 新加坡优选
+      - 🇨🇳 回国选择
+
+  - name: 📲 Telegram
+    <<: *x-pp-select-region
+
+  - name: 📲 Twitter
+    <<: *x-pp-select-region
+
+  - name: 📥 大流量分流
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+    include-all: true
+    # filter: '(?i:0\.\d*x|Private)'
+
+  - name: 📶 测速切换
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+      - ✈️ 手动选择
+      - 🎩 私有节点
+  
+  - name: 🈲 禁飞空域
+    <<: *x-pp-select-region
+    include-all: true
+
+  - name: 🎯 全部直连
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🛑 全部拦截
+    type: select
+    proxies:
+      - REJECT
+
+  - name: 🐟 漏网之鱼
+    <<: *x-pp-select-region
+
+  - name: 🎩 私有节点
+    type: select
+    include-all: true
+    filter: "(?i:Private)"
+
+  - name: 🇭🇰 香港优选
+    <<: *x-pp-region
+    filter: '(?i:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)'
+
+  - name: 🇺🇸 美国优选
+    <<: *x-pp-region
+    filter: '(?i:🇺🇸|\bUS[A]?\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)'
+
+  - name: 🇯🇵 日本优选
+    <<: *x-pp-region
+    filter: '(?i:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日)'
+
+  - name: 🇹🇼 台湾优选
+    <<: *x-pp-region
+    filter: '(?i:🇹🇼|\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b)'
+
+  - name: 🇸🇬 新加坡优选
+    <<: *x-pp-region
+    filter: '(?i:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城|[^-]新)'
+
+  - name: 🇰🇷 韩国优选
+    <<: *x-pp-region
+    filter: '(?i:🇰🇷|\bK[O]?R\b|South.*?Korea|首尔|韩国|韓國)'
+
+  - name: 🇰🇵 朝鲜优选
+    <<: *x-pp-region
+    filter: '(?i:🇰🇵|\bKP[R]?\b|North.*?Korea|Pyongyang|朝鲜|平壤|金正恩)'
+
+  - name: 🇮🇳 印度优选
+    <<: *x-pp-region
+    filter: '(?i:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)'
+
+  - name: 🇬🇧 英国优选
+    <<: *x-pp-region
+    filter: '(?i:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
+
+  - name: 🇫🇷 法国优选
+    <<: *x-pp-region
+    filter: '(?i:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)'
+
+  - name: 🇨🇦 加拿大优选
+    <<: *x-pp-region
+    filter: '(?i:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)'
+
+  - name: 🇦🇺 澳大利亚优选
+    <<: *x-pp-region
+    filter: '(?i:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)'
+
+  - name: 🇮🇪 爱尔兰优选
+    <<: *x-pp-region
+    filter: "(?i:Ireland|Dublin|爱尔兰|都柏林)"
+
+  - name: 🇷🇺 俄罗斯优选
+    <<: *x-pp-region
+    filter: '(?i:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)'
+
+  - name: 🇹🇷 土耳其优选
+    <<: *x-pp-region
+    filter: "(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)"
+
+  - name: 🇦🇷 阿根廷优选
+    <<: *x-pp-region
+    filter: "(?i:🇦🇷|Argentina|阿根廷)"
+
+  - name: 🇧🇷 巴西优选
+    <<: *x-pp-region
+    filter: "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"
+
+  - name: 🇨🇳 回国选择
+    type: select
+    include-all: true
+    hidden: true
+    filter: '(?i:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)'
+
+##### anchor area START #####
+x-rp:
+  classical: &x-rp-classical
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+  ip: &x-rp-ip
+    type: http
+    behavior: ipcidr
+    format: yaml
+    interval: 86400
+  domain: &x-rp-domain
+    type: http
+    behavior: domain
+    format: yaml
+    interval: 86400
+##### anchor area END #####
+rule-providers:
+  MyDirect:
+    <<: *x-rp-classical
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
+    path: ./providers/rule-provider_MyDirect.list
+    format: text
+  MyProxy:
+    <<: *x-rp-classical
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
+    path: ./providers/rule-provider_MyProxy.list
+    format: text
+  Lan:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
+    path: ./providers/rule-provider_Lan.yaml
+  Tailscale_OfficialDERP_IP:
+    <<: *x-rp-ip
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_IP.list
+    path: ./providers/rule-provider_Tailscale_OfficialDERP_IP.list
+    format: text
+  Tailscale_OfficialDERP_Doamin:
+    <<: *x-rp-domain
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.list
+    path: ./providers/rule-provider_Tailscale_OfficialDERP_Domain.list
+    format: text
+  Tailscale:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale.yaml
+    path: ./providers/rule-provider_Tailscale.yaml
+  Download:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml
+    path: ./providers/rule-provider_Download.yaml
+  PrivateTracker:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    path: ./providers/rule-provider_PrivateTracker.yaml
+  # Privacy_Classical:
+  #   <<: *x-rp-classical
+  #   url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Classical.yaml
+  #   path: ./providers/rule-provider_Privacy_Classical.yaml
+  # Hijacking:
+  #   <<: *x-rp-classical
+  #   url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hijacking/Hijacking.yaml
+  #   path: ./providers/rule-provider_Hijacking.yaml
+  GoogleVoice:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.yaml
+    path: ./providers/rule-provider_GoogleVoice.yaml
+  OpenAI:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
+    path: ./providers/rule-provider_OpenAI.list
+    format: text
+  Gemini:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
+    path: ./providers/rule-provider_Gemini.yaml
+  Coze:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/orangetam/Clash@main/rules/Cici.yaml
+    path: ./providers/rule-provider_Coze.yaml
+  Anthropic:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.yaml
+    path: ./providers/rule-provider_Anthropic.yaml
+  Bing:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml
+    path: ./providers/rule-provider_Bing.yaml
+  Developer:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Developer/Developer.yaml
+    path: ./providers/rule-provider_Developer.yaml
+  GitHub:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
+    path: ./providers/rule-provider_GitHub.yaml
+  OneDrive:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.yaml
+    path: ./providers/rule-provider_OneDrive.yaml
+  Microsoft:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./providers/rule-provider_Microsoft.yaml
+  Google:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
+    path: ./providers/rule-provider_Google.yaml
+  Apple:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml
+    path: ./providers/rule-provider_Apple.yaml
+  SteamCN:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.yaml
+    path: ./providers/rule-provider_SteamCN.yaml
+  Steam:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml
+    path: ./providers/rule-provider_Steam.yaml
+  Spotify:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
+    path: ./providers/rule-provider_Spotify.yaml
+  Qobuz:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Qobuz/Qobuz.yaml
+    path: ./providers/rule-provider_Qobuz.yaml
+  TIDAL:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TIDAL/TIDAL.yaml
+    path: ./providers/rule-provider_TIDAL.yaml
+  Emby:
+    <<: *x-rp-classical
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
+    path: ./providers/rule-provider_Emby.list
+    format: text
+  YouTube:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml
+    path: ./providers/rule-provider_YouTube.yaml
+  Netflix:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml
+    path: ./providers/rule-provider_Netflix.yaml
+  TikTok:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml
+    path: ./providers/rule-provider_TikTok.yaml
+  Bahamut:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml
+    path: ./providers/rule-provider_Bahamut.yaml
+  GlobalMedia:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.yaml
+    path: ./providers/rule-provider_GlobalMedia.yaml
+  NetEaseMusic:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml
+    path: ./providers/rule-provider_NetEaseMusic.yaml
+  AsianMedia:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AsianMedia/AsianMedia.yaml
+    path: ./providers/rule-provider_AsianMedia.yaml
+  Telegram:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
+    path: ./providers/rule-provider_Telegram.yaml
+  Twitter:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
+    path: ./providers/rule-provider_Twitter.yaml
+  HighBandwidth:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/HighBandwidth.yml
+    path: ./providers/rule-provider_HighBandwidth.yaml
+  Speedtest:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Speedtest/Speedtest.yaml
+    path: ./providers/rule-provider_Speedtest.yaml
+  RestrictedZones:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
+    path: ./providers/rule-provider_RestrictedZones.list
+    format: text
+  Global:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global.yaml
+    path: ./providers/rule-provider_Global.yaml
+  Global_Domain:
+    <<: *x-rp-domain
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Domain.yaml
+    path: ./providers/rule-provider_Global_Domain.yaml
+  China:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.yaml
+    path: ./providers/rule-provider_China.yaml
+  China_Domain:
+    <<: *x-rp-domain
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Domain.yaml
+    path: ./providers/rule-provider_China_Domain.yaml
+  ChinaIPsTest_IP:
+    <<: *x-rp-ip
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaIPs/ChinaIPsTest/ChinaIPsTest_IP.yaml
+    path: ./providers/rule-provider_ChinaIPsTest_IP.yaml
+
+rules:
+  - RULE-SET,MyDirect,🎯 全部直连
+  - RULE-SET,MyProxy,🔰 节点选择
+  - RULE-SET,Lan,🎯 全部直连
+  - RULE-SET,Tailscale_OfficialDERP_IP,🎯 全部直连
+  - RULE-SET,Tailscale_OfficialDERP_Doamin,🎯 全部直连
+  - RULE-SET,Tailscale,🎯 全部直连
+  - RULE-SET,Download,🎯 全部直连
+  - RULE-SET,PrivateTracker,🎯 全部直连
+  # - RULE-SET,Privacy_Classical,🛑 全部拦截
+  # - RULE-SET,Hijacking,🛑 全部拦截
+  - RULE-SET,GoogleVoice,🇺🇸 美国优选
+  - RULE-SET,Bing,🇺🇸 美国优选
+  - RULE-SET,OpenAI,🇺🇸 美国优选
+  - RULE-SET,Anthropic,🇺🇸 美国优选
+  - RULE-SET,Gemini,🇺🇸 美国优选
+  - RULE-SET,Coze,🇸🇬 新加坡优选
+  - RULE-SET,Developer,🤖 Developer
+  - RULE-SET,GitHub,🤖 Developer
+  - RULE-SET,OneDrive,☁️ Onedrive
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Google,🍭 谷歌服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,SteamCN,🎯 全部直连
+  - RULE-SET,Steam,🎮 Steam
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Qobuz,🎵 Qobuz
+  - RULE-SET,TIDAL,🎵 TIDAL
+  - RULE-SET,Emby,🎥 Emby 服务
+  - RULE-SET,YouTube,🎥 Youtube
+  - RULE-SET,Netflix,🎥 Netflix
+  - RULE-SET,TikTok,🎥 TikTok
+  - RULE-SET,Bahamut,🇹🇼 台湾优选
+  - RULE-SET,GlobalMedia,🌍 国外媒体
+  - RULE-SET,NetEaseMusic,🎵 网易云音乐
+  - RULE-SET,AsianMedia,🌍 国内媒体-港澳台版切换
+  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,Twitter,📲 Twitter
+  - RULE-SET,HighBandwidth,📥 大流量分流
+  - RULE-SET,Speedtest,📶 测速切换
+  - RULE-SET,RestrictedZones,🈲 禁飞空域
+  - RULE-SET,Global,🔰 节点选择
+  - RULE-SET,Global_Domain,🔰 节点选择
+  - RULE-SET,China,🎯 全部直连
+  - RULE-SET,China_Domain,🎯 全部直连
+  - RULE-SET,ChinaIPsTest_IP,🎯 全部直连
+  - GEOIP,CN,🎯 全部直连
+  - MATCH,🐟 漏网之鱼
