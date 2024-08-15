@@ -148,10 +148,10 @@ proxy-groups:
     <<: *x-pp-select-region
 
   - name: Ⓜ️ 微软服务
-    <<: *x-pp-select-region
+    <<: *x-pp-select-region-direct
 
   - name: ☁️ Onedrive
-    <<: *x-pp-select-region
+    <<: *x-pp-select-region-direct
 
   - name: 🤖 Developer
     <<: *x-pp-select-region
