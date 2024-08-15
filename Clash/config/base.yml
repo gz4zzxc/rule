@@ -180,7 +180,7 @@ proxy-groups:
       - 📥 大流量分流
       - 🎩 私有节点
     include-all: true
-    # filter: "(?i:Emby)"
+    filter: "(?i:Emby)"
 
   - name: 🎥 Youtube
     <<: *x-pp-select-region
