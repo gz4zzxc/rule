@@ -104,7 +104,7 @@ x-pg:
   #   hidden: true
 
 ##### anchor area END #####
-
+proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
