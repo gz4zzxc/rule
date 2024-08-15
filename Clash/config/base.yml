@@ -246,6 +246,8 @@ proxy-groups:
   - name: 🈲 禁飞空域
     <<: *x-pp-select-region
     include-all: true
+    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
+
 
   - name: 🎯 全部直连
     type: select
