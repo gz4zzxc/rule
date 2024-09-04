@@ -351,7 +351,7 @@ rule-providers:
   Lan:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
-    path: ./providers/rule-provider_Lan.yaml
+    path: ./providers/rule-provider_Lan.list
   Tailscale_OfficialDERP_IP:
     <<: *x-rp-ip
     url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_IP.list
