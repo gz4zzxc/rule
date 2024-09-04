@@ -370,6 +370,10 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
     path: ./providers/rule-provider_MyProxy.list
     format: text
+  Lan:
+    <<: *x-rp-classical
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+    path: ./providers/rule-provider_Lan.yaml
   Tailscale_OfficialDERP_IP:
     <<: *x-rp-ip
     url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_IP.list
@@ -547,6 +551,7 @@ rule-providers:
 rules:
   - RULE-SET,MyDirect,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
+  - RULE-SET,Lan,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP_IP,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP_Doamin,🎯 全部直连
   - RULE-SET,Tailscale,🎯 全部直连
