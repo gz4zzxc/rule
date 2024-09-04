@@ -165,12 +165,6 @@ proxy-groups:
   - name: 🎵 Spotify
     <<: *x-pp-select-region
 
-  - name: 🎵 Qobuz
-    <<: *x-pp-select-region
-
-  - name: 🎵 TIDAL
-    <<: *x-pp-select-region
-
   - name: 🎥 Emby 服务
     type: select
     proxies:
@@ -222,7 +216,7 @@ proxy-groups:
   - name: 📲 Telegram
     <<: *x-pp-select-region
 
-  - name: 📲 Twitter
+  - name: 𝕏 Twitter
     <<: *x-pp-select-region
 
   - name: 📥 大流量分流
@@ -465,14 +459,6 @@ rule-providers:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
     path: ./providers/rule-provider_Spotify.yaml
-  Qobuz:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Qobuz/Qobuz.yaml
-    path: ./providers/rule-provider_Qobuz.yaml
-  TIDAL:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TIDAL/TIDAL.yaml
-    path: ./providers/rule-provider_TIDAL.yaml
   Emby:
     <<: *x-rp-classical
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
@@ -574,8 +560,6 @@ rules:
   - RULE-SET,SteamCN,🎯 全部直连
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Qobuz,🎵 Qobuz
-  - RULE-SET,TIDAL,🎵 TIDAL
   - RULE-SET,Emby,🎥 Emby 服务
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Netflix,🎥 Netflix
@@ -585,7 +569,7 @@ rules:
   - RULE-SET,NetEaseMusic,🎵 网易云音乐
   - RULE-SET,AsianMedia,🌍 国内媒体-港澳台版切换
   - RULE-SET,Telegram,📲 Telegram
-  - RULE-SET,Twitter,📲 Twitter
+  - RULE-SET,Twitter,𝕏 Twitter
   - RULE-SET,HighBandwidth,📥 大流量分流
   - RULE-SET,Speedtest,📶 测速切换
   - RULE-SET,RestrictedZones,🈲 禁飞空域
