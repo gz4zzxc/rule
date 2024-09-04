@@ -372,7 +372,7 @@ rule-providers:
     format: text
   Lan:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
     path: ./providers/rule-provider_Lan.yaml
   Tailscale_OfficialDERP_IP:
     <<: *x-rp-ip
