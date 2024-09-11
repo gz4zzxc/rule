@@ -227,7 +227,7 @@ proxy-groups:
       - ✈️ 手动选择
       - 🎩 私有节点
     include-all: true
-    # filter: '(?i:0\.\d*x|Private)'
+    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
 
   - name: 📶 测速切换
     type: select

@@ -132,6 +132,7 @@ proxy-groups:
   - name: ✈️ 手动选择
     type: select
     include-all: true
+    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
     
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
@@ -212,7 +213,7 @@ proxy-groups:
       - 🎯 全部直连
       - ✈️ 手动选择
     include-all: true
-    # filter: '(?i:0\.\d*x|Private)'
+    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
 
   - name: 📶 测速切换
     type: select
@@ -224,6 +225,7 @@ proxy-groups:
   - name: 🈲 禁飞空域
     <<: *x-pp-select-region
     include-all: true
+    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
 
 
   - name: 🎯 全部直连
