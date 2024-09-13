@@ -476,10 +476,6 @@ rule-providers:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml
     path: ./providers/rule-provider_TikTok.yaml
-  Bahamut:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml
-    path: ./providers/rule-provider_Bahamut.yaml
   GlobalMedia:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.yaml
@@ -564,7 +560,6 @@ rules:
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,TikTok,🎥 TikTok
-  - RULE-SET,Bahamut,🇹🇼 台湾优选
   - RULE-SET,GlobalMedia,🌍 国外媒体
   - RULE-SET,NetEaseMusic,🎵 网易云音乐
   - RULE-SET,AsianMedia,🌍 国内媒体-港澳台版切换
