@@ -9,7 +9,7 @@ fi
 # 安装必备软件
 echo "安装必备软件..."
 apt update
-apt install -y git wget vim nano zsh curl tar zip unzip
+apt install -y git wget vim nano zsh curl tar zip unzip sudo
 
 # 设置 Zsh 为默认终端
 echo "设置 Zsh 为默认终端..."
