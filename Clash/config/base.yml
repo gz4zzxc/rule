@@ -17,6 +17,7 @@ x-pg:
       - 📥 大流量分流
       - ✈️ 手动选择
       - 🎩 私有节点
+      - 🏠 家宽节点
       - 🇭🇰 香港优选
       - 🇺🇸 美国优选
       - 🇯🇵 日本优选
@@ -44,6 +45,7 @@ x-pg:
       - 📥 大流量分流
       - ✈️ 手动选择
       - 🎩 私有节点
+      - 🏠 家宽节点
       - 🇭🇰 香港优选
       - 🇺🇸 美国优选
       - 🇯🇵 日本优选
@@ -120,6 +122,7 @@ proxy-groups:
       - 🎯 全部直连
       - ✈️ 手动选择
       - 🎩 私有节点
+      - 🏠 家宽节点
       - 🇭🇰 香港优选
       - 🇺🇸 美国优选
       - 🇯🇵 日本优选
@@ -226,6 +229,7 @@ proxy-groups:
       - 🎯 全部直连
       - ✈️ 手动选择
       - 🎩 私有节点
+      - 🏠 家宽节点
     include-all: true
     exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
 
@@ -236,7 +240,7 @@ proxy-groups:
       - 🔰 节点选择
       - ✈️ 手动选择
       - 🎩 私有节点
-  
+      - 🏠 家宽节点
   - name: 🈲 禁飞空域
     <<: *x-pp-select-region
     include-all: true
@@ -260,6 +264,11 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?i:Private)"
+
+  - name: 🏠 家宽节点
+    type: select
+    include-all: true
+    filter: "(?i:家宽)"
 
   - name: 🇭🇰 香港优选
     <<: *x-pp-region
