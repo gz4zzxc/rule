@@ -428,10 +428,6 @@ rule-providers:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
     path: ./providers/rule-provider_Gemini.yaml
-  Coze:
-    <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/orangetam/Clash@main/rules/Cici.yaml
-    path: ./providers/rule-provider_Coze.yaml
   Anthropic:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.yaml
@@ -558,7 +554,6 @@ rules:
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
   - RULE-SET,Gemini,🇺🇸 美国优选
-  - RULE-SET,Coze,🇸🇬 新加坡优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
