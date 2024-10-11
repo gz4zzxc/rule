@@ -156,6 +156,15 @@ proxy-groups:
   - name: ☁️ Onedrive
     <<: *x-pp-select-region-direct
 
+  - name: 🧠 Perplexity
+    type: select
+    proxies:
+      - 🏠 家宽节点
+      - 🔰 节点选择
+      - 🎯 全部直连
+      - ✈️ 手动选择
+      - 🎩 私有节点
+
   - name: 🤖 Developer
     <<: *x-pp-select-region
 
@@ -168,7 +177,7 @@ proxy-groups:
   - name: 🎵 Spotify
     <<: *x-pp-select-region
 
-  - name: 🎥 Emby 服务
+  - name: 🍟 Emby 服务
     type: select
     proxies:
       - 🔰 节点选择
@@ -406,6 +415,10 @@ rule-providers:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.yaml
     path: ./providers/rule-provider_GoogleVoice.yaml
+  Perplexity:
+    <<: *x-rp-classical
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/scripts/perplexity.yml
+    path: ./providers/rule-provider_Perplexity.yaml
   OpenAI:
     <<: *x-rp-classical
     url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
@@ -555,7 +568,7 @@ rules:
   - RULE-SET,SteamCN,🎯 全部直连
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Emby,🎥 Emby 服务
+  - RULE-SET,Emby,🍟 Emby 服务
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,TikTok,🎥 TikTok
