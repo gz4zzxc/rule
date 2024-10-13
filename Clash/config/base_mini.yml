@@ -108,10 +108,10 @@ proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
+      - 🇺🇸 美国优选
       - 🎯 全部直连
       - ✈️ 手动选择
       - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
       - 🇯🇵 日本优选
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
@@ -132,7 +132,6 @@ proxy-groups:
   - name: ✈️ 手动选择
     type: select
     include-all: true
-    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
     
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
