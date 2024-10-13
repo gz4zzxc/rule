@@ -516,7 +516,6 @@ rules:
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
   - RULE-SET,Gemini,🇺🇸 美国优选
-  - RULE-SET,Coze,🇸🇬 新加坡优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
