@@ -155,7 +155,7 @@ proxy-groups:
   - name: 🎵 Spotify
     <<: *x-pp-select-region
 
-  - name: 🎥 Emby 服务
+  - name: 🍟 Emby 服务
     type: select
     proxies:
       - 🔰 节点选择
@@ -526,7 +526,7 @@ rules:
   - RULE-SET,SteamCN,🎯 全部直连
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Emby,🎥 Emby 服务
+  - RULE-SET,Emby,🍟 Emby 服务
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,TikTok,🎥 TikTok
