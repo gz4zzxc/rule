@@ -550,6 +550,7 @@ rules:
   # - RULE-SET,Privacy_Classical,🛑 全部拦截
   # - RULE-SET,Hijacking,🛑 全部拦截
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
+  - RULE-SET,Perplexity,🧠 Perplexity
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
