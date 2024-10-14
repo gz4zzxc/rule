@@ -118,56 +118,6 @@ set_international_mirror() {
     echo "保留默认的国际 Debian 镜像源..."
 }
 
-# 安装 Rust 和 Cargo
-install_rust() {
-    if ! command -v rustc >/dev/null 2>&1; then
-        echo "安装 Rust 和 Cargo..."
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-        
-        # 将 Rust 环境变量添加到 /etc/profile
-        echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> /etc/profile
-        echo 'source "$HOME/.cargo/env"' >> /etc/profile
-        
-        # 立即应用环境变量
-        export PATH="$HOME/.cargo/bin:$PATH"
-        source "$HOME/.cargo/env"
-    else
-        echo -e "${Yellow}Rust 和 Cargo 已安装，跳过安装步骤.${Font}"
-    fi
-}
-
-# 安装构建工具
-install_build_tools() {
-    echo "安装构建工具..."
-    apt install -y build-essential
-}
-
-# 配置 Cargo 镜像源
-configure_cargo_mirror() {
-    echo "配置 Cargo 镜像源..."
-    mkdir -p ~/.cargo
-    cat > ~/.cargo/config <<EOF
-[source.crates-io]
-replace-with = 'ustc'
-
-[source.ustc]
-registry = "https://mirrors.ustc.edu.cn/crates.io-index"
-EOF
-}
-
-# 通过 Cargo 安装 Starship
-install_starship_cargo() {
-    echo "通过 Cargo 安装 Starship..."
-    $HOME/.cargo/bin/cargo install starship
-
-    if command -v starship >/dev/null 2>&1; then
-        echo -e "${Green}Starship 安装成功。版本：$(starship --version)${Font}"
-    else
-        echo -e "${Red}Starship 安装失败。${Font}"
-        exit 1
-    fi
-}
-
 # 通过预编译的二进制文件安装 Starship
 install_starship_binary() {
     echo "通过预编译的二进制文件安装 Starship..."
@@ -356,23 +306,8 @@ main() {
     # 安装 oh-my-zsh
     install_oh_my_zsh
 
-    # 根据地理位置安装 Rust 和构建工具
-    if $isCN; then
-        # 安装 Rust 和 Cargo
-        install_rust
-
-        # 安装构建工具
-        install_build_tools
-
-        # 配置 Cargo 镜像源
-        configure_cargo_mirror
-
-        # 通过 Cargo 安装 Starship
-        install_starship_cargo
-    else
-        # 通过预编译的二进制文件安装 Starship
-        install_starship_binary
-    fi
+    # 安装 Starship (不再区分地理位置)
+    install_starship_binary
 
     # 配置 Starship
     configure_starship
