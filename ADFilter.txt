@@ -50,6 +50,7 @@
 ||fix.hpplay.cn^
 ||cdn.hpplay.com.cn^
 ||rps.hpplay.cn^
+||sentry.io^$important
 #夸克
 ||u3.ucweb.com^
 #xmind破解版
