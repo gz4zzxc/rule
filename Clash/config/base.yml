@@ -393,7 +393,7 @@ rule-providers:
     format: text
   Tailscale:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale.yaml
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale .yaml
     path: ./providers/rule-provider_Tailscale.yaml
   Download:
     <<: *x-rp-classical
@@ -401,7 +401,7 @@ rule-providers:
     path: ./providers/rule-provider_Download.yaml
   PrivateTracker:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker_No_Resolve.yaml
     path: ./providers/rule-provider_PrivateTracker.yaml
   # Privacy_Classical:
   #   <<: *x-rp-classical
@@ -454,11 +454,11 @@ rule-providers:
     path: ./providers/rule-provider_Microsoft.yaml
   Google:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google_No_Resolve.yaml
     path: ./providers/rule-provider_Google.yaml
   Apple:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_No_Resolve.yaml
     path: ./providers/rule-provider_Apple.yaml
   SteamCN:
     <<: *x-rp-classical
@@ -470,7 +470,7 @@ rule-providers:
     path: ./providers/rule-provider_Steam.yaml
   Spotify:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify_No_Resolve.yaml
     path: ./providers/rule-provider_Spotify.yaml
   Emby:
     <<: *x-rp-classical
@@ -479,7 +479,7 @@ rule-providers:
     format: text
   YouTube:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube_No_Resolve.yaml
     path: ./providers/rule-provider_YouTube.yaml
   Netflix:
     <<: *x-rp-classical
@@ -491,11 +491,11 @@ rule-providers:
     path: ./providers/rule-provider_TikTok.yaml
   GlobalMedia:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_No_Resolve.yaml
     path: ./providers/rule-provider_GlobalMedia.yaml
   NetEaseMusic:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic_No_Resolve.yaml
     path: ./providers/rule-provider_NetEaseMusic.yaml
   AsianMedia:
     <<: *x-rp-classical
@@ -503,11 +503,11 @@ rule-providers:
     path: ./providers/rule-provider_AsianMedia.yaml
   Telegram:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
     path: ./providers/rule-provider_Telegram.yaml
   Twitter:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter_No_Resolve.yaml
     path: ./providers/rule-provider_Twitter.yaml
   HighBandwidth:
     <<: *x-rp-classical
@@ -524,15 +524,15 @@ rule-providers:
     format: text
   Global:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_No_Resolve.yaml
     path: ./providers/rule-provider_Global.yaml
   Global_Domain:
     <<: *x-rp-domain
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Domain.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Domain_No_Resolve.yaml
     path: ./providers/rule-provider_Global_Domain.yaml
   China:
     <<: *x-rp-classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_No_Resolve.yaml
     path: ./providers/rule-provider_China.yaml
   China_Domain:
     <<: *x-rp-domain
