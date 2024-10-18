@@ -183,9 +183,9 @@ configure_ssh() {
 
     echo "修改 SSH 配置..."
     if grep -q "^PermitRootLogin" /etc/ssh/sshd_config; then
-        sed -i 's/^PermitRootLogin.*/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config
+        sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
     else
-        echo "PermitRootLogin prohibit-password" >> /etc/ssh/sshd_config
+        echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
     fi
 
     systemctl restart ssh
