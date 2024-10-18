@@ -118,24 +118,13 @@ set_international_mirror() {
     echo "保留默认的国际 Debian 镜像源..."
 }
 
-# 通过预编译的二进制文件安装 Starship
-install_starship_binary() {
-    echo "通过预编译的二进制文件安装 Starship..."
-    STARSHIP_VERSION=$(curl -s https://api.github.com/repos/starship/starship/releases/latest | grep tag_name | cut -d '"' -f 4)
-    wget -O /tmp/starship.tar.gz "https://github.com/starship/starship/releases/download/${STARSHIP_VERSION}/starship-x86_64-unknown-linux-gnu.tar.gz"
-
-    if [ $? -ne 0 ]; then
-        echo -e "${Red}下载 Starship 失败，请检查网络连接或下载链接是否正确.${Font}"
+# 安装 Starship
+install_starship() {
+    echo "通过 curl 安装 Starship..."
+    sh -c "$(curl -sS https://starship.rs/install.sh)" || {
+        echo -e "${Red}Starship 安装失败，请检查网络连接或安装脚本是否可用。${Font}"
         exit 1
-    fi
-
-    # 解压并移动到 /usr/local/bin/
-    tar -xzf /tmp/starship.tar.gz -C /tmp
-    mv /tmp/starship /usr/local/bin/
-    rm /tmp/starship.tar.gz
-
-    # 赋予执行权限
-    chmod +x /usr/local/bin/starship
+    }
 
     # 验证安装
     if command -v starship >/dev/null 2>&1; then
@@ -306,8 +295,8 @@ main() {
     # 安装 oh-my-zsh
     install_oh_my_zsh
 
-    # 安装 Starship (不再区分地理位置)
-    install_starship_binary
+    # 安装 Starship
+    install_starship
 
     # 配置 Starship
     configure_starship
