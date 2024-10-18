@@ -122,16 +122,16 @@ set_international_mirror() {
 install_starship() {
     echo "通过 curl 安装 Starship..."
     sh -c "$(curl -sS https://starship.rs/install.sh)" || {
-        echo -e "${Red}Starship 安装失败，请检查网络连接或安装脚本是否可用。${Font}"
-        exit 1
+        echo -e "${Yellow}Starship 安装失败，跳过此步骤，继续执行下一步。${Font}"
+        return 0  # 返回 0 以继续执行后续步骤
     }
 
     # 验证安装
     if command -v starship >/dev/null 2>&1; then
         echo -e "${Green}Starship 安装成功。版本：$(starship --version)${Font}"
     else
-        echo -e "${Red}Starship 安装失败。${Font}"
-        exit 1
+        echo -e "${Yellow}Starship 安装失败，但继续执行下一步。${Font}"
+        return 0  # 即使验证失败，也继续执行后续步骤
     fi
 }
 
@@ -312,7 +312,7 @@ main() {
 
     # 其他配置步骤...
 
-    echo "所有操作完成！请检查配置是否正确。"
+    echo "所有操作完成，请检查配置是否正确。"   
 
     # 提示用户下载私钥
     echo "请将 ~/.ssh/id_rsa 私钥下载到客户端以使用密钥登录。"
