@@ -506,7 +506,7 @@ rules:
   - RULE-SET,Google,🍭 谷歌服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,SteamCN,🎯 全部直连
-  - RULE-SET,Steam,🎮 Steam
+  - RULE-SET,Steam,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🍟 Emby 服务
   - RULE-SET,YouTube,🎥 Youtube
