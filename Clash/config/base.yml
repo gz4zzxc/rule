@@ -368,17 +368,17 @@ x-rp:
 ##### anchor area END #####
 rule-providers:
   MyDirect:
-    <<: *x-rp-classical
+    <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
     path: ./providers/rule-provider_MyDirect.list
     format: text
   MyProxy:
-    <<: *x-rp-classical
+    <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
     path: ./providers/rule-provider_MyProxy.list
     format: text
   Lan:
-    <<: *x-rp-classical
+    <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
     path: ./providers/rule-provider_Lan.list
   Tailscale_OfficialDERP_Doamin:
