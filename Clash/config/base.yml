@@ -171,7 +171,7 @@ proxy-groups:
   - name: 🍎 苹果服务
     <<: *x-pp-select-region-direct
 
-  - name: 🎮 Steam
+  - name: 🎮 Game
     <<: *x-pp-select-region
 
   - name: 🎵 Spotify
