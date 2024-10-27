@@ -406,7 +406,7 @@ rule-providers:
   #   <<: *x-rp-text
   #   url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hijacking/Hijacking.list
   #   path: ./providers/rule-provider_Hijacking.list
-GoogleVoice:
+  GoogleVoice:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.list
     path: ./providers/rule-provider_GoogleVoice.list
@@ -466,7 +466,7 @@ GoogleVoice:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.list
     path: ./providers/rule-provider_Spotify.list
-Emby:
+  Emby:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
     path: ./providers/rule-provider_Emby.list
@@ -482,7 +482,7 @@ Emby:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
     path: ./providers/rule-provider_TikTok.list
-GlobalMedia:
+  GlobalMedia:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.list
     path: ./providers/rule-provider_GlobalMedia.list
