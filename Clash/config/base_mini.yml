@@ -371,10 +371,6 @@ rule-providers:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.list
     path: ./providers/rule-provider_GoogleVoice.list
-  Perplexity:
-    <<: *x-rp-text
-    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Perplexity.list
-    path: ./providers/rule-provider_Perplexity.list
   OpenAI:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
