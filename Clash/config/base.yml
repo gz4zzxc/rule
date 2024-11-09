@@ -558,6 +558,7 @@ rules:
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,TikTok,🎥 TikTok
+  - RULE-SET,RestrictedZones,🈲 禁飞空域
   - RULE-SET,GlobalMedia,🌍 国外媒体
   - RULE-SET,NetEaseMusic,🎵 网易云音乐
   - RULE-SET,AsianMedia,🌍 国内媒体 (港澳台版切换)
@@ -565,7 +566,6 @@ rules:
   - RULE-SET,Twitter,𝕏 Twitter
   - RULE-SET,HighBandwidth,📥 大流量分流
   - RULE-SET,Speedtest,📶 测速切换
-  - RULE-SET,RestrictedZones,🈲 禁飞空域
   - RULE-SET,Global,🔰 节点选择
   - RULE-SET,China,🎯 全部直连
   - GEOIP,CN,🎯 全部直连
