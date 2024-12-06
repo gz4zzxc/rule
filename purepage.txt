@@ -1,0 +1,22 @@
+! https://finance.sina.com.cn
+finance.sina.com.cn##.snp-tit
+finance.sina.com.cn##.snp-bar
+
+! https://news.qq.com
+news.qq.com##.AM5A7ObvSYaNTRY2wzPT
+news.qq.com##.yfu2pePb6JlnPRNCZTIl
+
+! https://www.smzdm.com
+smzdm.com##.ads
+smzdm.com##.crumbs
+smzdm.com##.feed-hot-hits
+smzdm.com##.goods-module
+smzdm.com##.guess-like
+smzdm.com##.J_left_layer.left-layer
+smzdm.com##.operate_box
+smzdm.com##.shaiwu-module
+smzdm.com##.z-stuff-bar
+smzdm.com###feed-side
+smzdm.com###footer
+smzdm.com###global-search
+smzdm.com###sub-header
