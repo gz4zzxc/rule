@@ -101,7 +101,7 @@ x-pg:
     interval: 300
     lazy: true
     include-all: true
-    hidden: true
+    hidden: false
     exclude-filter: '(?i:专用)'
 
   # select-region: &x-pp-region
