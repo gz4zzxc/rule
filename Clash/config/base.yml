@@ -496,8 +496,8 @@ rule-providers:
     path: ./providers/rule-provider_TikTok.list
   Crypto:
     <<: *x-rp-text
-    url: https://cdn.jsdelivr.net/gh/EAlyce/conf@main/Rule/CryptoDraft.list
-    path: ./providers/rule-provider_CryptoDraft.list
+    url: https://cdn.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
+    path: ./providers/rule-provider_Crypto.list
   HongKongBank:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/LeiyuG/Surge@main/rules/HongKongBank.list
