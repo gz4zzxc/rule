@@ -29,8 +29,3 @@ PROCESS-NAME,Thunder,DIRECT
 PROCESS-NAME,qBittorrent,DIRECT
 PROCESS-NAME,utorrent,DIRECT
 PROCESS-NAME,qbittorrent-nox,DIRECT
-# others
-DOMAIN-SUFFIX,bitgetapps.com
-DOMAIN-SUFFIX,bitget.com
-DOMAIN-SUFFIX,bitget.ada.support
-DOMAIN-KEYWORD,bitget
