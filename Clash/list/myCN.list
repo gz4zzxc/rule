@@ -22,8 +22,6 @@ DOMAIN-SUFFIX,rode.com
 DOMAIN-SUFFIX,downloads.blackmagicdesign.com
 DOMAIN-SUFFIX,sw.blackmagicdesign.com
 DOMAIN-SUFFIX,swr.cloud.blackmagicdesign.com
-# bitget
-DOMAIN-SUFFIX,bitget.club
 # 进程规则
 PROCESS-NAME,aria2c,DIRECT
 PROCESS-NAME,Transmission,DIRECT
