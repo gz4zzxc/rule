@@ -499,13 +499,13 @@ rules:
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,YouTube,🎥 Youtube 
   - RULE-SET,Google,🍭 谷歌服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,SteamCN,🎯 全部直连
   - RULE-SET,Game,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🍟 Emby 服务
-  - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Netflix,🎥 Netflix
   - RULE-SET,TikTok,🎥 TikTok
   - RULE-SET,RestrictedZones,🈲 禁飞空域
@@ -520,3 +520,4 @@ rules:
   - RULE-SET,China,🎯 全部直连
   - GEOIP,CN,🎯 全部直连
   - MATCH,🐟 漏网之鱼
+  
