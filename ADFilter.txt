@@ -3,11 +3,14 @@
 !!!This list only applies to "AdGuard Home".
 =================================================================
 !白名单
+
 !@@||ip.taobao.com
 !@@||tacking.miui.com
+
 # 芭芭农场
 @@||wgo.mmstat.com^
 @@||log.mmstat.com^
+
 # ele
 @@||waimai-guide.ele.me^
 @@||ipassport.ele.me^
@@ -15,16 +18,21 @@
 @@||shopping.ele.me^$important
 @@||h-adashx.ut.ele.me^$important
 @@||app-monitor.ele.me^$important
+
 # 123网盘
 @@||statics.123pan.com^$important
+
 # 百度api
 @@||aip.baidubce.com^$important
+
 # tencent cloud
 @@||qcloudimg.tencent-cloud.cn^$important
+
 # twikoo
 @@||cdn.staticfile.org^$important
 =================================================================
 !黑名单
+
 #乐播投屏
 ||image.hpplay.cn%^
 ||tvapp.hpplay.cn^
@@ -51,11 +59,14 @@
 ||cdn.hpplay.com.cn^
 ||rps.hpplay.cn^
 ||sentry.io^$important
+
 #夸克
 ||u3.ucweb.com^
+
 #xmind破解版
 127.0.0.1 www.xmind.net
 127.0.0.1 www.xmind.cn
+
 #capture one 破解版
 0.0.0.0 activation.phaseone.com
 127.0.0.1 industrial.phaseone.com
@@ -64,8 +75,10 @@
 127.0.0.1 industrial.phaseone.com
 127.0.0.1 coweb.phaseone.com
 127.0.0.1 help.phaseone.com
+
 # MIUI
 127.0.0.1 157.148.47.204
+
 # 微软诊断数据
 0.0.0.0 v10.events.data.microsoft.com
 0.0.0.0 v20.events.data.microsoft.com
