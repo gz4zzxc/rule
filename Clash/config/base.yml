@@ -441,6 +441,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.list
     path: ./providers/rule-provider_Anthropic.list
+  Grok:
+    <<: *x-rp-text
+    url: https://cdn.jsdelivr.net/gh/cc63/Surge@main/Module/Grok.list
+    path: ./providers/rule-provider_Grok.list
   Bing:
     <<: *x-rp-text
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.list
@@ -570,6 +574,7 @@ rules:
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
   - RULE-SET,Gemini,🇺🇸 美国优选
+  - RULE-SET,Grok,🇺🇸 美国优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
