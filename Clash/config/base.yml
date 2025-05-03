@@ -515,7 +515,7 @@ rule-providers:
     path: ./providers/rule-provider_Crypto.list
   HongKongBank:
     <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/LeiyuG/Surge@main/rules/HongKongBank.list
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
     path: ./providers/rule-provider_HongKongBank.list
   GlobalMedia:
     <<: *x-rp-text
