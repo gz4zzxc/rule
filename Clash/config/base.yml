@@ -445,6 +445,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/cc63/Surge@main/Module/Grok.list
     path: ./providers/rule-provider_Grok.list
+  OpenRouter:
+    <<: *x-rp-text
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/OpenRouter.list
+    path: ./providers/rule-provider_OpenRouter.list
   Bing:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.list
@@ -575,6 +579,7 @@ rules:
   - RULE-SET,Anthropic,🇺🇸 美国优选
   - RULE-SET,Gemini,🇺🇸 美国优选
   - RULE-SET,Grok,🇺🇸 美国优选
+  - RULE-SET,OpenRouter,🇺🇸 美国优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
