@@ -461,6 +461,10 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
     path: ./providers/rule-provider_GitHub.list
+  Cursor:
+    <<: *x-rp-text
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/Cursor.list
+    path: ./providers/rule-provider_Cursor.list
   OneDrive:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.list
@@ -582,6 +586,7 @@ rules:
   - RULE-SET,OpenRouter,🇺🇸 美国优选
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
+  - RULE-SET,Cursor,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,YouTube,🎥 Youtube
