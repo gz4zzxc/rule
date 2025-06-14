@@ -10,3 +10,4 @@ DOMAIN-SUFFIX,us-only.gcpp.cursor.sh
 DOMAIN-SUFFIX,marketplace.cursorapi.com
 DOMAIN-SUFFIX,cursor-cdn.com
 DOMAIN-SUFFIX,trust.cursor.com
+DOMAIN-SUFFIX,cursor.blob.core.windows.net
