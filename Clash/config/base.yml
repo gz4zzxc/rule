@@ -111,6 +111,16 @@ proxy-groups:
     type: select
     include-all: true
     exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
+
+  - name: 🎩 私有节点
+    type: select
+    include-all: true
+    filter: "(?i:Private)"
+
+  - name: 🏠 家宽节点
+    type: select
+    include-all: true
+    filter: "(?i:家宽)"
     
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
@@ -230,16 +240,6 @@ proxy-groups:
 
   - name: 🐟 漏网之鱼
     <<: *x-pp-select-region
-
-  - name: 🎩 私有节点
-    type: select
-    include-all: true
-    filter: "(?i:Private)"
-
-  - name: 🏠 家宽节点
-    type: select
-    include-all: true
-    filter: "(?i:家宽)"
 
   - name: 🇭🇰 香港优选
     <<: *x-pp-region
