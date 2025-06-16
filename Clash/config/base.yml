@@ -65,36 +65,6 @@ x-pg:
       - 🇧🇷 巴西优选
       - 🇨🇳 回国选择
 
-  # select-region-mini: &x-pp-select-region
-  #   type: select
-  #   proxies:
-  #     - 🔰 节点选择
-  #     - 🎯 全部直连
-  #     - 📥 大流量分流
-  #     - ✈️ 手动选择
-  #     - 🎩 私有节点
-  #     - 🇭🇰 香港优选
-  #     - 🇺🇸 美国优选
-  #     - 🇯🇵 日本优选
-  #     - 🇹🇼 台湾优选
-  #     - 🇸🇬 新加坡优选
-  #     - 🇰🇷 韩国优选
-
-  # select-region-mini-direct: &x-pp-select-region-direct
-  #   type: select
-  #   proxies:
-  #     - 🎯 全部直连
-  #     - 🔰 节点选择
-  #     - 📥 大流量分流
-  #     - ✈️ 手动选择
-  #     - 🎩 私有节点
-  #     - 🇭🇰 香港优选
-  #     - 🇺🇸 美国优选
-  #     - 🇯🇵 日本优选
-  #     - 🇹🇼 台湾优选
-  #     - 🇸🇬 新加坡优选
-  #     - 🇰🇷 韩国优选
-
   urltest-region: &x-pp-region
     type: url-test
     url: "https://www.gstatic.com/generate_204"
@@ -103,11 +73,6 @@ x-pg:
     include-all: true
     hidden: false
     exclude-filter: '(?i:专用)'
-
-  # select-region: &x-pp-region
-  #   type: select
-  #   include-all: true
-  #   hidden: true
 
 ##### anchor area END #####
 proxy-groups:
@@ -200,14 +165,6 @@ proxy-groups:
   - name: 🎥 Apple TV
     <<: *x-pp-select-region
 
-  - name: 🎥 Netflix
-    <<: *x-pp-select-region
-    include-all: true
-    filter: "(?i:Netflix|网飞|奈飞|NF)"
-
-  - name: 🎥 TikTok
-    <<: *x-pp-select-region
-
   - name: 💰 Crypto
     <<: *x-pp-select-region
 
@@ -216,16 +173,6 @@ proxy-groups:
 
   - name: 🌍 国外媒体
     <<: *x-pp-select-region
-
-  - name: 🎵 网易云音乐
-    type: select
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 📥 大流量分流
-      - 🎩 私有节点
-      - 🇨🇳 回国选择
 
   - name: 🌍 国内媒体 (港澳台版切换)
     type: select
@@ -413,14 +360,6 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.list
     path: ./providers/rule-provider_PrivateTracker.list
-  # Privacy_Classical:
-  #   <<: *x-rp-text
-  #   url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy.list
-  #   path: ./providers/rule-provider_Privacy.list
-  # Hijacking:
-  #   <<: *x-rp-text
-  #   url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hijacking/Hijacking.list
-  #   path: ./providers/rule-provider_Hijacking.list
   GoogleVoice:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.list
@@ -509,14 +448,6 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
     path: ./providers/rule-provider_YouTube.list
-  Netflix:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.list
-    path: ./providers/rule-provider_Netflix.list
-  TikTok:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
-    path: ./providers/rule-provider_TikTok.list
   Crypto:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
@@ -529,10 +460,6 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.list
     path: ./providers/rule-provider_GlobalMedia.list
-  NetEaseMusic:
-    <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.list
-    path: ./providers/rule-provider_NetEaseMusic.list
   AsianMedia:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AsianMedia/AsianMedia.list
@@ -574,8 +501,6 @@ rules:
   - RULE-SET,Tailscale,🎯 全部直连
   - RULE-SET,Download,🎯 全部直连
   - RULE-SET,PrivateTracker,🎯 全部直连
-  # - RULE-SET,Privacy_Classical,🛑 全部拦截
-  # - RULE-SET,Hijacking,🛑 全部拦截
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Perplexity,🧠 Perplexity
   - RULE-SET,Bing,🇺🇸 美国优选
@@ -599,13 +524,10 @@ rules:
   - RULE-SET,Game,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Emby,🍟 Emby 服务
-  - RULE-SET,Netflix,🎥 Netflix
-  - RULE-SET,TikTok,🎥 TikTok
   - RULE-SET,Crypto,💰 Crypto
   - RULE-SET,HongKongBank,🏦 香港银行
   - RULE-SET,RestrictedZones,🈲 禁飞空域
   - RULE-SET,GlobalMedia,🌍 国外媒体
-  - RULE-SET,NetEaseMusic,🎵 网易云音乐
   - RULE-SET,AsianMedia,🌍 国内媒体 (港澳台版切换)
   - RULE-SET,Telegram,📲 Telegram
   - RULE-SET,Twitter,𝕏 Twitter
