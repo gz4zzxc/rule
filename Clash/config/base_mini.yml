@@ -220,7 +220,7 @@ proxy-groups:
 
   - name: 🇯🇵 日本优选
     <<: *x-pp-region
-    filter: '(?i:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-]日)'
+    filter: '(?i:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-尼]日)'
 
   - name: 🇹🇼 台湾优选
     <<: *x-pp-region
