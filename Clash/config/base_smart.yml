@@ -65,7 +65,7 @@ x-pg:
       - 🇧🇷 巴西优选
       - 🇨🇳 回国选择
 
-  smart-region: &x-pp-region
+  urltest-region: &x-pp-region
     type: smart
     include-all: true
     uselightgbm: true
