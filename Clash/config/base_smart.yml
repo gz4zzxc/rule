@@ -149,7 +149,7 @@ proxy-groups:
   - name: 🤖 Developer
     <<: *x-pp-select-region
 
-    - name: ✨ Gemini
+  - name: ✨ Gemini
     <<: *x-pp-select-region
     
   - name: 🍎 苹果服务
