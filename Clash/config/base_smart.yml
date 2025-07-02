@@ -72,7 +72,7 @@ x-pg:
     collectdata: true
     interval: 300
     # hidden: true
-    exclude-filter: "(?i:专用)"
+    exclude-filter: "(?i:专用|家宽|3X)"
 
 ##### anchor area END #####
 proxy-groups:
