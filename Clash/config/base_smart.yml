@@ -149,7 +149,7 @@ proxy-groups:
   - name: 🤖 Developer
     <<: *x-pp-select-region
 
-  - name: ✨ Gemini
+  - name: ♊️ Gemini
     <<: *x-pp-select-region
     
   - name: 🍎 苹果服务
@@ -519,7 +519,7 @@ rules:
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
-  - RULE-SET,Gemini,✨ Gemini
+  - RULE-SET,Gemini,♊️ Gemini
   - RULE-SET,Grok,🇺🇸 美国优选
   - RULE-SET,OpenRouter,🇺🇸 美国优选
   - RULE-SET,Developer,🤖 Developer

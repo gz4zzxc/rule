@@ -124,6 +124,9 @@ proxy-groups:
   - name: 🤖 Developer
     <<: *x-pp-select-region
 
+  - name: ♊️ Gemini
+    <<: *x-pp-select-region
+
   - name: 🍎 苹果服务
     <<: *x-pp-select-region-direct
 
@@ -442,7 +445,7 @@ rules:
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,OpenAI,🇺🇸 美国优选
   - RULE-SET,Anthropic,🇺🇸 美国优选
-  - RULE-SET,Gemini,🇺🇸 美国优选
+  - RULE-SET,Gemini,♊️ Gemini
   - RULE-SET,Developer,🤖 Developer
   - RULE-SET,GitHub,🤖 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
