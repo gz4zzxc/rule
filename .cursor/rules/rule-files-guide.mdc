@@ -1,0 +1,79 @@
+# 规则文件指南
+
+## 规则文件类型
+
+### 自定义规则文件 (Clash/rule/)
+- [Cursor.list](mdc:Clash/rule/Cursor.list) - Cursor 编辑器相关域名规则
+- [OpenRouter.list](mdc:Clash/rule/OpenRouter.list) - OpenRouter AI 服务规则
+- [HongKongBank.list](mdc:Clash/rule/HongKongBank.list) - 香港银行服务规则
+
+### 规则列表文件 (Clash/list/)
+- [fallback.list](mdc:Clash/list/fallback.list) - 回退规则列表
+- [foreign.list](mdc:Clash/list/foreign.list) - 国外网站规则列表
+- [myCN.list](mdc:Clash/list/myCN.list) - 国内网站规则列表
+
+### 其他规则文件
+- [ip-black-list.txt](mdc:ip-black-list.txt) - IP 黑名单
+- [ADG/ADFilter.txt](mdc:ADG/ADFilter.txt) - AdGuard 广告过滤规则
+
+## 规则格式说明
+
+### Clash 规则格式
+```
+# 域名后缀规则
+DOMAIN-SUFFIX,example.com
+
+# 完整域名规则
+DOMAIN,www.example.com
+
+# IP 地址规则
+IP-CIDR,192.168.1.0/24
+
+# 地理位置规则
+GEOIP,CN
+```
+
+### 规则优先级
+1. **精确匹配**: DOMAIN 规则优先级最高
+2. **后缀匹配**: DOMAIN-SUFFIX 规则次之
+3. **IP 匹配**: IP-CIDR 规则
+4. **地理位置**: GEOIP 规则优先级最低
+
+## 常用规则模式
+
+### AI 服务规则
+```
+# Cursor 编辑器
+DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,api2.cursor.sh
+
+# OpenRouter
+DOMAIN-SUFFIX,openrouter.ai
+```
+
+### 银行服务规则
+```
+# 香港银行
+DOMAIN-SUFFIX,hangseng.com
+DOMAIN-SUFFIX,hsbc.com.hk
+```
+
+### 广告过滤规则
+```
+# 广告域名
+||ads.example.com
+||tracker.example.com
+```
+
+## 规则维护建议
+
+1. **分类管理**: 按功能或服务类型分类规则文件
+2. **定期更新**: 及时更新失效的规则
+3. **测试验证**: 添加新规则后测试有效性
+4. **注释说明**: 为复杂规则添加注释说明
+5. **备份规则**: 重要规则文件定期备份
+description:
+globs:
+alwaysApply: false
+---
