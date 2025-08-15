@@ -1,11 +1,10 @@
 !Title: adfilter
-!Version: 202302161329
+!Version: 202508151329
 !!!This list only applies to "AdGuard Home".
 =================================================================
 !白名单
 
 !@@||ip.taobao.com
-!@@||tacking.miui.com
 
 # 芭芭农场
 @@||wgo.mmstat.com^
