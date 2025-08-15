@@ -63,19 +63,6 @@
 #夸克
 ||u3.ucweb.com^
 
-#xmind破解版
-127.0.0.1 www.xmind.net
-127.0.0.1 www.xmind.cn
-
-#capture one 破解版
-0.0.0.0 activation.phaseone.com
-127.0.0.1 industrial.phaseone.com
-127.0.0.1 coweb.phaseone.com
-127.0.0.1 help.phaseone.com0.0.0.0 activation.phaseone.com
-127.0.0.1 industrial.phaseone.com
-127.0.0.1 coweb.phaseone.com
-127.0.0.1 help.phaseone.com
-
 # MIUI
 127.0.0.1 157.148.47.204
 
