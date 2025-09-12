@@ -153,7 +153,6 @@ proxy-groups:
   - name: 📥 大流量分流
     type: select
     proxies:
-      - 🔰 节点选择
       - 🎯 全部直连
       - ✈️ 手动选择
       - 🎩 私有节点
