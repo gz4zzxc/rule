@@ -124,7 +124,22 @@ proxy-groups:
       - ✈️ 手动选择
       - 🎩 私有节点
 
-  - name: 🤖 Developer
+  - name: 💻 Developer
+    <<: *x-pp-select-region
+  
+  - name: ✨ GenAI
+    <<: *x-pp-select-region
+  
+  - name: ✨ OpenAI
+    <<: *x-pp-select-region
+
+  - name: ✨ Gemini
+    <<: *x-pp-select-region
+
+  - name: ✨ Anthropic
+    <<: *x-pp-select-region
+
+  - name: ✨ Grok
     <<: *x-pp-select-region
 
   - name: 🍎 苹果服务
@@ -278,191 +293,155 @@ rule-providers:
   MyDirect:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
-    path: ./providers/rule-provider_MyDirect.list
-    format: text
   MyProxy:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
-    path: ./providers/rule-provider_MyProxy.list
-    format: text
   Lan:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
-    path: ./providers/rule-provider_Lan.list
   Tailscale_OfficialDERP_Doamin:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_OfficialDERP_Domain.list
-    path: ./providers/rule-provider_Tailscale_OfficialDERP_Domain.list
     behavior: domain
   Tailscale:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale.list
-    path: ./providers/rule-provider_Tailscale.list
   Download:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.list
-    path: ./providers/rule-provider_Download.list
   PrivateTracker:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.list
-    path: ./providers/rule-provider_PrivateTracker.list
   GoogleVoice:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GoogleVoice/GoogleVoice.list
-    path: ./providers/rule-provider_GoogleVoice.list
   Perplexity:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Perplexity.list
-    path: ./providers/rule-provider_Perplexity.list
   OpenAI:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
-    path: ./providers/rule-provider_OpenAI.list
   Gemini:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
-    path: ./providers/rule-provider_Gemini.list
   Anthropic:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Anthropic/Anthropic.list
-    path: ./providers/rule-provider_Anthropic.list
   Grok:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/cc63/Surge@main/Module/Grok.list
-    path: ./providers/rule-provider_Grok.list
-  OpenRouter:
+  GenAI_Providers:
     <<: *x-rp-text
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/OpenRouter.list
-    path: ./providers/rule-provider_OpenRouter.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAI_Providers.list
   Bing:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.list
-    path: ./providers/rule-provider_Bing.list
   Developer:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Developer/Developer.list
-    path: ./providers/rule-provider_Developer.list
   GitHub:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
-    path: ./providers/rule-provider_GitHub.list
   Cursor:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/Cursor.list
-    path: ./providers/rule-provider_Cursor.list
   OneDrive:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OneDrive/OneDrive.list
-    path: ./providers/rule-provider_OneDrive.list
   Microsoft:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
-    path: ./providers/rule-provider_Microsoft.list
   Google:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
-    path: ./providers/rule-provider_Google.list
   Apple:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
-    path: ./providers/rule-provider_Apple.list
   AppleTV:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleTV/AppleTV.list
-    path: ./providers/rule-provider_AppleTV.list
   AppleProxy:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.list
-    path: ./providers/rule-provider_AppleProxy.list
   SteamCN:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/SteamCN/SteamCN.list
-    path: ./providers/rule-provider_SteamCN.list
   Game:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.list
-    path: ./providers/rule-provider_Game.list
   Spotify:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.list
-    path: ./providers/rule-provider_Spotify.list
   Emby:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Emby.list
-    path: ./providers/rule-provider_Emby.list
   YouTube:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
-    path: ./providers/rule-provider_YouTube.list
   Crypto:
-    <<: *x-rp-text
+    <<: *x-rp-yaml
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
-    path: ./providers/rule-provider_Crypto.list
   HongKongBank:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
-    path: ./providers/rule-provider_HongKongBank.list
   GlobalMedia:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia.list
-    path: ./providers/rule-provider_GlobalMedia.list
   AsianMedia:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AsianMedia/AsianMedia.list
-    path: ./providers/rule-provider_AsianMedia.list
   Telegram:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list
-    path: ./providers/rule-provider_Telegram.list
   Twitter:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
-    path: ./providers/rule-provider_Twitter.list
   HighBandwidth:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/HighBandwidth.list
-    path: ./providers/rule-provider_HighBandwidth.list
   Speedtest:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Speedtest/Speedtest.list
-    path: ./providers/rule-provider_Speedtest.list
   RestrictedZones:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-    path: ./providers/rule-provider_RestrictedZones.list
   Global:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global.list
-    path: ./providers/rule-provider_Global.list
   China:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list
-    path: ./providers/rule-provider_China.list
 
 rules:
+ # 1. custom override
   - RULE-SET,MyDirect,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
+
+  # 2. direct
   - RULE-SET,Lan,🎯 全部直连
   - RULE-SET,Tailscale_OfficialDERP_Doamin,🎯 全部直连
   - RULE-SET,Tailscale,🎯 全部直连
   - RULE-SET,Download,🎯 全部直连
   - RULE-SET,PrivateTracker,🎯 全部直连
-  - RULE-SET,GoogleVoice,🇺🇸 美国优选
-  - RULE-SET,Perplexity,🧠 Perplexity
+
+  # 3. proxy
+  - RULE-SET,HighBandwidth,📥 大流量分流  
+  - RULE-SET,RestrictedZones,🈲 禁飞空域 
   - RULE-SET,Bing,🇺🇸 美国优选
-  - RULE-SET,OpenAI,🇺🇸 美国优选
-  - RULE-SET,Anthropic,🇺🇸 美国优选
-  - RULE-SET,Gemini,🇺🇸 美国优选
-  - RULE-SET,Grok,🇺🇸 美国优选
-  - RULE-SET,OpenRouter,🇺🇸 美国优选
-  - RULE-SET,Developer,🤖 Developer
-  - RULE-SET,GitHub,🤖 Developer
-  - RULE-SET,Cursor,🤖 Developer
+  - RULE-SET,OpenAI,✨ OpenAI
+  - RULE-SET,Anthropic,✨ Anthropic
+  - RULE-SET,Gemini,✨ Gemini
+  - RULE-SET,Grok,✨ Grok
+  - RULE-SET,Perplexity,🧠 Perplexity
+  - RULE-SET,GenAI_Providers,✨ GenAI
+  - RULE-SET,Developer,💻 Developer
+  - RULE-SET,GitHub,💻 Developer
+  - RULE-SET,Cursor,💻 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
+  - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,AppleTV,🎥 Apple TV
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Google,🍭 谷歌服务
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 苹果服务
@@ -472,12 +451,10 @@ rules:
   - RULE-SET,Emby,🍟 Emby 服务
   - RULE-SET,Crypto,💰 Crypto
   - RULE-SET,HongKongBank,🏦 香港银行
-  - RULE-SET,RestrictedZones,🈲 禁飞空域
   - RULE-SET,GlobalMedia,🌍 国外媒体
   - RULE-SET,AsianMedia,🌍 国内媒体 (港澳台版切换)
   - RULE-SET,Telegram,📲 Telegram
   - RULE-SET,Twitter,𝕏 Twitter
-  - RULE-SET,HighBandwidth,📥 大流量分流
   - RULE-SET,Speedtest,📶 测速切换
   - RULE-SET,Global,🔰 节点选择
   - RULE-SET,China,🎯 全部直连
