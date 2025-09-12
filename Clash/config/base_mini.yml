@@ -75,16 +75,6 @@ proxy-groups:
   - name: ✈️ 手动选择
     type: select
     include-all: true
-
-  - name: 🎩 私有节点
-    type: select
-    include-all: true
-    filter: "(?i:Private)"
-
-  - name: 🏠 家宽节点
-    type: select
-    include-all: true
-    filter: "(?i:家宽)"
     
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
