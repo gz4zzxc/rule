@@ -22,17 +22,9 @@ x-pg:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-      - 🇰🇵 朝鲜优选
-      - 🇮🇳 印度优选
       - 🇬🇧 英国优选
-      - 🇫🇷 法国优选
-      - 🇨🇦 加拿大优选
       - 🇦🇺 澳大利亚优选
-      - 🇮🇪 爱尔兰优选
-      - 🇷🇺 俄罗斯优选
       - 🇹🇷 土耳其优选
-      - 🇦🇷 阿根廷优选
-      - 🇧🇷 巴西优选
       - 🇨🇳 回国选择
 
   select-region-full-direct: &x-pp-select-region-direct
@@ -48,17 +40,9 @@ x-pg:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-      - 🇰🇵 朝鲜优选
-      - 🇮🇳 印度优选
       - 🇬🇧 英国优选
-      - 🇫🇷 法国优选
-      - 🇨🇦 加拿大优选
       - 🇦🇺 澳大利亚优选
-      - 🇮🇪 爱尔兰优选
-      - 🇷🇺 俄罗斯优选
       - 🇹🇷 土耳其优选
-      - 🇦🇷 阿根廷优选
-      - 🇧🇷 巴西优选
       - 🇨🇳 回国选择
 
   urltest-region: &x-pp-region
@@ -78,24 +62,14 @@ proxy-groups:
       - 🇺🇸 美国优选
       - 🎯 全部直连
       - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
       - 🇭🇰 香港优选
       - 🇯🇵 日本优选
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-      - 🇰🇵 朝鲜优选
-      - 🇮🇳 印度优选
       - 🇬🇧 英国优选
-      - 🇫🇷 法国优选
-      - 🇨🇦 加拿大优选
       - 🇦🇺 澳大利亚优选
-      - 🇮🇪 爱尔兰优选
-      - 🇷🇺 俄罗斯优选
       - 🇹🇷 土耳其优选
-      - 🇦🇷 阿根廷优选
-      - 🇧🇷 巴西优选
       - 🇨🇳 回国选择
 
   - name: ✈️ 手动选择
@@ -237,49 +211,17 @@ proxy-groups:
     <<: *x-pp-region
     filter: '(?i:🇰🇷|\bK[O]?R\b|South.*?Korea|首尔|韩国|韓國)'
 
-  - name: 🇰🇵 朝鲜优选
-    <<: *x-pp-region
-    filter: '(?i:🇰🇵|\bKP[R]?\b|North.*?Korea|Pyongyang|朝鲜|平壤|金正恩)'
-
-  - name: 🇮🇳 印度优选
-    <<: *x-pp-region
-    filter: '(?i:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)'
-
   - name: 🇬🇧 英国优选
     <<: *x-pp-region
     filter: '(?i:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
-
-  - name: 🇫🇷 法国优选
-    <<: *x-pp-region
-    filter: '(?i:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)'
-
-  - name: 🇨🇦 加拿大优选
-    <<: *x-pp-region
-    filter: '(?i:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)'
 
   - name: 🇦🇺 澳大利亚优选
     <<: *x-pp-region
     filter: '(?i:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)'
 
-  - name: 🇮🇪 爱尔兰优选
-    <<: *x-pp-region
-    filter: "(?i:Ireland|Dublin|爱尔兰|都柏林)"
-
-  - name: 🇷🇺 俄罗斯优选
-    <<: *x-pp-region
-    filter: '(?i:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)'
-
   - name: 🇹🇷 土耳其优选
     <<: *x-pp-region
     filter: "(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)"
-
-  - name: 🇦🇷 阿根廷优选
-    <<: *x-pp-region
-    filter: "(?i:🇦🇷|Argentina|阿根廷)"
-
-  - name: 🇧🇷 巴西优选
-    <<: *x-pp-region
-    filter: "(?i:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)"
 
   - name: 🇨🇳 回国选择
     type: select
