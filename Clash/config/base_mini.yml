@@ -119,8 +119,6 @@ proxy-groups:
       - 🎯 全部直连
       - ✈️ 手动选择
       - 📥 大流量分流
-      - 🎩 私有节点
-      - 🏠 家宽节点
     include-all: true
     filter: "(?i:Emby)"
 
@@ -137,8 +135,6 @@ proxy-groups:
       - 🔰 节点选择
       - ✈️ 手动选择
       - 📥 大流量分流
-      - 🎩 私有节点
-      - 🏠 家宽节点
       - 🇭🇰 香港优选
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
@@ -155,8 +151,6 @@ proxy-groups:
     proxies:
       - 🎯 全部直连
       - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
     include-all: true
     exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
 
@@ -166,8 +160,6 @@ proxy-groups:
       - 🎯 全部直连
       - 🔰 节点选择
       - ✈️ 手动选择
-      - 🎩 私有节点
-      - 🏠 家宽节点
   
   - name: 🈲 禁飞空域
     <<: *x-pp-select-region
