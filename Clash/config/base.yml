@@ -341,6 +341,7 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list
   Cursor:
     <<: *x-rp-text
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cursor.list
   OneDrive:
     <<: *x-rp-text
