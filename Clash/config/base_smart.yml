@@ -56,7 +56,7 @@ x-pg:
     collectdata: false
     interval: 300
     # hidden: true
-    exclude-filter: "(?i:专用|noauto)|家宽|3X)"
+    exclude-filter: "(?i:专用|noauto|家宽|3X)"
 
 ##### anchor area END #####
 proxy-groups:
@@ -382,7 +382,7 @@ rule-providers:
     <<: *x-rp-mrs
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
   Crypto:
-    <<: *x-rp-yaml
+    <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
   HongKongBank:
     <<: *x-rp-text

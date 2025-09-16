@@ -56,7 +56,7 @@ x-pg:
     lazy: true
     include-all: true
     hidden: false
-    exclude-filter: '(?i:专用|noauto))'
+    exclude-filter: '(?i:专用|noauto)'
 
 ##### anchor area END #####
 proxy-groups:
@@ -377,7 +377,7 @@ rule-providers:
     <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
   Crypto:
-    <<: *x-rp-yaml
+    <<: *x-rp-text
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Crypto.list
   HongKongBank:
     <<: *x-rp-text
