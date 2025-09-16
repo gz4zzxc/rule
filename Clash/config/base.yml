@@ -56,7 +56,7 @@ x-pg:
     lazy: true
     include-all: true
     hidden: false
-    exclude-filter: '(?i:专用)'
+    exclude-filter: '(?i:专用|noauto))'
 
 ##### anchor area END #####
 proxy-groups:
@@ -71,7 +71,7 @@ proxy-groups:
       - 🎯 全部直连
       - ✈️ 手动选择
       - 🎩 私有节点
-      - 🏠 家宽节点
+      - 🏠 节点
       - 🇭🇰 香港优选
       - 🇺🇸 美国优选
       - 🇯🇵 日本优选
@@ -91,12 +91,12 @@ proxy-groups:
   - name: 🎩 私有节点
     type: select
     include-all: true
-    filter: "(?i:Private)"
+    filter: "(?i:Private|PRIV)"
 
   - name: 🏠 家宽节点
     type: select
     include-all: true
-    filter: "(?i:家宽)"
+    filter: "(?i:家宽|Clean)"
     
   - name: 🍭 谷歌服务
     <<: *x-pp-select-region
