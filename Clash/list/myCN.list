@@ -1,32 +1,12 @@
-# PT 站
-DOMAIN,pt.btschool.club
-DOMAIN-SUFFIX,btschool.club
-DOMAIN-SUFFIX,52pt.site
-DOMAIN-SUFFIX,hdfans.org
-DOMAIN-SUFFIX,carpt.net
-DOMAIN-SUFFIX,ptchina.org
-DOMAIN-SUFFIX,hdarea.club
-DOMAIN-SUFFIX,gdufs.icu
-DOMAIN-SUFFIX,foxirj.com
-DOMAIN-SUFFIX,appstorrent.ru
-DOMAIN-SUFFIX,download-send.com
-# 常用软件
-DOMAIN,flow.logitech.io
-DOMAIN-SUFFIX,logitechg.com
-DOMAIN-SUFFIX,logitech.com.cn
-DOMAIN-SUFFIX,hapigo.com
-# others
-DOMAIN-SUFFIX,gpu-monkey.com
-DOMAIN-SUFFIX,rode.com
-# blackmagicdesign
-DOMAIN-SUFFIX,downloads.blackmagicdesign.com
-DOMAIN-SUFFIX,sw.blackmagicdesign.com
-DOMAIN-SUFFIX,swr.cloud.blackmagicdesign.com
-DOMAIN-SUFFIX,xi-xu.me
-# 进程规则
-PROCESS-NAME,aria2c,DIRECT
-PROCESS-NAME,Transmission,DIRECT
-PROCESS-NAME,Thunder,DIRECT
-PROCESS-NAME,qBittorrent,DIRECT
-PROCESS-NAME,utorrent,DIRECT
-PROCESS-NAME,qbittorrent-nox,DIRECT
++.gdufs.icu
++.foxirj.com
++.appstorrent.ru
++.download-send.com
+flow.logitech.io
++.logitechg.com
++.logitech.com.cn
++.gpu-monkey.com
++.rode.com
++.downloads.blackmagicdesign.com
++.sw.blackmagicdesign.com
++.swr.cloud.blackmagicdesign.com
