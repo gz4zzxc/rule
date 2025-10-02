@@ -194,11 +194,11 @@ x-rp:
 rule-providers:
   MyDirect:
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
   Lan:
     <<: *x-rp-text
@@ -326,7 +326,7 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-speedtest.mrs
   RestrictedZones:
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
   Global:
     <<: *x-rp-mrs

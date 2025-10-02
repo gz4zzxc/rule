@@ -387,20 +387,12 @@ rule-providers:
   # 3. custom override
   MyDirect:
     <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
-  MyDirect02:
-    <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyDirect02.list
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
     <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
-  MyProxy02:
-    <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy02.list
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
 
   # 4. main: p1
   TailscaleDERP:
@@ -525,7 +517,7 @@ rule-providers:
   # 6. main: p3
   RestrictedZones:
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
   GamesOverseas:
     <<: *x-rp-mrs
@@ -552,9 +544,8 @@ rule-providers:
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
   HongKongBank:
-    # TODO: switch to domain behavior
     <<: *x-rp-text
-    behavior: classical
+    behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
 
   # 7. main: p4
