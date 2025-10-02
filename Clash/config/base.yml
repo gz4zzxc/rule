@@ -600,9 +600,7 @@ rules:
 
   # 3. custom override
   - RULE-SET,MyDirect,🎯 全部直连
-  - RULE-SET,MyDirect02,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
-  - RULE-SET,MyProxy02,🔰 节点选择
 
   # 4. main: p1
   - RULE-SET,TailscaleDERP,🎯 全部直连
