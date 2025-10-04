@@ -235,30 +235,14 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
-  OpenAI:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs
-  Gemini:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/gemini.mrs
-  Anthropic:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/anthropic.mrs
-  Grok:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/cc63/Surge@main/Module/Grok.list
-  GenAI_Providers:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai.mrs
   GenAIOverseas:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
+  GenAIOverseasExtra:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
   Bing:
     <<: *x-rp-mrs
     behavior: domain
@@ -375,12 +359,8 @@ rules:
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
   - RULE-SET,RestrictedZones,🈲 Restricted
   - RULE-SET,Bing,🇺🇸 美国优选
-  - RULE-SET,GenAI_Providers,✨ GenAI
   - RULE-SET,GenAIOverseas,✨ GenAI
-  - RULE-SET,OpenAI,✨ GenAI
-  - RULE-SET,Anthropic,✨ GenAI
-  - RULE-SET,Gemini,✨ GenAI
-  - RULE-SET,Grok,✨ GenAI
+  - RULE-SET,GenAIOverseasExtra,✨ GenAI
   - RULE-SET,Developer,💻 Developer
   - RULE-SET,GitHub,💻 Developer
   - RULE-SET,Cursor,💻 Developer
