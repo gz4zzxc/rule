@@ -207,10 +207,6 @@ rule-providers:
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
-  TailscaleDERP:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP.list
   TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
