@@ -382,7 +382,7 @@ rule-providers:
   AdobeTelemetry:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/AdobeTelemetry.list
+    url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
   
   # 3. custom override
   MyDirect:
@@ -395,18 +395,22 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
 
   # 4. main: p1
-  TailscaleDERP:
+  TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP.list
-  Tailscale_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tailscale.mrs
-  Tailscale_ip:
-    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
+  TailscaleDERP_ip:
+    <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/tailscale.mrs
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
+  Tailscale_domain:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_domain.list
+  Tailscale_ip:
+    <<: *x-rp-text
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
   Tracker:
     <<: *x-rp-mrs
     behavior: domain
@@ -423,26 +427,6 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
-  GamesDownload:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@download.mrs
-  GamesDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
-  DeveloperDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev@cn.mrs
-  DeveloperCN:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DeveloperCN.list
-  GenAICN:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAICN.list
 
   # 5. main: p2
   Bing:
@@ -454,9 +438,9 @@ rule-providers:
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
   GoogleVoice:
-    <<: *x-rp-mrs
+    <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/googlevoice.mrs
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
   Telegram_domain:
     <<: *x-rp-mrs
     behavior: domain
@@ -492,7 +476,7 @@ rule-providers:
   AppleTV:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/appletv.mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-tvplus.mrs
   Bahamut:
     <<: *x-rp-mrs
     behavior: domain
@@ -519,10 +503,22 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
+  GamesDownload:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-platforms-download.mrs
+  GamesDirect:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
   GamesOverseas:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games.mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
+  DeveloperDirect:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev@cn.mrs
   DeveloperOverseas:
     <<: *x-rp-mrs
     behavior: domain
@@ -530,7 +526,7 @@ rule-providers:
   GenAIOverseas:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai.mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
   GenAIOverseasExtra:
     <<: *x-rp-text
     behavior: domain
@@ -603,18 +599,14 @@ rules:
   - RULE-SET,MyProxy,🔰 节点选择
 
   # 4. main: p1
-  - RULE-SET,TailscaleDERP,🎯 全部直连
+  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
   - RULE-SET,Tailscale_domain,🎯 全部直连
+  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
   - RULE-SET,Tracker,🎯 全部直连
   - RULE-SET,PT,🎯 全部直连
   - RULE-SET,Speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-  - RULE-SET,GamesDownload,🎯 全部直连
-  - RULE-SET,GamesDirect,🎯 全部直连
-  - RULE-SET,DeveloperDirect,🎯 全部直连
-  - RULE-SET,DeveloperCN,🎯 全部直连
-  - RULE-SET,GenAICN,🎯 全部直连
 
   # 5. main: p2
   - RULE-SET,Bing,🇺🇸 美国优选
@@ -637,6 +629,10 @@ rules:
 
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted
+  - RULE-SET,GamesDownload,🎯 全部直连
+  - RULE-SET,GamesDirect,🎯 全部直连
+  - RULE-SET,DeveloperDirect,🎯 全部直连
+  - RULE-SET,MicrosoftDirect,🎯 全部直连
   - RULE-SET,GamesOverseas,🎮 Games
   - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,GenAIOverseas,✨ GenAI
@@ -646,7 +642,6 @@ rules:
   - RULE-SET,HongKongBank,💰 Banking@HK,no-resolve
 
   # 7. main: p4
-  - RULE-SET,MicrosoftDirect,🎯 全部直连
   - RULE-SET,Microsoft,Ⓜ️ Microsoft
   - RULE-SET,Google_domain,🍭 Google
   - RULE-SET,Google_ip,🍭 Google,no-resolve

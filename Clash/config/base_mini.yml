@@ -97,6 +97,9 @@ proxy-groups:
 
   - name: 🎥 Youtube
     <<: *x-pp-select-region
+  
+  - name: 🎥 Apple TV
+    <<: *x-pp-select-region
 
   - name: 🌍 GlobalMedia
     <<: *x-pp-select-region
@@ -208,14 +211,22 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP.list
-  Tailscale_domain:
-    <<: *x-rp-mrs
+  TailscaleDERP_domain:
+    <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tailscale.mrs
-  Tailscale_ip:
-    <<: *x-rp-mrs
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
+  TailscaleDERP_ip:
+    <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/tailscale.mrs
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
+  Tailscale_domain:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_domain.list
+  Tailscale_ip:
+    <<: *x-rp-text
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
   Download:
     <<: *x-rp-mrs
     behavior: domain
@@ -225,9 +236,9 @@ rule-providers:
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-pt.mrs
   GoogleVoice:
-    <<: *x-rp-mrs
+    <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/googlevoice.mrs
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
   OpenAI:
     <<: *x-rp-mrs
     behavior: domain
@@ -248,6 +259,10 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai.mrs
+  GenAIOverseas:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
   Bing:
     <<: *x-rp-mrs
     behavior: domain
@@ -272,6 +287,10 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
+  MicrosoftDirect:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs
   Google:
     <<: *x-rp-mrs
     behavior: domain
@@ -280,6 +299,10 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
+  AppleTV:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-tvplus.mrs
   SteamCN:
     <<: *x-rp-mrs
     behavior: domain
@@ -316,7 +339,7 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs
-  HighBandwidth:
+  ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
@@ -344,17 +367,20 @@ rules:
 
   # 2. direct
   - RULE-SET,Lan,🎯 全部直连
-  - RULE-SET,TailscaleDERP,🎯 全部直连
+  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
   - RULE-SET,Tailscale_domain,🎯 全部直连
+  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
   - RULE-SET,Download,🎯 全部直连
   - RULE-SET,PrivateTracker,🎯 全部直连
+  - RULE-SET,MicrosoftDirect,🎯 全部直连
 
   # 3. proxy
-  - RULE-SET,HighBandwidth,📥 高耗流量
+  - RULE-SET,ProxyHighBandwidth,📥 高耗流量
   - RULE-SET,RestrictedZones,🈲 Restricted
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,GenAI_Providers,✨ GenAI
+  - RULE-SET,GenAIOverseas,✨ GenAI
   - RULE-SET,OpenAI,✨ GenAI
   - RULE-SET,Anthropic,✨ GenAI
   - RULE-SET,Gemini,✨ GenAI
@@ -367,6 +393,7 @@ rules:
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Google,🍭 Google
   - RULE-SET,Apple,🍎 Apple
+  - RULE-SET,AppleTV,🎥 Apple TV
   - RULE-SET,SteamCN,🎯 全部直连
   - RULE-SET,Game,🎮 Games
   - RULE-SET,Spotify,🎵 Spotify
