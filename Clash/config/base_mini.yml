@@ -91,29 +91,8 @@ proxy-groups:
   - name: 🎵 Spotify
     <<: *x-pp-select-region
 
-  - name: 🎥 Emby Providers
-    <<: *x-pp-select-all-custom
-    filter: "(?i:Emby)"
-
   - name: 🎥 Youtube
     <<: *x-pp-select-region
-  
-  - name: 🎥 Apple TV
-    <<: *x-pp-select-region
-
-  - name: 🌍 GlobalMedia
-    <<: *x-pp-select-region
-
-  - name: 🌍 AsianMedia
-    type: select
-    proxies:
-      - 🎯 全部直连
-      - 🔰 节点选择
-      - ✈️ 手动选择
-      - 📥 高耗流量
-      - 🇭🇰 香港优选
-      - 🇹🇼 台湾优选
-      - 🇸🇬 新加坡优选
 
   - name: 💬 Telegram
     <<: *x-pp-select-region
@@ -211,34 +190,14 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
-  TailscaleDERP_domain:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
-  TailscaleDERP_ip:
-    <<: *x-rp-text
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
-  Tailscale_domain:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_domain.list
-  Tailscale_ip:
-    <<: *x-rp-text
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
-  Download:
+  Tracker:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-download.mrs
-  PrivateTracker:
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs
+  PT:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-pt.mrs
-  GoogleVoice:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
   GenAIOverseas:
     <<: *x-rp-mrs
     behavior: domain
@@ -283,38 +242,26 @@ rule-providers:
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
-  AppleTV:
+  GamesDownload:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-tvplus.mrs
-  SteamCN:
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-platforms-download.mrs
+  GamesDirect:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
-  Game:
+  GamesOverseas:
     <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games.mrs
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
   Spotify:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
-  Emby:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
   YouTube:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
-  GlobalMedia:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-media.mrs
-  AsianMedia:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-media@cn.mrs
   Telegram:
     <<: *x-rp-mrs
     behavior: domain
@@ -335,32 +282,36 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-  Global:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
-  China:
+  China_domain:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs
+  Overseas_domain:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
+  China_ip:
+    <<: *x-rp-mrs
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
 
 rules:
-  # 1. custom override
+  # 1. local
+  - RULE-SET,Private_domain,🎯 全部直连
+  - RULE-SET,Private_ip,🎯 全部直连,no-resolve
+
+  # 2. custom override
   - RULE-SET,MyDirect,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
 
-  # 2. direct
-  - RULE-SET,Private_domain,🎯 全部直连
-  - RULE-SET,Private_ip,🎯 全部直连,no-resolve
-  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
-  - RULE-SET,Tailscale_domain,🎯 全部直连
-  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Download,🎯 全部直连
-  - RULE-SET,PrivateTracker,🎯 全部直连
+  # 3. direct
+  - RULE-SET,Tracker,🎯 全部直连
+  - RULE-SET,PT,🎯 全部直连
   - RULE-SET,MicrosoftDirect,🎯 全部直连
+  - RULE-SET,GamesDownload,🎯 全部直连
+  - RULE-SET,GamesDirect,🎯 全部直连
 
-  # 3. proxy
+  # 4. proxy
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
   - RULE-SET,RestrictedZones,🈲 Restricted
   - RULE-SET,Bing,🇺🇸 美国优选
@@ -374,17 +325,14 @@ rules:
   - RULE-SET,Google,🍭 Google
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 Apple
-  - RULE-SET,AppleTV,🎥 Apple TV
-  - RULE-SET,SteamCN,🎯 全部直连
-  - RULE-SET,Game,🎮 Games
   - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Emby,🎥 Emby Providers
-  - RULE-SET,GlobalMedia,🌍 GlobalMedia
-  - RULE-SET,AsianMedia,🌍 AsianMedia
   - RULE-SET,Telegram,💬 Telegram
   - RULE-SET,Twitter,𝕏 Twitter
   - RULE-SET,Speedtest,📶 Speedtest
-  - RULE-SET,Global,🔰 节点选择
-  - RULE-SET,China,🎯 全部直连
-  - GEOIP,CN,🎯 全部直连
+  - RULE-SET,GamesOverseas,🎮 Games
+
+  # 5. final
+  - RULE-SET,China_domain,🎯 全部直连
+  - RULE-SET,Overseas_domain,🔰 节点选择
+  - RULE-SET,China_ip,🎯 全部直连,no-resolve
   - MATCH,🐟 漏网之鱼
