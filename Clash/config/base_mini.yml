@@ -259,10 +259,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs
-  Cursor:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cursor.mrs
   OneDrive:
     <<: *x-rp-mrs
     behavior: domain
@@ -372,7 +368,6 @@ rules:
   - RULE-SET,GenAIOverseasExtra,✨ GenAI
   - RULE-SET,Developer,💻 Developer
   - RULE-SET,GitHub,💻 Developer
-  - RULE-SET,Cursor,💻 Developer
   - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,Microsoft,Ⓜ️ Microsoft
   - RULE-SET,YouTube,🎥 Youtube
