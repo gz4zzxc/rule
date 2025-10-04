@@ -275,10 +275,14 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
+  AppleProxy:
+    <<: *x-rp-text
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.list
   Apple:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
+    <<: *x-rp-text
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
   AppleTV:
     <<: *x-rp-mrs
     behavior: domain
@@ -368,6 +372,7 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ Microsoft
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Google,🍭 Google
+  - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 Apple
   - RULE-SET,AppleTV,🎥 Apple TV
   - RULE-SET,SteamCN,🎯 全部直连
