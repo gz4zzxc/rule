@@ -203,10 +203,14 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
-  Lan:
-    <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+  Private_domain:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs
+  Private_ip:
+    <<: *x-rp-mrs
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
   TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
@@ -350,7 +354,8 @@ rules:
   - RULE-SET,MyProxy,🔰 节点选择
 
   # 2. direct
-  - RULE-SET,Lan,🎯 全部直连
+  - RULE-SET,Private_domain,🎯 全部直连
+  - RULE-SET,Private_ip,🎯 全部直连,no-resolve
   - RULE-SET,TailscaleDERP_domain,🎯 全部直连
   - RULE-SET,Tailscale_domain,🎯 全部直连
   - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
