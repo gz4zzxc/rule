@@ -128,7 +128,7 @@ x-pg:
   mini-select-all-custom: &x-pp-select-all-custom
     type: select
     include-all: true
-    exclude-filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
+    exclude-filter: '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
 
   urltest-region: &x-pp-region
     type: url-test
@@ -150,7 +150,7 @@ proxy-groups:
   - name: ℹ️ 订阅信息
     type: select
     include-all: true
-    filter: 'ℹ️ .+: \d.+ (?i:KB|MB|GB|TB) \/ \d.+ (?i:KB|MB|GB|TB).*'
+    filter: '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
 
   - name: 🔰 节点选择
     type: select
