@@ -34,7 +34,7 @@ x-pg:
   #     - 🇦🇷 阿根廷优选
   #     - 🇧🇷 巴西优选
   #     # - 🇨🇳 回国选择
-  
+
   # full-select-region-direct: &x-pp-select-region-direct
   #   type: select
   #   proxies:
@@ -377,13 +377,17 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
-  
+
   # 2. block
+  Ads:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs
   AdobeTelemetry:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
-  
+
   # 3. custom override
   MyDirect:
     <<: *x-rp-text
@@ -592,6 +596,7 @@ rules:
   - RULE-SET,Private_ip,🎯 全部直连,no-resolve
 
   # 2. block
+  - RULE-SET,Ads,🛑 Block
   - RULE-SET,AdobeTelemetry,🛑 Block
 
   # 3. custom override
