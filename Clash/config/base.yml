@@ -11,7 +11,7 @@ x-dns:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
 
-x-proxy-providers: &x-pp
+x-proxy-providers: &x-proxy-provider-base
   type: http
   interval: 3600
   health-check:
@@ -101,14 +101,17 @@ x-rule-providers:
   yaml: &x-rp-yaml
     type: http
     format: yaml
+    behavior: classical
     interval: 86400
   text: &x-rp-text
     type: http
     format: text
+    behavior: classical
     interval: 86400
   mrs: &x-rp-mrs
     type: http
     format: mrs
+    behavior: classical
     interval: 86400
 ##### anchor area END #####
 
@@ -119,7 +122,6 @@ mixed-port: 7890
 ipv6: false
 allow-lan: true
 lan-allowed-ips:
-  - 127.0.0.1/32
   - 192.168.0.0/16
   - 10.0.0.0/8
   - 172.16.0.0/12
@@ -208,6 +210,8 @@ dns:
     "geosite:microsoft@cn": *x-dns-china
     "rule-set:AppleCDN": *x-dns-china
     "geosite:cn": *x-dns-china
+    "geosite:category-finance": *x-dns-china
+    "rule-set:HongKongBank": *x-dns-china
 ##### config area END #####
 
 # proxy-groups
@@ -326,7 +330,7 @@ proxy-groups:
   - name: 💰 Crypto
     <<: *x-pg-control-select-proxy
 
-  - name: 💰 Banking@HK
+  - name: 🏦 Banking HK
     <<: *x-pg-control-select-direct
 
   - name: 🈲 Restricted
@@ -418,7 +422,7 @@ rule-providers:
   HongKongBank:
     <<: *x-rp-text
     behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
@@ -428,28 +432,28 @@ rule-providers:
 rules:
   # domain > classical > ipcidr
   # 1. local
-  - GEOSITE,private,DIRECT
-  - GEOIP,private,DIRECT,no-resolve
-  - RULE-SET,DstPortDirect,DIRECT
+  - GEOSITE,private,🎯 全部直连
+  - GEOIP,private,🎯 全部直连,no-resolve
+  - RULE-SET,DstPortDirect,🎯 全部直连
   # 2. block
   - RULE-SET,AdobeTelemetry,REJECT
   # 3. custom override
-  - RULE-SET,MyDirect,DIRECT
+  - RULE-SET,MyDirect,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
   # 4. main: p1
-  - RULE-SET,TailscaleDERP_domain,DIRECT
-  - RULE-SET,Tailscale_domain,DIRECT
-  - RULE-SET,TailscaleDERP_ip,DIRECT,no-resolve
-  - RULE-SET,Tailscale_ip,DIRECT,no-resolve
-  - GEOSITE,tracker,DIRECT
-  - GEOSITE,category-pt,DIRECT
+  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
+  - RULE-SET,Tailscale_domain,🎯 全部直连
+  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
+  - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
+  - GEOSITE,tracker,🎯 全部直连
+  - GEOSITE,category-pt,🎯 全部直连
   - GEOSITE,category-speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-  - GEOSITE,category-game-platforms-download,DIRECT
-  - GEOSITE,category-games@cn,DIRECT
-  - GEOSITE,category-dev@cn,DIRECT
-  - GEOSITE,microsoft@cn,DIRECT
-  - RULE-SET,AppleCDN,DIRECT
+  - GEOSITE,category-game-platforms-download,🎯 全部直连
+  - GEOSITE,category-games@cn,🎯 全部直连
+  - GEOSITE,category-dev@cn,🎯 全部直连
+  - GEOSITE,microsoft@cn,🎯 全部直连
+  - RULE-SET,AppleCDN,🎯 全部直连
   # 5. main: p2
   - GEOSITE,bing,🇺🇸 美国优选
   - GEOSITE,onedrive,☁️ Onedrive
@@ -476,14 +480,14 @@ rules:
   - RULE-SET,GenAIExtra,✨ GenAI
   - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
-  - RULE-SET,HongKongBank,💰 Banking@HK
+  - RULE-SET,HongKongBank,💰 Banking HK
   # 7. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google
   - GEOIP,google,🍭 Google,no-resolve
   - GEOSITE,apple,🍎 Apple
   # 8. final
-  - GEOSITE,cn,DIRECT
+  - GEOSITE,cn,🎯 全部直连
   - GEOSITE,geolocation-!cn,🔰 节点选择
-  - GEOIP,cn,DIRECT,no-resolve
+  - GEOIP,cn,🎯 全部直连,no-resolve
   - MATCH,🐟 漏网之鱼
