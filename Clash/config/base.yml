@@ -16,7 +16,7 @@ x-proxy-providers: &x-proxy-providers-base
   interval: 3600
   health-check:
     enable: true
-    url: https://www.gstatic.com/generate_204
+    url: https://cp.cloudflare.com
     interval: 300
 
 x-proxy-groups:
@@ -122,6 +122,7 @@ mixed-port: 7890
 ipv6: false
 allow-lan: true
 lan-allowed-ips:
+  - 127.0.0.1/32
   - 192.168.0.0/16
   - 10.0.0.0/8
   - 172.16.0.0/12
