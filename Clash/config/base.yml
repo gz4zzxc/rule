@@ -11,7 +11,7 @@ x-dns:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
 
-x-proxy-providers: &x-proxy-provider-base
+x-proxy-providers: &x-proxy-providers-base
   type: http
   interval: 3600
   health-check:
@@ -480,7 +480,7 @@ rules:
   - RULE-SET,GenAIExtra,✨ GenAI
   - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
-  - RULE-SET,HongKongBank,💰 Banking HK
+  - RULE-SET,HongKongBank,🏦 Banking HK
   # 7. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google

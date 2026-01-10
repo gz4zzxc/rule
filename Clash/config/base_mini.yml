@@ -11,7 +11,7 @@ x-dns:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
 
-x-proxy-providers: &x-proxy-provider-base
+x-proxy-providers: &x-proxy-providers-base
   type: http
   interval: 3600
   health-check:
