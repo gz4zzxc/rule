@@ -166,6 +166,7 @@ dns:
     "geosite:category-game-platforms-download": *x-dns-china
     "geosite:category-games@cn": *x-dns-china
     "geosite:category-dev@cn": *x-dns-china
+    "geosite:category-finance@cn": *x-dns-china
     "geosite:microsoft@cn": *x-dns-china
     "rule-set:AppleCDN": *x-dns-china
     "geosite:cn": *x-dns-china
@@ -240,6 +241,9 @@ proxy-groups:
   - name: 🎥 Youtube
     <<: *x-pg-control-select-proxy
 
+  - name: 💰 Finance
+    <<: *x-pg-control-select-proxy
+
   - name: 💬 Telegram
     <<: *x-pg-control-select-proxy
 
@@ -303,10 +307,6 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
-  HongKongBank:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
 
 # rules
 rules:
@@ -326,6 +326,7 @@ rules:
   - GEOSITE,category-game-platforms-download,🎯 全部直连
   - GEOSITE,category-games@cn,🎯 全部直连
   - GEOSITE,category-dev@cn,🎯 全部直连
+  - GEOSITE,category-finance@cn,🎯 全部直连
   - GEOSITE,microsoft@cn,🎯 全部直连
   - RULE-SET,AppleCDN,🎯 全部直连
   # 4. main: p2
@@ -339,9 +340,9 @@ rules:
   - RULE-SET,RestrictedZones,🈲 Restricted
   - GEOSITE,category-games-!cn,🎮 Games
   - GEOSITE,category-dev,💻 Developer
+  - GEOSITE,category-finance,💰 Finance
   - GEOSITE,category-ai-!cn,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
-  - RULE-SET,HongKongBank,🏦 Banking HK
   # 6. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google

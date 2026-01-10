@@ -1,9 +1,13 @@
 ##### anchor area START #####
 x-misc:
-  regex-include-info-node: &x-regex-include-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
-  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
+  regex-include-info-node: &x-regex-include-info-node
+    '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
+  regex-exclude-info-node: &x-regex-exclude-info-node
+    '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
 
 x-dns:
+  system: &x-dns-system
+    - system
   china: &x-dns-china
     - 119.29.29.29
     - 223.5.5.5
@@ -11,7 +15,7 @@ x-dns:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
 
-x-proxy-providers: &x-proxy-providers-base
+x-proxy-providers: &x-proxy-providers
   type: http
   interval: 3600
   health-check:
@@ -35,7 +39,16 @@ x-proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-
+      # - 🇮🇳 印度优选
+      # - 🇬🇧 英国优选
+      # - 🇫🇷 法国优选
+      # - 🇨🇦 加拿大优选
+      # - 🇦🇺 澳大利亚优选
+      # - 🇷🇺 俄罗斯优选
+      # - 🇹🇷 土耳其优选
+      # - 🇦🇷 阿根廷优选
+      # - 🇧🇷 巴西优选
+      # - 🇨🇳 回国选择
   control-select-direct: &x-pg-control-select-direct
     type: select
     proxies:
@@ -51,7 +64,16 @@ x-proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-
+      # - 🇮🇳 印度优选
+      # - 🇬🇧 英国优选
+      # - 🇫🇷 法国优选
+      # - 🇨🇦 加拿大优选
+      # - 🇦🇺 澳大利亚优选
+      # - 🇷🇺 俄罗斯优选
+      # - 🇹🇷 土耳其优选
+      # - 🇦🇷 阿根廷优选
+      # - 🇧🇷 巴西优选
+      # - 🇨🇳 回国选择
   control-select-private: &x-pg-control-select-private
     type: select
     proxies:
@@ -67,7 +89,16 @@ x-proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-
+      # - 🇮🇳 印度优选
+      # - 🇬🇧 英国优选
+      # - 🇫🇷 法国优选
+      # - 🇨🇦 加拿大优选
+      # - 🇦🇺 澳大利亚优选
+      # - 🇷🇺 俄罗斯优选
+      # - 🇹🇷 土耳其优选
+      # - 🇦🇷 阿根廷优选
+      # - 🇧🇷 巴西优选
+      # - 🇨🇳 回国选择
   control-select-clean: &x-pg-control-select-clean
     type: select
     proxies:
@@ -83,43 +114,53 @@ x-proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-
+      # - 🇮🇳 印度优选
+      # - 🇬🇧 英国优选
+      # - 🇫🇷 法国优选
+      # - 🇨🇦 加拿大优选
+      # - 🇦🇺 澳大利亚优选
+      # - 🇷🇺 俄罗斯优选
+      # - 🇹🇷 土耳其优选
+      # - 🇦🇷 阿根廷优选
+      # - 🇧🇷 巴西优选
+      # - 🇨🇳 回国选择
   control-select-all: &x-pg-control-select-all
     type: select
     include-all: true
     filter: *x-regex-exclude-info-node
-
   region-urltest: &x-pg-region-urltest
     type: url-test
     url: "https://www.gstatic.com/generate_204"
     interval: 300
     lazy: true
     include-all: true
-    filter: *x-regex-exclude-info-node
+    # hidden: true
+  region-select: &x-pg-region-select
+    type: select
+    include-all: true
+    # hidden: true
 
 x-rule-providers:
   yaml: &x-rp-yaml
     type: http
     format: yaml
-    behavior: classical
     interval: 86400
   text: &x-rp-text
     type: http
     format: text
-    behavior: classical
     interval: 86400
   mrs: &x-rp-mrs
     type: http
     format: mrs
-    behavior: classical
     interval: 86400
 ##### anchor area END #####
+
 
 ##### config area START #####
 # general
 mode: rule
-mixed-port: 7890
 ipv6: false
+mixed-port: 7890
 allow-lan: true
 lan-allowed-ips:
   - 127.0.0.1/32
@@ -127,7 +168,6 @@ lan-allowed-ips:
   - 10.0.0.0/8
   - 172.16.0.0/12
   - 100.64.0.0/10
-
 tun:
   enable: true
   mtu: 1500
@@ -138,11 +178,9 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-
 profile:
   store-selected: true
   store-fake-ip: true
-
 # meta general
 external-controller: 127.0.0.1:9090
 unified-delay: true
@@ -167,12 +205,21 @@ geox-url:
 #       ports: [443, 8443]
 #     QUIC:
 #       ports: [443, 8443]
+#   force-domain:
+#     - "+.netflix.com"
+#     - "+.nflxvideo.net"
+#     - "+.amazonaws.com"
+#     - "+.media.dssott.com"
 #   skip-domain:
-#     - "Mijia Cloud"
-#     - "+.push.apple.com"
+#     - '+.apple.com'
+#     - Mijia Cloud
+#     - dlg.io.mi.com
+#     - +.oray.com
+#     - +.sunlogin.net
+#     - +.push.apple.com
 
-# network stack - dns
-dns:
+# network stack
+dns: &base-dns
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
@@ -185,15 +232,13 @@ dns:
     - "geosite:connectivity-check"
     - "geosite:private"
     - "rule-set:MyDirect"
-    - "rule-set:TailscaleDERP_domain"
-    - "rule-set:Tailscale_domain"
+    - "rule-set:TailscaleDERP_domain,Tailscale_domain"
     - "geosite:tracker"
     - "geosite:category-pt"
     - "geosite:category-games"
     - "rule-set:GoogleVoice"
     - "geosite:category-speedtest"
     - "geosite:category-finance"
-    - "rule-set:HongKongBank"
     - "geosite:cn"
   respect-rules: true
   nameserver: *x-dns-overseas
@@ -201,28 +246,24 @@ dns:
   nameserver-policy:
     "geosite:private": *x-dns-china
     "rule-set:MyDirect": *x-dns-china
-    "rule-set:TailscaleDERP_domain": *x-dns-china
-    "rule-set:Tailscale_domain": *x-dns-china
+    "rule-set:TailscaleDERP_domain,Tailscale_domain": *x-dns-china
     "geosite:tracker": *x-dns-china
     "geosite:category-pt": *x-dns-china
     "geosite:category-game-platforms-download": *x-dns-china
     "geosite:category-games@cn": *x-dns-china
     "geosite:category-dev@cn": *x-dns-china
+    "geosite:category-finance@cn": *x-dns-china
     "geosite:microsoft@cn": *x-dns-china
     "rule-set:AppleCDN": *x-dns-china
     "geosite:cn": *x-dns-china
-    "geosite:category-finance": *x-dns-china
-    "rule-set:HongKongBank": *x-dns-china
-##### config area END #####
+  # direct-nameserver: *x-dns-china
 
-##### proxy-groups area START #####
-# proxy-groups
-proxy-groups:
+# proxies
+proxy-groups: &base-proxy-groups
   ## control groups
   - name: ℹ️ 订阅信息
     <<: *x-pg-control-select-all
     filter: *x-regex-include-info-node
-
   - name: 🔰 节点选择
     type: select
     proxies:
@@ -236,6 +277,16 @@ proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
+      # - 🇮🇳 印度优选
+      # - 🇬🇧 英国优选
+      # - 🇫🇷 法国优选
+      # - 🇨🇦 加拿大优选
+      # - 🇦🇺 澳大利亚优选
+      # - 🇷🇺 俄罗斯优选
+      # - 🇹🇷 土耳其优选
+      # - 🇦🇷 阿根廷优选
+      # - 🇧🇷 巴西优选
+      # - 🇨🇳 回国选择
 
   - name: ✈️ 手动选择
     <<: *x-pg-control-select-all
@@ -323,20 +374,20 @@ proxy-groups:
   - name: 🎥 TikTok
     <<: *x-pg-control-select-proxy
 
+  - name: 💰 Finance
+    <<: *x-pg-control-select-proxy
+
+  - name: 💰 Crypto
+    <<: *x-pg-control-select-proxy
+
   - name: 💬 Telegram
     <<: *x-pg-control-select-proxy
 
   - name: 𝕏 Twitter
     <<: *x-pg-control-select-proxy
 
-  - name: 💰 Crypto
-    <<: *x-pg-control-select-proxy
-
-  - name: 🏦 Banking HK
-    <<: *x-pg-control-select-direct
-
   - name: 🈲 Restricted
-    <<: *x-pg-control-select-all
+    <<: *x-pg-control-select-private
 
   ## region groups
   - name: 🇭🇰 香港优选
@@ -363,11 +414,50 @@ proxy-groups:
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)).*$'
 
-##### rule-providers area START #####
-# rule-providers
-rule-providers:
+  # - name: 🇮🇳 印度优选
+  #   <<: *x-pg-region-urltest
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买|加尔各答|贾坎德|泰米尔纳德)).*$'
+
+  # - name: 🇬🇧 英国优选
+  #   <<: *x-pg-region-urltest
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)).*$'
+
+  # - name: 🇫🇷 法国优选
+  #   <<: *x-pg-region-urltest
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)).*$'
+
+  # - name: 🇨🇦 加拿大优选
+  #   <<: *x-pg-region-urltest
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|Vancouver|加拿大|蒙特利尔|温哥华|楓葉|枫叶)).*$'
+
+  # - name: 🇦🇺 澳大利亚优选
+  #   <<: *x-pg-region-urltest
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)).*$'
+
+  # - name: 🇷🇺 俄罗斯优选
+  #   <<: *x-pg-region-urltest
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇷🇺|\bRU[S]?\b|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄)).*$'
+
+  # - name: 🇹🇷 土耳其优选
+  #   <<: *x-pg-region-urltest
+  #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇷|Turkey|土耳其|伊斯坦布尔)).*$"
+
+  # - name: 🇦🇷 阿根廷优选
+  #   <<: *x-pg-region-urltest
+  #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇦🇷|Argentina|阿根廷)).*$"
+
+  # - name: 🇧🇷 巴西优选
+  #   <<: *x-pg-region-urltest
+  #   filter: "(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇧🇷|Brazil|巴西|Paulo|圣保罗|里约热内卢)).*$"
+
+  # - name: 🇨🇳 回国选择
+  #   <<: *x-pg-control-select-all
+  #   filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)).*$'
+
+rule-providers: &base-rule-providers
   DstPortDirect:
     <<: *x-rp-text
+    behavior: classical
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DstPortDirect.list
   AdobeTelemetry:
     <<: *x-rp-text
@@ -378,6 +468,10 @@ rule-providers:
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/MyProxy.list
+  MyProxy02:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
@@ -421,42 +515,38 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
-  HongKongBank:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
 
-##### rules area START #####
-# rules
-rules:
+rules: &base-rules
   # domain > classical > ipcidr
   # 1. local
-  - GEOSITE,private,🎯 全部直连
-  - GEOIP,private,🎯 全部直连,no-resolve
-  - RULE-SET,DstPortDirect,🎯 全部直连
+  - GEOSITE,private,DIRECT
+  - GEOIP,private,DIRECT,no-resolve
+  - RULE-SET,DstPortDirect,DIRECT
   # 2. block
   - RULE-SET,AdobeTelemetry,REJECT
   # 3. custom override
-  - RULE-SET,MyDirect,🎯 全部直连
+  - RULE-SET,MyDirect,DIRECT
   - RULE-SET,MyProxy,🔰 节点选择
+  - RULE-SET,MyProxy02,🔰 节点选择
   # 4. main: p1
-  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
-  - RULE-SET,Tailscale_domain,🎯 全部直连
-  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
-  - GEOSITE,tracker,🎯 全部直连
-  - GEOSITE,category-pt,🎯 全部直连
+  - RULE-SET,TailscaleDERP_domain,DIRECT
+  - RULE-SET,Tailscale_domain,DIRECT
+  - RULE-SET,TailscaleDERP_ip,DIRECT,no-resolve
+  - RULE-SET,Tailscale_ip,DIRECT,no-resolve
+  - GEOSITE,tracker,DIRECT
+  - GEOSITE,category-pt,DIRECT
   - GEOSITE,category-speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-  - GEOSITE,category-game-platforms-download,🎯 全部直连
-  - GEOSITE,category-games@cn,🎯 全部直连
-  - GEOSITE,category-dev@cn,🎯 全部直连
-  - GEOSITE,microsoft@cn,🎯 全部直连
-  - RULE-SET,AppleCDN,🎯 全部直连
+  - GEOSITE,category-game-platforms-download,DIRECT
+  - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,category-dev@cn,DIRECT
+  - GEOSITE,category-finance@cn,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
+  - RULE-SET,AppleCDN,DIRECT
   # 5. main: p2
   - GEOSITE,bing,🇺🇸 美国优选
   - GEOSITE,onedrive,☁️ Onedrive
@@ -483,14 +573,16 @@ rules:
   - RULE-SET,GenAIExtra,✨ GenAI
   - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
-  - RULE-SET,HongKongBank,🏦 Banking HK
+  - GEOSITE,category-finance,💰 Finance
   # 7. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google
   - GEOIP,google,🍭 Google,no-resolve
   - GEOSITE,apple,🍎 Apple
   # 8. final
-  - GEOSITE,cn,🎯 全部直连
+  - GEOSITE,cn,DIRECT
   - GEOSITE,geolocation-!cn,🔰 节点选择
-  - GEOIP,cn,🎯 全部直连,no-resolve
+  - GEOIP,cn,DIRECT,no-resolve
   - MATCH,🐟 漏网之鱼
+
+###### config area END #####
