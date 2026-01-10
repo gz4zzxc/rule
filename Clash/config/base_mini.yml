@@ -1,7 +1,7 @@
 ##### anchor area START #####
 x-misc:
   regex-include-info-node: &x-regex-include-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
-  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
+  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
 
 x-dns:
   china: &x-dns-china
@@ -51,7 +51,7 @@ x-proxy-groups:
   control-select-all: &x-pg-control-select-all
     type: select
     include-all: true
-    exclude-filter: *x-regex-exclude-info-node
+    filter: *x-regex-exclude-info-node
 
   region-urltest: &x-pg-region-urltest
     type: url-test
@@ -59,7 +59,7 @@ x-proxy-groups:
     interval: 300
     lazy: true
     include-all: true
-    exclude-filter: *x-regex-exclude-info-node
+    filter: *x-regex-exclude-info-node
 
 x-rule-providers:
   yaml: &x-rp-yaml
