@@ -214,12 +214,14 @@ dns:
     "rule-set:HongKongBank": *x-dns-china
 ##### config area END #####
 
+##### proxy-groups area START #####
 # proxy-groups
 proxy-groups:
   ## control groups
   - name: ℹ️ 订阅信息
     <<: *x-pg-control-select-all
     filter: *x-regex-include-info-node
+    exclude-filter: "(?!)"
 
   - name: 🔰 节点选择
     type: select
@@ -334,7 +336,7 @@ proxy-groups:
     <<: *x-pg-control-select-direct
 
   - name: 🈲 Restricted
-    <<: *x-pg-control-select-private
+    <<: *x-pg-control-select-all
 
   ## region groups
   - name: 🇭🇰 香港优选
@@ -361,11 +363,11 @@ proxy-groups:
     <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)).*$'
 
+##### rule-providers area START #####
 # rule-providers
 rule-providers:
   DstPortDirect:
     <<: *x-rp-text
-    behavior: classical
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DstPortDirect.list
   AdobeTelemetry:
     <<: *x-rp-text
@@ -428,6 +430,7 @@ rule-providers:
     behavior: domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
 
+##### rules area START #####
 # rules
 rules:
   # domain > classical > ipcidr

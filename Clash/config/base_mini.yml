@@ -277,7 +277,6 @@ proxy-groups:
 rule-providers:
   DstPortDirect:
     <<: *x-rp-text
-    behavior: classical
     url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DstPortDirect.list
   MyDirect:
     <<: *x-rp-text
@@ -336,7 +335,7 @@ rules:
   - GEOSITE,category-games-!cn,🎮 Games
   - GEOSITE,category-dev,💻 Developer
   - GEOSITE,category-ai-!cn,✨ GenAI
-  - RULE-SET,GenAIExtra,✨ GenAI
+  - RULE-SET,HongKongBank,🏦 Banking HK
   # 6. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft
   - GEOSITE,google,🍭 Google
