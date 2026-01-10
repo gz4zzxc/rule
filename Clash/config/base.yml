@@ -1,67 +1,28 @@
-# general
-mixed-port: 7890
-ipv6: false
-allow-lan: true
-external-controller: 127.0.0.1:9090
-profile:
-  store-selected: true
-  store-fake-ip: true
 
-##### anchor area START #####
-x-pg:
-  # full-select-region: &x-pp-select-region
-  #   type: select
-  #   proxies:
-  #     - 🔰 节点选择
-  #     - 🎯 全部直连
-  #     - 📥 高耗流量
-  #     - ✈️ 手动选择
-  #     - 🎩 私有节点
-  #     - 🏠 家宽节点
-  #     - 🇭🇰 香港优选
-  #     - 🇺🇸 美国优选
-  #     - 🇯🇵 日本优选
-  #     - 🇹🇼 台湾优选
-  #     - 🇸🇬 新加坡优选
-  #     - 🇰🇷 韩国优选
-  #     - 🇮🇳 印度优选
-  #     - 🇬🇧 英国优选
-  #     - 🇫🇷 法国优选
-  #     - 🇨🇦 加拿大优选
-  #     - 🇦🇺 澳大利亚优选
-  #     - 🇷🇺 俄罗斯优选
-  #     - 🇹🇷 土耳其优选
-  #     - 🇦🇷 阿根廷优选
-  #     - 🇧🇷 巴西优选
-  #     # - 🇨🇳 回国选择
 
-  # full-select-region-direct: &x-pp-select-region-direct
-  #   type: select
-  #   proxies:
-  #     - 🎯 全部直连
-  #     - 🔰 节点选择
-  #     - 📥 高耗流量
-  #     - ✈️ 手动选择
-  #     - 🎩 私有节点
-  #     - 🏠 家宽节点
-  #     - 🇭🇰 香港优选
-  #     - 🇺🇸 美国优选
-  #     - 🇯🇵 日本优选
-  #     - 🇹🇼 台湾优选
-  #     - 🇸🇬 新加坡优选
-  #     - 🇰🇷 韩国优选
-  #     - 🇮🇳 印度优选
-  #     - 🇬🇧 英国优选
-  #     - 🇫🇷 法国优选
-  #     - 🇨🇦 加拿大优选
-  #     - 🇦🇺 澳大利亚优选
-  #     - 🇷🇺 俄罗斯优选
-  #     - 🇹🇷 土耳其优选
-  #     - 🇦🇷 阿根廷优选
-  #     - 🇧🇷 巴西优选
-  #     # - 🇨🇳 回国选择
+   ##### anchor area START #####
+x-misc:
+  regex-include-info-node: &x-regex-include-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
+  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
 
-  mini-select-region: &x-pp-select-region
+x-dns:
+  china: &x-dns-china
+    - 119.29.29.29
+    - 223.5.5.5
+  overseas: &x-dns-overseas
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+
+x-proxy-providers: &x-pp
+  type: http
+  interval: 3600
+  health-check:
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+
+x-proxy-groups:
+  control-select-proxy: &x-pg-control-select-proxy
     type: select
     proxies:
       - 🔰 节点选择
@@ -77,7 +38,7 @@ x-pg:
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
 
-  mini-select-region-direct: &x-pp-select-region-direct
+  control-select-direct: &x-pg-control-select-direct
     type: select
     proxies:
       - 🎯 全部直连
@@ -93,7 +54,7 @@ x-pg:
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
 
-  mini-select-region-private: &x-pp-select-region-private
+  control-select-private: &x-pg-control-select-private
     type: select
     proxies:
       - 🎩 私有节点
@@ -109,7 +70,7 @@ x-pg:
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
 
-  mini-select-region-clean: &x-pp-select-region-clean
+  control-select-clean: &x-pg-control-select-clean
     type: select
     proxies:
       - 🏠 家宽节点
@@ -125,32 +86,135 @@ x-pg:
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
 
-  mini-select-all-custom: &x-pp-select-all-custom
+  control-select-all: &x-pg-control-select-all
     type: select
     include-all: true
-    exclude-filter: '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
+    filter: *x-regex-exclude-info-node
 
-  urltest-region: &x-pp-region
+  region-urltest: &x-pg-region-urltest
     type: url-test
     url: "https://www.gstatic.com/generate_204"
     interval: 300
     lazy: true
     include-all: true
-    # hidden: true
-    exclude-filter: "(?i:专用|noauto)"
 
-  # select-region: &x-pp-region
-  #   type: select
-  #   include-all: true
-  #   hidden: true
-
+x-rule-providers:
+  yaml: &x-rp-yaml
+    type: http
+    format: yaml
+    interval: 86400
+  text: &x-rp-text
+    type: http
+    format: text
+    interval: 86400
+  mrs: &x-rp-mrs
+    type: http
+    format: mrs
+    interval: 86400
 ##### anchor area END #####
+
+##### config area START #####
+# general
+mode: rule
+mixed-port: 7890
+ipv6: false
+allow-lan: true
+lan-allowed-ips:
+  - 127.0.0.1/32
+  - 192.168.0.0/16
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+  - 100.64.0.0/10
+
+tun:
+  enable: true
+  mtu: 1500
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# meta general
+external-controller: 127.0.0.1:9090
+unified-delay: true
+tcp-concurrent: true
+global-client-fingerprint: chrome
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
+
+# meta sniffer
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+
+# network stack - dns
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.*.*.*.*.*"
+    - "geosite:connectivity-check"
+    - "geosite:private"
+    - "rule-set:MyDirect"
+    - "rule-set:TailscaleDERP_domain,Tailscale_domain"
+    - "geosite:tracker"
+    - "geosite:category-pt"
+    - "geosite:category-games"
+    - "rule-set:GoogleVoice"
+    - "geosite:category-speedtest"
+    - "geosite:category-finance"
+    - "rule-set:HongKongBank"
+    - "geosite:cn"
+  respect-rules: true
+  nameserver: *x-dns-overseas
+  proxy-server-nameserver: *x-dns-china
+  nameserver-policy:
+    "geosite:private": *x-dns-china
+    "rule-set:MyDirect": *x-dns-china
+    "rule-set:TailscaleDERP_domain,Tailscale_domain": *x-dns-china
+    "geosite:tracker": *x-dns-china
+    "geosite:category-pt": *x-dns-china
+    "geosite:category-game-platforms-download": *x-dns-china
+    "geosite:category-games@cn": *x-dns-china
+    "geosite:category-dev@cn": *x-dns-china
+    "geosite:microsoft@cn": *x-dns-china
+    "rule-set:AppleCDN": *x-dns-china
+    "geosite:cn": *x-dns-china
+##### config area END #####
+
+# proxy-groups
 proxy-groups:
   ## control groups
   - name: ℹ️ 订阅信息
-    type: select
-    include-all: true
-    filter: '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
+    <<: *x-pg-control-select-all
+    filter: *x-regex-include-info-node
 
   - name: 🔰 节点选择
     type: select
@@ -165,30 +229,20 @@ proxy-groups:
       - 🇹🇼 台湾优选
       - 🇸🇬 新加坡优选
       - 🇰🇷 韩国优选
-      # - 🇮🇳 印度优选
-      # - 🇬🇧 英国优选
-      # - 🇫🇷 法国优选
-      # - 🇨🇦 加拿大优选
-      # - 🇦🇺 澳大利亚优选
-      # - 🇷🇺 俄罗斯优选
-      # - 🇹🇷 土耳其优选
-      # - 🇦🇷 阿根廷优选
-      # - 🇧🇷 巴西优选
-      # - 🇨🇳 回国选择
 
   - name: ✈️ 手动选择
-    <<: *x-pp-select-all-custom
+    <<: *x-pg-control-select-all
 
   - name: 🎩 私有节点
-    <<: *x-pp-select-all-custom
+    <<: *x-pg-control-select-all
     filter: "(?i:Private|PRIV)"
 
   - name: 🏠 家宽节点
-    <<: *x-pp-select-all-custom
+    <<: *x-pg-control-select-all
     filter: "(?i:家宽|Clean)"
 
   - name: 📥 高耗流量
-    <<: *x-pp-select-all-custom
+    <<: *x-pg-control-select-all
     proxies:
       - 🔰 节点选择
       - 🎯 全部直连
@@ -197,7 +251,7 @@ proxy-groups:
       - 🏠 家宽节点
 
   - name: 📶 Speedtest
-    <<: *x-pp-select-all-custom
+    <<: *x-pg-control-select-all
     proxies:
       - 🎯 全部直连
       - 🔰 节点选择
@@ -207,7 +261,7 @@ proxy-groups:
       - 📥 高耗流量
 
   - name: 🐟 漏网之鱼
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 🎯 全部直连
     type: select
@@ -215,446 +269,220 @@ proxy-groups:
     proxies:
       - DIRECT
 
-  - name: 🛑 Block
-    type: select
-    hidden: true
-    proxies:
-      - REJECT
-
   ## services groups
   - name: 🍎 Apple
-    <<: *x-pp-select-region-direct
+    <<: *x-pg-control-select-direct
 
   - name: 🍭 Google
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: Ⓜ️ Microsoft
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: ☁️ Onedrive
-    <<: *x-pp-select-region-direct
+    <<: *x-pg-control-select-direct
 
   - name: 💻 Developer
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: ✨ GenAI
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 🎮 Games
-    <<: *x-pp-select-region-direct
+    <<: *x-pg-control-select-direct
 
   - name: 🎮 Nintendo
-    <<: *x-pp-select-region-direct
+    <<: *x-pg-control-select-direct
 
   - name: 🎵 Spotify
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 🎵 Qobuz
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 🎥 Emby Providers
-    <<: *x-pp-select-all-custom
+    <<: *x-pg-control-select-all
     filter: "(?i:Emby)"
 
   - name: 🎥 Youtube
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 🎥 Netflix
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 🎥 Apple TV
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 🎥 TikTok
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 💬 Telegram
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 𝕏 Twitter
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 💰 Crypto
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-proxy
 
   - name: 💰 Banking@HK
-    <<: *x-pp-select-region
+    <<: *x-pg-control-select-direct
 
   - name: 🈲 Restricted
-    <<: *x-pp-select-all-custom
+    <<: *x-pg-control-select-private
 
   ## region groups
   - name: 🇭🇰 香港优选
-    <<: *x-pp-region
+    <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|[^-]港)).*$'
 
   - name: 🇺🇸 美国优选
-    <<: *x-pp-region
+    <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇺🇸|\bUS[A]?\b|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)).*$'
 
   - name: 🇯🇵 日本优选
-    <<: *x-pp-region
+    <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|[^-尼]日)).*$'
 
   - name: 🇹🇼 台湾优选
-    <<: *x-pp-region
+    <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇹🇼|\bTW[N]?\b|Taiwan|新北|彰化|\bCHT\b|台湾|[^-]台|\bHINET\b)).*$'
 
   - name: 🇸🇬 新加坡优选
-    <<: *x-pp-region
+    <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇸🇬|\bSG[P]?\b|Singapore|新加坡|狮城)).*$'
 
   - name: 🇰🇷 韩国优选
-    <<: *x-pp-region
+    <<: *x-pg-region-urltest
     filter: '(?i)^(?!.*(?:专用|noauto))(?=.*(?:🇰🇷|\bK[O]?R\b|Korea|首尔|韩|韓)).*$'
 
-  # - name: 🇮🇳 印度优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇮🇳|\bIN[D]?\b|India|Mumbai|印度|孟买)'
-
-  # - name: 🇬🇧 英国优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇬🇧|\bUK\b|England|United.*?Kingdom|London|英国|[^-]英|伦敦)'
-
-  # - name: 🇫🇷 法国优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇫🇷|\bFR[A]?\b|France|Paris|法国|巴黎)'
-
-  # - name: 🇨🇦 加拿大优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇨🇦|\bCA[N]?\b|Canada|Toronto|Montreal|加拿大|多伦多|蒙特利尔)'
-
-  # - name: 🇦🇺 澳大利亚优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇦🇺|\bAU[S]?\b|Australia|Sydney|澳大利亚|澳洲|悉尼)'
-
-  # - name: 🇷🇺 俄罗斯优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇷🇺|\bRU[S]?\b|Russia|Moscow|俄罗斯|莫斯科)'
-
-  # - name: 🇹🇷 土耳其优选
-  #   <<: *x-pp-region
-  #   filter: "(?i:🇹🇷|Turkey|土耳其|伊斯坦布尔)"
-
-  # - name: 🇦🇷 阿根廷优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇦🇷|\bAR[G]?\b|Argentina|Buenos.*?Aires|阿根廷|布宜诺斯艾利斯)'
-
-  # - name: 🇧🇷 巴西优选
-  #   <<: *x-pp-region
-  #   filter: '(?i:🇧🇷|\bBR[A]?\b|Brazil|São.*?Paulo|Rio.*?de.*?Janeiro|巴西|圣保罗|里约热内卢)'
-
-  # - name: 🇨🇳 回国选择
-  #   type: select
-  #   include-all: true
-  #   hidden: true
-  #   filter: '(?i:\bC[H]?N\b|China|回国|中国[^-]|江苏[^-]|北京[^-]|上海[^-]|广州[^-]|深圳[^-]|杭州[^-]|常州[^-]|徐州[^-]|青岛[^-]|宁波[^-]|镇江[^-]|成都[^-]|back)'
-
-##### anchor area START #####
-x-rp:
-  yaml: &x-rp-yaml
-    type: http
-    behavior: classical
-    format: yaml
-    interval: 86400
-  text: &x-rp-text
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
-  mrs: &x-rp-mrs
-    type: http
-    format: mrs
-    interval: 86400
-##### anchor area END #####
+# rule-providers
 rule-providers:
-  # 1. local
-  Private_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs
-  Private_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
-
-  # 2. block
-  Ads:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs
+  DstPortDirect:
+    <<: *x-rp-text
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/DstPortDirect.list
   AdobeTelemetry:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
-
-  # 3. custom override
+    url: https://testingcf.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
   MyDirect:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
+    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
-
-  # 4. main: p1
+    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
   TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
   TailscaleDERP_ip:
     <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
   Tailscale_domain:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_domain.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_domain.list
   Tailscale_ip:
     <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
-  Tracker:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs
-  PT:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-pt.mrs
-  Speedtest:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-speedtest.mrs
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
-
-  # 5. main: p2
-  Bing:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bing.mrs
-  OneDrive:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
   GoogleVoice:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
-  Telegram_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
-  Telegram_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs
-  Twitter_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs
-  Twitter_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/twitter.mrs
-  Nintendo:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nintendo.mrs
-  YouTube:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
-  Netflix_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
-  Netflix_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs
-  AppleTV:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple-tvplus.mrs
-  Bahamut:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs
-  TikTok:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
-  Emby:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
-  Spotify:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
   Qobuz:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Qobuz.list
-
-  # 6. main: p3
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Qobuz.list
   RestrictedZones:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
-  GamesDownload:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-platforms-download.mrs
-  GamesDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
-  GamesOverseas:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
-  DeveloperDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev@cn.mrs
-  DeveloperOverseas:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev.mrs
-  GenAIOverseas:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
-  GenAIOverseasExtra:
+    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
+  GenAIExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
-  Crypto:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-cryptocurrency.mrs
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
   CryptoExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+    url: https://testingcf.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
   HongKongBank:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
-
-  # 7. main: p4
-  MicrosoftDirect:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs
-  Microsoft:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
-  Google_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
-  Google_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs
-  AppleProxy:
-    # TODO: switch to mrs + domain behavior
+    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
+  AppleCDN:
     <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppleProxy/AppleProxy.list
-  Apple:
-    # TODO: switch to mrs + domain behavior
-    <<: *x-rp-text
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
-
-  China_domain:
-    <<: *x-rp-mrs
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs
-  Overseas_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
-  China_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
+    url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
 
+# rules
 rules:
   # domain > classical > ipcidr
   # 1. local
-  - RULE-SET,Private_domain,🎯 全部直连
-  - RULE-SET,Private_ip,🎯 全部直连,no-resolve
-
+  - GEOSITE,private,DIRECT
+  - GEOIP,private,DIRECT,no-resolve
+  - RULE-SET,DstPortDirect,DIRECT
   # 2. block
-  - RULE-SET,Ads,🛑 Block
-  - RULE-SET,AdobeTelemetry,🛑 Block
-
+  - RULE-SET,AdobeTelemetry,REJECT
   # 3. custom override
-  - RULE-SET,MyDirect,🎯 全部直连
+  - RULE-SET,MyDirect,DIRECT
   - RULE-SET,MyProxy,🔰 节点选择
-
   # 4. main: p1
-  - RULE-SET,TailscaleDERP_domain,🎯 全部直连
-  - RULE-SET,Tailscale_domain,🎯 全部直连
-  - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Tracker,🎯 全部直连
-  - RULE-SET,PT,🎯 全部直连
-  - RULE-SET,Speedtest,📶 Speedtest
+  - RULE-SET,TailscaleDERP_domain,DIRECT
+  - RULE-SET,Tailscale_domain,DIRECT
+  - RULE-SET,TailscaleDERP_ip,DIRECT,no-resolve
+  - RULE-SET,Tailscale_ip,DIRECT,no-resolve
+  - GEOSITE,tracker,DIRECT
+  - GEOSITE,category-pt,DIRECT
+  - GEOSITE,category-speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
-
+  - GEOSITE,category-game-platforms-download,DIRECT
+  - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,category-dev@cn,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
+  - RULE-SET,AppleCDN,DIRECT
   # 5. main: p2
-  - RULE-SET,Bing,🇺🇸 美国优选
-  - RULE-SET,OneDrive,☁️ Onedrive
+  - GEOSITE,bing,🇺🇸 美国优选
+  - GEOSITE,onedrive,☁️ Onedrive
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
-  - RULE-SET,Telegram_domain,💬 Telegram
-  - RULE-SET,Telegram_ip,💬 Telegram,no-resolve
-  - RULE-SET,Twitter_domain,𝕏 Twitter
-  - RULE-SET,Twitter_ip,𝕏 Twitter,no-resolve
-  - RULE-SET,Nintendo,🎮 Nintendo
-  - RULE-SET,YouTube,🎥 Youtube
-  - RULE-SET,Netflix_domain,🎥 Netflix
-  - RULE-SET,Netflix_ip,🎥 Netflix,no-resolve
-  - RULE-SET,AppleTV,🎥 Apple TV
-  - RULE-SET,Bahamut,🇹🇼 台湾优选
-  - RULE-SET,TikTok,🎥 TikTok
-  - RULE-SET,Emby,🎥 Emby Providers
-  - RULE-SET,Spotify,🎵 Spotify
+  - GEOSITE,telegram,💬 Telegram
+  - GEOIP,telegram,💬 Telegram,no-resolve
+  - GEOSITE,twitter,𝕏 Twitter
+  - GEOIP,twitter,𝕏 Twitter,no-resolve
+  - GEOSITE,nintendo,🎮 Nintendo
+  - GEOSITE,youtube,🎥 Youtube
+  - GEOSITE,netflix,🎥 Netflix
+  - GEOIP,netflix,🎥 Netflix,no-resolve
+  - GEOSITE,apple-tvplus,🎥 Apple TV
+  - GEOSITE,bahamut,🇹🇼 台湾优选
+  - GEOSITE,tiktok,🎥 TikTok
+  - GEOSITE,category-emby,🎥 Emby Providers
+  - GEOSITE,spotify,🎵 Spotify
   - RULE-SET,Qobuz,🎵 Qobuz
-
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted
-  - RULE-SET,GamesDownload,🎯 全部直连
-  - RULE-SET,GamesDirect,🎯 全部直连
-  - RULE-SET,DeveloperDirect,🎯 全部直连
-  - RULE-SET,MicrosoftDirect,🎯 全部直连
-  - RULE-SET,GamesOverseas,🎮 Games
-  - RULE-SET,DeveloperOverseas,💻 Developer
-  - RULE-SET,GenAIOverseas,✨ GenAI
-  - RULE-SET,GenAIOverseasExtra,✨ GenAI
-  - RULE-SET,Crypto,💰 Crypto
+  - GEOSITE,category-games-!cn,🎮 Games
+  - GEOSITE,category-dev,💻 Developer
+  - GEOSITE,category-ai-!cn,✨ GenAI
+  - RULE-SET,GenAIExtra,✨ GenAI
+  - GEOSITE,category-cryptocurrency,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
-  - RULE-SET,HongKongBank,💰 Banking@HK,no-resolve
-
+  - RULE-SET,HongKongBank,💰 Banking@HK
   # 7. main: p4
-  - RULE-SET,Microsoft,Ⓜ️ Microsoft
-  - RULE-SET,Google_domain,🍭 Google
-  - RULE-SET,Google_ip,🍭 Google,no-resolve
-  - RULE-SET,AppleProxy,🔰 节点选择
-  - RULE-SET,Apple,🍎 Apple
-
+  - GEOSITE,microsoft,Ⓜ️ Microsoft
+  - GEOSITE,google,🍭 Google
+  - GEOIP,google,🍭 Google,no-resolve
+  - GEOSITE,apple,🍎 Apple
   # 8. final
-  - RULE-SET,China_domain,🎯 全部直连
-  - RULE-SET,Overseas_domain,🔰 节点选择
-  - RULE-SET,China_ip,🎯 全部直连,no-resolve
+  - GEOSITE,cn,DIRECT
+  - GEOSITE,geolocation-!cn,🔰 节点选择
+  - GEOIP,cn,DIRECT,no-resolve
   - MATCH,🐟 漏网之鱼
