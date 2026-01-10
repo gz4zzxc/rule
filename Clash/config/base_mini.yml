@@ -335,6 +335,7 @@ rules:
   - GEOSITE,category-games-!cn,🎮 Games
   - GEOSITE,category-dev,💻 Developer
   - GEOSITE,category-ai-!cn,✨ GenAI
+  - RULE-SET,GenAIExtra,✨ GenAI
   - RULE-SET,HongKongBank,🏦 Banking HK
   # 6. main: p4
   - GEOSITE,microsoft,Ⓜ️ Microsoft

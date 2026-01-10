@@ -424,7 +424,7 @@ rule-providers:
   HongKongBank:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
+    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
