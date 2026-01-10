@@ -302,6 +302,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
+  HongKongBank:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
 
 # rules
 rules:

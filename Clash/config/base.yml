@@ -1,7 +1,7 @@
 ##### anchor area START #####
 x-misc:
   regex-include-info-node: &x-regex-include-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
-  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^(?!ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB)).*$'
+  regex-exclude-info-node: &x-regex-exclude-info-node '(?i)^ℹ️ .+: \d.+ (KB|MB|GB|TB) \/ \d.+ (KB|MB|GB|TB).*$'
 
 x-dns:
   china: &x-dns-china
