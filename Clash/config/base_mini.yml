@@ -299,6 +299,8 @@ rules:
   # 1. local
   - RULE-SET,Private_domain,🎯 全部直连
   - RULE-SET,Private_ip,🎯 全部直连,no-resolve
+  # NTP service should always be direct
+  - DST-PORT,123,🎯 全部直连
   # Mihomo only: PT source port bypass (Stash may warn "unsupported rule type", safe to ignore)
   - SRC-PORT,16016/53214,🎯 全部直连
 
