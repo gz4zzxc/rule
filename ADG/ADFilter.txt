@@ -1,5 +1,5 @@
 !Title: adfilter
-!Version: 202508151329
+!Version: 202602111500
 !!!This list only applies to "AdGuard Home".
 =================================================================
 !白名单
@@ -63,7 +63,7 @@
 ||u3.ucweb.com^
 
 # MIUI
-127.0.0.1 157.148.47.204
+||157.148.47.204^
 
 # 微软诊断数据
 0.0.0.0 v10.events.data.microsoft.com
@@ -98,4 +98,4 @@
 0.0.0.0 adnxs.com
 0.0.0.0 az361816.vo.msecnd.net
 0.0.0.0 az512334.vo.msecnd.net
-0.0.0.0 120.233.19.186
+||120.233.19.186^
