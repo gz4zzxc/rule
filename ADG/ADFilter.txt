@@ -33,7 +33,7 @@
 !黑名单
 
 #乐播投屏
-||image.hpplay.cn%^
+||image.hpplay.cn^
 ||tvapp.hpplay.cn^
 ||h5.hpplay.com.cn^
 ||hpplay.cdn.cibn.cc^
