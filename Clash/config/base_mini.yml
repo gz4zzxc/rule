@@ -48,7 +48,7 @@ x-pg:
     interval: 300
     lazy: true
     include-all: true
-    exclude-filter: "(?i:专用)"
+    exclude-filter: "(?i:专用|noauto)"
 
 ##### anchor area END #####
 proxy-groups:
