@@ -6,11 +6,11 @@
 
 !@@||ip.taobao.com
 
-# 芭芭农场
+! 芭芭农场
 @@||wgo.mmstat.com^
 @@||log.mmstat.com^
 
-# ele
+! ele
 @@||waimai-guide.ele.me^
 @@||ipassport.ele.me^
 @@||alsc-buy2.ele.me^
@@ -18,21 +18,21 @@
 @@||h-adashx.ut.ele.me^$important
 @@||app-monitor.ele.me^$important
 
-# 123网盘
+! 123网盘
 @@||statics.123pan.com^$important
 
-# 百度api
+! 百度api
 @@||aip.baidubce.com^$important
 
-# tencent cloud
+! tencent cloud
 @@||qcloudimg.tencent-cloud.cn^$important
 
-# twikoo
+! twikoo
 @@||cdn.staticfile.org^$important
 =================================================================
 !黑名单
 
-#乐播投屏
+!乐播投屏
 ||image.hpplay.cn^
 ||tvapp.hpplay.cn^
 ||h5.hpplay.com.cn^
@@ -59,13 +59,13 @@
 ||rps.hpplay.cn^
 ||sentry.io^$important
 
-#夸克
+!夸克
 ||u3.ucweb.com^
 
-# MIUI
+! MIUI
 ||157.148.47.204^
 
-# 微软诊断数据
+! 微软诊断数据
 0.0.0.0 v10.events.data.microsoft.com
 0.0.0.0 v20.events.data.microsoft.com
 0.0.0.0 mobile.pipe.aria.microsoft.com
