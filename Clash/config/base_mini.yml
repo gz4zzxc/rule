@@ -129,6 +129,13 @@ proxy-groups:
     proxies:
       - REJECT
 
+  - name: 🧹 广告拦截
+    type: select
+    proxies:
+      - 🛑 Block
+      - 🎯 全部直连
+      - 🔰 节点选择
+
   - name: 🐟 漏网之鱼
     <<: *x-pp-select-region
 
@@ -182,6 +189,14 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
+  Ads:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs
+  AdobeTelemetry:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/ignaciocastro/a-dove-is-dumb@main/pihole.txt
   Private_domain:
     <<: *x-rp-mrs
     behavior: domain
@@ -304,11 +319,15 @@ rules:
   # Mihomo only: PT source port bypass (Stash may warn "unsupported rule type", safe to ignore)
   - SRC-PORT,16016/53214,🎯 全部直连
 
-  # 2. custom override
+  # 2. block
+  - RULE-SET,Ads,🧹 广告拦截
+  - RULE-SET,AdobeTelemetry,🧹 广告拦截
+
+  # 3. custom override
   - RULE-SET,MyDirect,🎯 全部直连
   - RULE-SET,MyProxy,🔰 节点选择
 
-  # 3. direct
+  # 4. direct
   - RULE-SET,Tracker,🎯 全部直连
   - RULE-SET,PT,🎯 全部直连
   - RULE-SET,MicrosoftDirect,🎯 全部直连
@@ -316,7 +335,7 @@ rules:
   - RULE-SET,GamesDirect,🎯 全部直连
   - RULE-SET,DeveloperDirect,🎯 全部直连
 
-  # 4. proxy
+  # 5. proxy
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
   - RULE-SET,RestrictedZones,🈲 Restricted
   - RULE-SET,Bing,🇺🇸 美国优选
@@ -335,7 +354,7 @@ rules:
   - RULE-SET,Speedtest,📶 Speedtest
   - RULE-SET,GamesOverseas,🎮 Games
 
-  # 5. final
+  # 6. final
   - RULE-SET,China_domain,🎯 全部直连
   - RULE-SET,Overseas_domain,🔰 节点选择
   - RULE-SET,China_ip,🎯 全部直连,no-resolve

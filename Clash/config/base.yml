@@ -221,6 +221,13 @@ proxy-groups:
     proxies:
       - REJECT
 
+  - name: 🧹 广告拦截
+    type: select
+    proxies:
+      - 🛑 Block
+      - 🎯 全部直连
+      - 🔰 节点选择
+
   ## services groups
   - name: 🍎 Apple
     <<: *x-pp-select-region-direct
@@ -600,8 +607,8 @@ rules:
   - SRC-PORT,16016/53214,🎯 全部直连
 
   # 2. block
-  - RULE-SET,Ads,🛑 Block
-  - RULE-SET,AdobeTelemetry,🛑 Block
+  - RULE-SET,Ads,🧹 广告拦截
+  - RULE-SET,AdobeTelemetry,🧹 广告拦截
 
   # 3. custom override
   - RULE-SET,MyDirect,🎯 全部直连
