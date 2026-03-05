@@ -603,8 +603,6 @@ rules:
   - RULE-SET,Private_ip,🎯 全部直连,no-resolve
   # NTP service should always be direct
   - DST-PORT,123,🎯 全部直连
-  # Mihomo only: PT source port bypass (Stash may warn "unsupported rule type", safe to ignore)
-  - SRC-PORT,16016/53214,🎯 全部直连
 
   # 2. block
   - RULE-SET,Ads,🧹 广告拦截
@@ -668,4 +666,7 @@ rules:
   - RULE-SET,China_domain,🎯 全部直连
   - RULE-SET,Overseas_domain,🔰 节点选择
   - RULE-SET,China_ip,🎯 全部直连,no-resolve
-  - MATCH,🐟 漏网之鱼
+  - DST-PORT,80,🐟 漏网之鱼
+  - DST-PORT,443,🐟 漏网之鱼
+  - DST-PORT,853,🐟 漏网之鱼
+  - MATCH,DIRECT
