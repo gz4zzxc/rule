@@ -88,10 +88,23 @@ proxy-groups:
   - name: 🎮 Games
     <<: *x-pp-select-region-direct
 
+  - name: 🎮 PlayStation
+    <<: *x-pp-select-region-direct
+
+  - name: 🎮 Steam
+    <<: *x-pp-select-region
+
   - name: 🎵 Spotify
     <<: *x-pp-select-region
 
+  - name: 🎥 Emby Providers
+    <<: *x-pp-select-all-custom
+    filter: "(?i:Emby)"
+
   - name: 🎥 Youtube
+    <<: *x-pp-select-region
+
+  - name: 💰 Finance
     <<: *x-pp-select-region
 
   - name: 💬 Telegram
@@ -217,7 +230,7 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
-  GenAIOverseasExtra:
+  GenAIExtra:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
@@ -257,6 +270,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
+  AppleCDN:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
   GamesDownload:
     <<: *x-rp-mrs
     behavior: domain
@@ -269,10 +286,22 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
+  PlayStation:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/playstation.mrs
+  Steam:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs
   Spotify:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
+  Emby:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
   YouTube:
     <<: *x-rp-mrs
     behavior: domain
@@ -285,6 +314,14 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitter.mrs
+  Finance:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-finance.mrs
+  FinanceExtra:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/FinanceExtra.list
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
@@ -338,15 +375,21 @@ rules:
   - RULE-SET,RestrictedZones,🈲 Restricted
   - RULE-SET,Bing,🇺🇸 美国优选
   - RULE-SET,GenAIOverseas,✨ GenAI
-  - RULE-SET,GenAIOverseasExtra,✨ GenAI
+  - RULE-SET,GenAIExtra,✨ GenAI
   - RULE-SET,OneDrive,☁️ Onedrive
   - RULE-SET,Microsoft,Ⓜ️ Microsoft
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Google,🍭 Google
+  - RULE-SET,AppleCDN,🎯 全部直连
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,Apple,🍎 Apple
+  - RULE-SET,PlayStation,🎮 PlayStation
+  - RULE-SET,Steam,🎮 Steam
+  - RULE-SET,Emby,🎥 Emby Providers
   - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Finance,💰 Finance
+  - RULE-SET,FinanceExtra,💰 Finance
   - RULE-SET,Telegram,💬 Telegram
   - RULE-SET,Twitter,𝕏 Twitter
   - RULE-SET,Speedtest,📶 Speedtest
