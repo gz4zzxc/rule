@@ -418,19 +418,11 @@ rule-providers:
   TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_domain.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDerpDomain.list
   TailscaleDERP_ip:
     <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDERP_ip.list
-  Tailscale_domain:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_domain.list
-  Tailscale_ip:
-    <<: *x-rp-text
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Tailscale_ip.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDerpCidr.list
   Tracker:
     <<: *x-rp-mrs
     behavior: domain
@@ -558,7 +550,7 @@ rule-providers:
   GenAIExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
   Crypto:
     <<: *x-rp-mrs
     behavior: domain
@@ -643,9 +635,9 @@ rules:
 
   # 4. main: p1
   - RULE-SET,TailscaleDERP_domain,🎯 全部直连
-  - RULE-SET,Tailscale_domain,🎯 全部直连
+  - GEOSITE,tailscale,🎯 全部直连
   - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
-  - RULE-SET,Tailscale_ip,🎯 全部直连,no-resolve
+  - IP-CIDR,100.64.0.0/10,🎯 全部直连,no-resolve
   - RULE-SET,Tracker,🎯 全部直连
   - RULE-SET,PT,🎯 全部直连
   - RULE-SET,Speedtest,📶 Speedtest

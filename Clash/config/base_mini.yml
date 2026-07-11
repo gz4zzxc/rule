@@ -233,7 +233,7 @@ rule-providers:
   GenAIExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAIExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
   Bing:
     <<: *x-rp-mrs
     behavior: domain
