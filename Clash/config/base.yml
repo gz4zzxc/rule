@@ -694,7 +694,7 @@ rules:
   - RULE-SET,Overseas_domain,🔰 节点选择
   - RULE-SET,China_ip,🎯 全部直连,no-resolve
   - DST-PORT,80,🐟 漏网之鱼
-  - DST-PORT,8080-8880,🐟 漏网之鱼
+  - DST-PORT,8080,🐟 漏网之鱼
   - DST-PORT,443,🐟 漏网之鱼
   - DST-PORT,8443,🐟 漏网之鱼
   - DST-PORT,853,🐟 漏网之鱼
