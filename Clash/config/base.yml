@@ -638,6 +638,7 @@ rules:
   - GEOSITE,tailscale,🎯 全部直连
   - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - IP-CIDR,100.64.0.0/10,🎯 全部直连,no-resolve
+  - IP-CIDR6,fd7a:115c:a1e0::/48,🎯 全部直连,no-resolve
   - RULE-SET,Tracker,🎯 全部直连
   - RULE-SET,PT,🎯 全部直连
   - RULE-SET,Speedtest,📶 Speedtest
@@ -693,6 +694,8 @@ rules:
   - RULE-SET,Overseas_domain,🔰 节点选择
   - RULE-SET,China_ip,🎯 全部直连,no-resolve
   - DST-PORT,80,🐟 漏网之鱼
+  - DST-PORT,8080-8880,🐟 漏网之鱼
   - DST-PORT,443,🐟 漏网之鱼
+  - DST-PORT,8443,🐟 漏网之鱼
   - DST-PORT,853,🐟 漏网之鱼
   - MATCH,DIRECT
