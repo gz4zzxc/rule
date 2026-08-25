@@ -293,6 +293,9 @@ proxy-groups:
   - name: 💰 Crypto
     <<: *x-pp-select-region
 
+  - name: 🔮 Polymarket
+    <<: *x-pp-select-region
+
   - name: 💰 Banking@HK
     <<: *x-pp-select-region
 
@@ -551,6 +554,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
+  PolymarketExtra:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/PolymarketExtra.list
   Crypto:
     <<: *x-rp-mrs
     behavior: domain
@@ -675,6 +682,7 @@ rules:
   - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,GenAIOverseas,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
+  - RULE-SET,PolymarketExtra,🔮 Polymarket
   - RULE-SET,Crypto,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
   - RULE-SET,Finance,💰 Finance
