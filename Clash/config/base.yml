@@ -262,9 +262,6 @@ proxy-groups:
   - name: 🎵 Spotify
     <<: *x-pp-select-region
 
-  - name: 🎵 Qobuz
-    <<: *x-pp-select-region
-
   - name: 🎥 Emby Providers
     <<: *x-pp-select-all-custom
     filter: "(?i:Emby)"
@@ -272,13 +269,7 @@ proxy-groups:
   - name: 🎥 Youtube
     <<: *x-pp-select-region
 
-  - name: 🎥 Netflix
-    <<: *x-pp-select-region
-
   - name: 🎥 Apple TV
-    <<: *x-pp-select-region
-
-  - name: 🎥 TikTok
     <<: *x-pp-select-region
 
   - name: 💰 Finance
@@ -488,14 +479,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
-  Netflix_domain:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
-  Netflix_ip:
-    <<: *x-rp-mrs
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs
   AppleTV:
     <<: *x-rp-mrs
     behavior: domain
@@ -504,10 +487,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs
-  TikTok:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
   Emby:
     <<: *x-rp-mrs
     behavior: domain
@@ -516,10 +495,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
-  Qobuz:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/Qobuz.list
 
   # 6. main: p3
   RestrictedZones:
@@ -663,14 +638,10 @@ rules:
   - RULE-SET,PlayStation,🎮 PlayStation
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,YouTube,🎥 Youtube
-  - RULE-SET,Netflix_domain,🎥 Netflix
-  - RULE-SET,Netflix_ip,🎥 Netflix,no-resolve
   - RULE-SET,AppleTV,🎥 Apple TV
   - RULE-SET,Bahamut,🇹🇼 台湾优选
-  - RULE-SET,TikTok,🎥 TikTok
   - RULE-SET,Emby,🎥 Emby Providers
   - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Qobuz,🎵 Qobuz
 
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted
