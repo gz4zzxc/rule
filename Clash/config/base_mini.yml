@@ -178,11 +178,6 @@ proxy-groups:
 
 ##### anchor area START #####
 x-rp:
-  yaml: &x-rp-yaml
-    type: http
-    behavior: classical
-    format: yaml
-    interval: 86400
   text: &x-rp-text
     type: http
     behavior: classical
