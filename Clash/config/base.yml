@@ -536,6 +536,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+  HongKongBank:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
   Finance:
     <<: *x-rp-mrs
     behavior: domain
@@ -544,10 +548,6 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/FinanceExtra.list
-  HongKongBank:
-    <<: *x-rp-text
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/rule/HongKongBank.list
 
   # 7. main: p4
   MicrosoftDirect:
@@ -651,9 +651,9 @@ rules:
   - RULE-SET,PolymarketExtra,🔮 Polymarket
   - RULE-SET,Crypto,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
+  - RULE-SET,HongKongBank,💰 Banking@HK
   - RULE-SET,Finance,💰 Finance
   - RULE-SET,FinanceExtra,💰 Finance
-  - RULE-SET,HongKongBank,💰 Banking@HK
 
   # 7. main: p4
   - RULE-SET,Microsoft,Ⓜ️ Microsoft
