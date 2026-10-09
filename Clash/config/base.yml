@@ -253,18 +253,11 @@ proxy-groups:
   - name: 🎮 Nintendo
     <<: *x-pp-select-region-direct
 
-  - name: 🎮 PlayStation
-    <<: *x-pp-select-region-direct
-
   - name: 🎮 Steam
     <<: *x-pp-select-region
 
   - name: 🎵 Spotify
     <<: *x-pp-select-region
-
-  - name: 🎥 Emby Providers
-    <<: *x-pp-select-all-custom
-    filter: "(?i:Emby)"
 
   - name: 🎥 Youtube
     <<: *x-pp-select-region
@@ -462,10 +455,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nintendo.mrs
-  PlayStation:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/playstation.mrs
   Steam:
     <<: *x-rp-mrs
     behavior: domain
@@ -482,10 +471,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bahamut.mrs
-  Emby:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
   Spotify:
     <<: *x-rp-mrs
     behavior: domain
@@ -630,12 +615,10 @@ rules:
   - RULE-SET,Twitter_domain,𝕏 Twitter
   - RULE-SET,Twitter_ip,𝕏 Twitter,no-resolve
   - RULE-SET,Nintendo,🎮 Nintendo
-  - RULE-SET,PlayStation,🎮 PlayStation
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,AppleTV,🎥 Apple TV
   - RULE-SET,Bahamut,🇹🇼 台湾优选
-  - RULE-SET,Emby,🎥 Emby Providers
   - RULE-SET,Spotify,🎵 Spotify
 
   # 6. main: p3
