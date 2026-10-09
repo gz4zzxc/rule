@@ -305,6 +305,10 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
+  Telegram_ip:
+    <<: *x-rp-mrs
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs
   Twitter:
     <<: *x-rp-mrs
     behavior: domain
@@ -386,6 +390,7 @@ rules:
   - RULE-SET,Finance,💰 Finance
   - RULE-SET,FinanceExtra,💰 Finance
   - RULE-SET,Telegram,💬 Telegram
+  - RULE-SET,Telegram_ip,💬 Telegram,no-resolve
   - RULE-SET,Twitter,𝕏 Twitter
   - RULE-SET,Speedtest,📶 Speedtest
   - RULE-SET,GamesOverseas,🎮 Games
