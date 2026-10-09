@@ -88,18 +88,11 @@ proxy-groups:
   - name: 🎮 Games
     <<: *x-pp-select-region-direct
 
-  - name: 🎮 PlayStation
-    <<: *x-pp-select-region-direct
-
   - name: 🎮 Steam
     <<: *x-pp-select-region
 
   - name: 🎵 Spotify
     <<: *x-pp-select-region
-
-  - name: 🎥 Emby Providers
-    <<: *x-pp-select-all-custom
-    filter: "(?i:Emby)"
 
   - name: 🎥 Youtube
     <<: *x-pp-select-region
@@ -281,10 +274,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
-  PlayStation:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/playstation.mrs
   Steam:
     <<: *x-rp-mrs
     behavior: domain
@@ -293,10 +282,6 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
-  Emby:
-    <<: *x-rp-mrs
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-emby.mrs
   YouTube:
     <<: *x-rp-mrs
     behavior: domain
@@ -383,9 +368,7 @@ rules:
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,Apple,🍎 Apple
-  - RULE-SET,PlayStation,🎮 PlayStation
   - RULE-SET,Steam,🎮 Steam
-  - RULE-SET,Emby,🎥 Emby Providers
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Finance,💰 Finance
   - RULE-SET,FinanceExtra,💰 Finance
