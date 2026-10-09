@@ -1,10 +1,14 @@
-# HongKongBank: only bank-owned domains. Third-party SaaS / analytics / PKI /
-# push services must NOT be forced to Banking@HK; they follow Ads / default routing.
+# HongKongBank: HSBC / BOCHK / ZA-bank related domains, plus third-party
+# dependencies kept pending connection-log verification. Removed third-party
+# SaaS / analytics / PKI / push entries are NOT pinned to Banking@HK;
+# they follow Ads / default routing. Ads coverage of the removed entries is
+# NOT asserted here: binary .mrs matching cannot be proven from text lists alone.
 # Removed: +.appdynamics.com, +.digicert.com, +.eum-appdynamics.com,
 # +.liveperson.net, +.tealiumiq.com, device-api.urbanairship.com,
-# hsbcglobalcmb.sc.omtrdc.net (Adobe Analytics, already covered by upstream Ads).
-# TODO(verify-with-logs): +.we-stats.com (BioCatch) and the two Akamai hostnames
-# below are kept pending connection-log verification; do NOT expand them further.
+# hsbcglobalcmb.sc.omtrdc.net (Adobe Analytics).
+# TODO(verify-with-logs): +.we-stats.com (BioCatch), the two Akamai hostnames
+# and the Qualtrics survey domains below are kept pending verification;
+# do NOT expand them further. Non-HK HSBC entries predate this cleanup.
 +.bochk.com
 +.bochkonline.com
 +.hsbc.ca
