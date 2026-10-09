@@ -1,8 +1,10 @@
-+.appdynamics.com
+# HongKongBank: HSBC, BOCHK and ZA Bank domains.
+# Includes selected third-party dependencies pending verification.
+# Removed entries follow normal rule matching.
+# TODO(verify-with-logs): Review BioCatch, Akamai and
+# Qualtrics domains against actual banking connection logs.
 +.bochk.com
 +.bochkonline.com
-+.digicert.com
-+.eum-appdynamics.com
 +.hsbc.ca
 +.hsbc.co.uk
 +.hsbc.com
@@ -12,17 +14,13 @@
 +.hsbc.com.sg
 +.hsbc.fr
 +.hsbcdigital.siteintercept.qualtrics.com
-+.liveperson.net
-+.tealiumiq.com
 +.vv1865.com
 +.we-stats.com
 +.za.group
 +.zajourney.com
 +.zaticdn.com
 a1806.dscw154.akamai.net
-device-api.urbanairship.com
 e673.dsce9.akamaiedge.net
-hsbcglobalcmb.sc.omtrdc.net
 hsbckinetic.co.uk
 zn1x4bay9t3d099pf-hsbcdigital.siteintercept.qualtrics.com
 zn5vxrjwvhjpxv0lr-hsbcdigital.siteintercept.qualtrics.com
