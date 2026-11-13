@@ -401,6 +401,10 @@ rule-providers:
     <<: *x-rp-text
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDerpDomain.list
+  Tailscale_domain:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tailscale.mrs
   TailscaleDERP_ip:
     <<: *x-rp-text
     behavior: ipcidr
@@ -597,7 +601,7 @@ rules:
 
   # 4. main: p1
   - RULE-SET,TailscaleDERP_domain,🎯 全部直连
-  - GEOSITE,tailscale,🎯 全部直连
+  - RULE-SET,Tailscale_domain,🎯 全部直连
   - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - IP-CIDR,100.64.0.0/10,🎯 全部直连,no-resolve
   - IP-CIDR6,fd7a:115c:a1e0::/48,🎯 全部直连,no-resolve
