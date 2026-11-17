@@ -179,6 +179,15 @@ proxy-groups:
   - name: ✈️ 手动选择
     <<: *x-pp-select-all-custom
 
+  # Dedicated DNS transport selection.
+  - name: 🌐 DNS解析
+    type: select
+    proxies:
+      - 🇯🇵 日本优选
+      - 🇭🇰 香港优选
+      - 🇺🇸 美国优选
+      - ✈️ 手动选择
+
   - name: 🎩 私有节点
     <<: *x-pp-select-all-custom
     filter: "(?i:Private|PRIV)"
@@ -584,6 +593,12 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
 
 rules:
+  # DNS transport: direct domestic DoH, proxy overseas DoH before other rules.
+  - IP-CIDR,223.5.5.5/32,DIRECT,no-resolve
+  - IP-CIDR,223.6.6.6/32,DIRECT,no-resolve
+  - DOMAIN,cloudflare-dns.com,🌐 DNS解析
+  - DOMAIN,dns.google,🌐 DNS解析
+
   # domain > classical > ipcidr
   # 1. local
   - RULE-SET,Private_domain,🎯 全部直连
