@@ -194,14 +194,17 @@ rule-providers:
   MyDirect:
     <<: *x-rp-text
     behavior: domain
+    path: ./rule_provider/MyDirect
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/myCN.list
   MyProxy:
     <<: *x-rp-text
     behavior: domain
+    path: ./rule_provider/MyProxy
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/foreign.list
   Ads:
     <<: *x-rp-mrs
     behavior: domain
+    path: ./rule_provider/Ads
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs
   AdobeTelemetry:
     <<: *x-rp-text
@@ -210,10 +213,12 @@ rule-providers:
   Private_domain:
     <<: *x-rp-mrs
     behavior: domain
+    path: ./rule_provider/Private_domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs
   Private_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
+    path: ./rule_provider/Private_ip
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
   Tracker:
     <<: *x-rp-mrs
@@ -270,10 +275,12 @@ rule-providers:
   AppleCDN:
     <<: *x-rp-text
     behavior: domain
+    path: ./rule_provider/AppleCDN
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
   GamesDownload:
     <<: *x-rp-mrs
     behavior: domain
+    path: ./rule_provider/GamesDownload
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-game-platforms-download.mrs
   GamesDirect:
     <<: *x-rp-mrs
@@ -326,18 +333,22 @@ rule-providers:
   RestrictedZones:
     <<: *x-rp-text
     behavior: domain
+    path: ./rule_provider/RestrictedZones
     url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/fallback.list
   China_domain:
     <<: *x-rp-mrs
     behavior: domain
+    path: ./rule_provider/China_domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs
   Overseas_domain:
     <<: *x-rp-mrs
     behavior: domain
+    path: ./rule_provider/Overseas_domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
   China_ip:
     <<: *x-rp-mrs
     behavior: ipcidr
+    path: ./rule_provider/China_ip
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
 
 rules:
