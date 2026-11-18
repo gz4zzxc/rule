@@ -380,8 +380,8 @@ rules:
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Google,🍭 Google
   - RULE-SET,AppleCDN,🎯 全部直连
-  - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,DeveloperOverseas,💻 Developer
+  - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 Apple
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,Spotify,🎵 Spotify
