@@ -634,6 +634,7 @@ rules:
   - RULE-SET,Twitter_domain,𝕏 Twitter
   - RULE-SET,Twitter_ip,𝕏 Twitter,no-resolve
   - RULE-SET,Nintendo,🎮 Nintendo
+  - RULE-SET,GamesDownload,🎯 全部直连
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,AppleTV,🎥 Apple TV
@@ -642,7 +643,6 @@ rules:
 
   # 6. main: p3
   - RULE-SET,RestrictedZones,🈲 Restricted
-  - RULE-SET,GamesDownload,🎯 全部直连
   - RULE-SET,GamesDirect,🎯 全部直连
   - RULE-SET,DeveloperDirect,🎯 全部直连
   - RULE-SET,MicrosoftDirect,🎯 全部直连
