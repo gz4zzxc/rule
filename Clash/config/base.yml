@@ -179,14 +179,16 @@ proxy-groups:
   - name: ✈️ 手动选择
     <<: *x-pp-select-all-custom
 
-  # Dedicated DNS transport selection.
+  # Check DNS exits individually. Reject only when there are no candidates.
   - name: 🌐 DNS解析
-    type: select
-    proxies:
-      - 🇯🇵 日本优选
-      - 🇭🇰 香港优选
-      - 🇺🇸 美国优选
-      - ✈️ 手动选择
+    type: fallback
+    url: "https://www.gstatic.com/generate_204"
+    interval: 120
+    lazy: false
+    empty-fallback: REJECT
+    include-all: true
+    exclude-type: direct
+    filter: '(?i)^(?!.*(?:ℹ️|专用|noauto|\bDIRECT\b|\bCOMPATIBLE\b)).*(?:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|香港|🇺🇸|\bUS[A]?\b|America|United.*?States|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|圣何塞|洛杉矶|圣克拉拉|西雅图)'
 
   - name: 🎩 私有节点
     <<: *x-pp-select-all-custom
