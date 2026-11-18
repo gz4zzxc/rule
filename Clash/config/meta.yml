@@ -24,6 +24,8 @@ dns:
       - https://cloudflare-dns.com/dns-query
       - https://dns.google/dns-query
     "rule-set:RestrictedZones": *dns-overseas
+    "rule-set:GamesDownload": *dns-direct
+    "rule-set:AppleCDN": *dns-direct
     "rule-set:Overseas_domain": *dns-overseas
   fallback: []
 
