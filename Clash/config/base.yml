@@ -647,9 +647,9 @@ rules:
   - RULE-SET,DeveloperDirect,🎯 全部直连
   - RULE-SET,MicrosoftDirect,🎯 全部直连
   - RULE-SET,GamesOverseas,🎮 Games
-  - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,GenAIOverseas,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
+  - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,PolymarketExtra,🔮 Polymarket
   - RULE-SET,Crypto,💰 Crypto
   - RULE-SET,CryptoExtra,💰 Crypto
