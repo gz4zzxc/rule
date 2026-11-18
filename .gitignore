@@ -3,3 +3,6 @@
 
 # local maintenance notes
 /docs/local/
+
+# local rule-set snapshots
+/Clash/offline-cache/
