@@ -5,4 +5,4 @@
 /docs/local/
 
 # local rule-set snapshots
-/Clash/rule_provider/
+/Clash/offline-cache/
