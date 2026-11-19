@@ -255,6 +255,21 @@ proxy-groups:
   - name: 💻 Developer
     <<: *x-pp-select-region
 
+  - name: ✨ OpenAI
+    <<: *x-pp-select-region
+
+  - name: ✨ Anthropic
+    <<: *x-pp-select-region
+
+  - name: ✨ Google Gemini
+    <<: *x-pp-select-region
+
+  - name: ✨ SpaceXAI
+    <<: *x-pp-select-region
+
+  - name: ✨ OpenCode
+    <<: *x-pp-select-region
+
   - name: ✨ GenAI
     <<: *x-pp-select-region
 
@@ -516,6 +531,26 @@ rule-providers:
     <<: *x-rp-mrs
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-dev.mrs
+  OpenAI:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs
+  Anthropic:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/anthropic.mrs
+  GoogleGemini:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google-gemini.mrs
+  SpaceXAI:
+    <<: *x-rp-mrs
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/xai.mrs
+  OpenCode:
+    <<: *x-rp-text
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/OpenCode.list
   GenAIOverseas:
     <<: *x-rp-mrs
     behavior: domain
@@ -649,6 +684,11 @@ rules:
   - RULE-SET,DeveloperDirect,🎯 全部直连
   - RULE-SET,MicrosoftDirect,🎯 全部直连
   - RULE-SET,GamesOverseas,🎮 Games
+  - RULE-SET,OpenAI,✨ OpenAI
+  - RULE-SET,Anthropic,✨ Anthropic
+  - RULE-SET,GoogleGemini,✨ Google Gemini
+  - RULE-SET,SpaceXAI,✨ SpaceXAI
+  - RULE-SET,OpenCode,✨ OpenCode
   - RULE-SET,GenAIOverseas,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
   - RULE-SET,AppleCDN,🎯 全部直连
