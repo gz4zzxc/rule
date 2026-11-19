@@ -668,6 +668,7 @@ rules:
   - RULE-SET,GoogleVoice,🇺🇸 美国优选
   - RULE-SET,Telegram_domain,💬 Telegram
   - RULE-SET,Telegram_ip,💬 Telegram,no-resolve
+  - RULE-SET,SpaceXAI,✨ SpaceXAI
   - RULE-SET,Twitter_domain,𝕏 Twitter
   - RULE-SET,Twitter_ip,𝕏 Twitter,no-resolve
   - RULE-SET,Nintendo,🎮 Nintendo
@@ -687,7 +688,6 @@ rules:
   - RULE-SET,OpenAI,✨ OpenAI
   - RULE-SET,Anthropic,✨ Anthropic
   - RULE-SET,GoogleGemini,✨ Google Gemini
-  - RULE-SET,SpaceXAI,✨ SpaceXAI
   - RULE-SET,OpenCode,✨ OpenCode
   - RULE-SET,GenAIOverseas,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
