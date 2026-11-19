@@ -393,6 +393,12 @@ rules:
   # 2. block
   - RULE-SET,Ads,🧹 广告拦截
   - RULE-SET,AdobeTelemetry,🧹 广告拦截
+  # JavDB 广告落地页
+  - DOMAIN-SUFFIX,jopeki.com,🧹 广告拦截
+  - DOMAIN-SUFFIX,zenaruk.com,🧹 广告拦截
+  - DOMAIN-SUFFIX,tkoqk.com,🧹 广告拦截
+  - DOMAIN-SUFFIX,win6017.com,🧹 广告拦截
+  - DOMAIN-SUFFIX,2vtt7a4.xyz,🧹 广告拦截
 
   # 3. custom override
   - RULE-SET,MyDirect,🎯 全部直连

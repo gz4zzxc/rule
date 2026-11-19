@@ -1,5 +1,5 @@
 !Title: adfilter
-!Version: 202602111600
+!Version: 202611192219
 !!!This list only applies to "AdGuard Home".
 =================================================================
 !白名单
@@ -61,6 +61,14 @@
 
 !夸克
 ||u3.ucweb.com^
+
+! JavDB 广告落地页（投放域名会轮换，按需更新）
+! 固定底栏/广告条等页面元素需浏览器扩展，见 ADG/javdb-cosmetic.txt
+||jopeki.com^
+||zenaruk.com^
+||tkoqk.com^
+||win6017.com^
+||2vtt7a4.xyz^
 
 ! 微软诊断数据
 ||v10.events.data.microsoft.com^

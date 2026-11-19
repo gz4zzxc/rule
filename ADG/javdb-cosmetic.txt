@@ -1,0 +1,33 @@
+! Title: JavDB 广告净化
+! Description: JavDB 站内广告、App 推广条与固定底栏；适用于 uBlock Origin / AdGuard 浏览器扩展
+! Version: 202611192219
+! Expires: 7 days
+! Homepage: https://github.com/gz4zzxc/rule
+!
+! 说明：AdGuard Home 只能按域名拦截，无法隐藏页面元素。
+! 本列表用于浏览器扩展；域名拦截见 ADFilter.txt。
+! 镜像域名（javdb581.com、javdb582.com 等）如新增，请补进下方域名列表。
+
+! 详情页磁链区轮播广告（sda-content）
+javdb.com,javdb581.com,javdb582.com##.sda-content
+javdb.com,javdb581.com,javdb582.com##div[data-controller="ad-rotation"]
+javdb.com,javdb581.com,javdb582.com##a[data-ad-id]
+javdb.com,javdb581.com,javdb582.com##a[data-ad-rotation-target]
+javdb.com,javdb581.com,javdb582.com##img[src*="/ads/"]
+
+! 预留/空广告位
+javdb.com,javdb581.com,javdb582.com##.moj-header
+javdb.com,javdb581.com,javdb582.com##.moj-content
+
+! 固定底栏 App 推广（牛皮癣）
+javdb.com,javdb581.com,javdb582.com##.app-banner
+javdb.com,javdb581.com,javdb582.com##.app-desktop-banner
+
+! 顶部 App/镜像推广条；如需保留“最新域名”信息，注释本行
+javdb.com,javdb581.com,javdb582.com##.sub-header
+
+! 可选：ThePornDude 推广链接
+! javdb.com,javdb581.com,javdb582.com##a[href*="theporndude.com"]
+
+! 可选：右下角悬浮导航（TOP/磁鏈下載），属于功能入口，默认保留
+! javdb.com,javdb581.com,javdb582.com##.float-buttons
