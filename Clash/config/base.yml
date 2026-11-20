@@ -217,6 +217,13 @@ proxy-groups:
       # - 🏠 家宽节点
       - 📥 高耗流量
 
+  # Manual only. url-test would change the exit IP under active announces.
+  - name: 🌐 PT站点
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+
   - name: 🐟 漏网之鱼
     <<: *x-pp-select-region
 
@@ -657,8 +664,9 @@ rules:
   - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - IP-CIDR,100.64.0.0/10,🎯 全部直连,no-resolve
   - IP-CIDR6,fd7a:115c:a1e0::/48,🎯 全部直连,no-resolve
+  # Tracker announces stay direct. PT site domains default direct and can be switched.
   - RULE-SET,Tracker,🎯 全部直连
-  - RULE-SET,PT,🎯 全部直连
+  - RULE-SET,PT,🌐 PT站点
   - RULE-SET,Speedtest,📶 Speedtest
   - RULE-SET,ProxyHighBandwidth,📥 高耗流量
 

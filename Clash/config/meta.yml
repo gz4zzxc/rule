@@ -27,6 +27,9 @@ dns:
     "rule-set:GamesDownload": *dns-direct
     "rule-set:AppleCDN": *dns-direct
     "rule-set:Overseas_domain": *dns-overseas
+    # Domestic DoH wireformat is poisoned for some PT names.
+    "rule-set:Tracker": *dns-overseas
+    "rule-set:PT": *dns-overseas
   fallback: []
 
 # meta sniffer

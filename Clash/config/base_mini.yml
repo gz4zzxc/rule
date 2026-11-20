@@ -146,6 +146,13 @@ proxy-groups:
       - 🔰 节点选择
       - ✈️ 手动选择
 
+  # Manual only. url-test would change the exit IP under active announces.
+  - name: 🌐 PT站点
+    type: select
+    proxies:
+      - 🎯 全部直连
+      - 🔰 节点选择
+
   - name: 🈲 Restricted
     <<: *x-pp-select-all-custom
 
@@ -399,8 +406,9 @@ rules:
   - RULE-SET,MyProxy,🔰 节点选择
 
   # 4. direct
+  # Tracker announces stay direct. PT site domains default direct and can be switched.
   - RULE-SET,Tracker,🎯 全部直连
-  - RULE-SET,PT,🎯 全部直连
+  - RULE-SET,PT,🌐 PT站点
   - RULE-SET,MicrosoftDirect,🎯 全部直连
   - RULE-SET,GamesDownload,🎯 全部直连
   - RULE-SET,GamesDirect,🎯 全部直连
