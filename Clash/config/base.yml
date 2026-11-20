@@ -217,12 +217,12 @@ proxy-groups:
       # - 🏠 家宽节点
       - 📥 高耗流量
 
-  # Manual only. url-test would change the exit IP under active announces.
+  # Second hop is a fixed manual node, not a region url-test group.
   - name: 🌐 PT站点
     type: select
     proxies:
       - 🎯 全部直连
-      - 🔰 节点选择
+      - ✈️ 手动选择
 
   - name: 🐟 漏网之鱼
     <<: *x-pp-select-region
@@ -442,10 +442,11 @@ rule-providers:
     <<: *x-rp-text
     behavior: ipcidr
     url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDerpCidr.list
+  # Site-wide suffixes that also match PT sites are omitted.
   Tracker:
-    <<: *x-rp-mrs
+    <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs
+    url: https://fastly.jsdelivr.net/gh/gz4zzxc/rule@main/Clash/list/tracker-direct.list
   PT:
     <<: *x-rp-mrs
     behavior: domain
@@ -664,7 +665,7 @@ rules:
   - RULE-SET,TailscaleDERP_ip,🎯 全部直连,no-resolve
   - IP-CIDR,100.64.0.0/10,🎯 全部直连,no-resolve
   - IP-CIDR6,fd7a:115c:a1e0::/48,🎯 全部直连,no-resolve
-  # Tracker announces stay direct. PT site domains default direct and can be switched.
+  # Announce hosts stay direct. PT site domains are selectable.
   - RULE-SET,Tracker,🎯 全部直连
   - RULE-SET,PT,🌐 PT站点
   - RULE-SET,Speedtest,📶 Speedtest
