@@ -46,9 +46,10 @@ x-pg:
     type: url-test
     url: "https://www.gstatic.com/generate_204"
     interval: 300
+    tolerance: 80
     lazy: true
     include-all: true
-    exclude-filter: "(?i:专用|noauto)"
+    exclude-filter: "(?i)(?:^ℹ️|专用|noauto|(?:^|[^0-9.])(?:[2-9]|[1-9][0-9])([.][0-9]+)?[xX×倍])"
 
 ##### anchor area END #####
 proxy-groups:
@@ -76,7 +77,7 @@ proxy-groups:
     empty-fallback: REJECT
     include-all: true
     exclude-type: direct
-    filter: '(?i)^(?!.*(?:ℹ️|专用|noauto|\bDIRECT\b|\bCOMPATIBLE\b)).*(?:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|香港|🇺🇸|\bUS[A]?\b|America|United.*?States|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|圣何塞|洛杉矶|圣克拉拉|西雅图)'
+    filter: '(?i)^(?!.*(?:ℹ️|专用|noauto|\bDIRECT\b|\bCOMPATIBLE\b|(?:^|[^0-9.])(?:[2-9]|[1-9][0-9])([.][0-9]+)?[xX×倍])).*(?:🇯🇵|\bJP[N]?\b|Japan|Tokyo|Osaka|Saitama|日本|东京|大阪|埼玉|🇭🇰|\bHK[G]?\b|Hong.*?Kong|\bHKT\b|\bHKBN\b|\bHGC\b|\bWTT\b|\bCMI\b|香港|🇺🇸|\bUS[A]?\b|America|United.*?States|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|圣何塞|洛杉矶|圣克拉拉|西雅图)'
 
   - name: 🍭 Google
     <<: *x-pp-select-region
@@ -415,6 +416,7 @@ rules:
   - RULE-SET,GoogleGemini,✨ Google Gemini
   - RULE-SET,SpaceXAI,✨ SpaceXAI
   - RULE-SET,OpenCode,✨ OpenCode
+  - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,GenAIOverseas,✨ GenAI
   - RULE-SET,GenAIExtra,✨ GenAI
   - RULE-SET,OneDrive,☁️ Onedrive
@@ -422,7 +424,6 @@ rules:
   - RULE-SET,YouTube,🎥 Youtube
   - RULE-SET,Google,🍭 Google
   - RULE-SET,AppleCDN,🎯 全部直连
-  - RULE-SET,DeveloperOverseas,💻 Developer
   - RULE-SET,AppleProxy,🔰 节点选择
   - RULE-SET,Apple,🍎 Apple
   - RULE-SET,Steam,🎮 Steam
