@@ -1,5 +1,5 @@
 !Title: adfilter
-!Version: 202602111600
+!Version: 202611251935
 !!!This list only applies to "AdGuard Home".
 =================================================================
 !白名单
@@ -45,7 +45,6 @@
 ||519332DA.rtc.youme.im^
 ||hotupgrade.hpplay.cn^
 ||pin.hpplay.cn^
-||1tvapp.hpplay.cn^
 ||gslb.hpplay.cn^
 ||adeng.hpplay.cn^
 ||conf.hpplay.cn^
@@ -59,9 +58,6 @@
 ||rps.hpplay.cn^
 ||sentry.io^$important
 
-!夸克
-||u3.ucweb.com^
-
 ! 微软诊断数据
 ||v10.events.data.microsoft.com^
 ||v20.events.data.microsoft.com^
@@ -72,27 +68,16 @@
 ||vortex.data.microsoft.com^
 ||vortex-win.data.microsoft.com^
 ||telecommand.telemetry.microsoft.com^
-||telecommand.ppe.telemetry.microsoft.com^
 ||oca.telemetry.microsoft.com^
-||oca.ppe.telemetry.microsoft.com^
 ||sqm.telemetry.microsoft.com^
-||sqm.ppe.telemetry.microsoft.com^
 ||spynet2.microsoft.com^
 ||spynetalt.microsoft.com^
 ||feedback.windows.com^
-||feedback.microsoft-hohm.com^
 ||feedback.search.microsoft.com^
 ||rad.msn.com^
 ||preview.msn.com^
 ||ad.doubleclick.net^
 ||ads.msn.com^
 ||ads1.msads.net^
-||a.ads1.msn.com^
-||a.ads2.msads.net^
-||b.ads1.msn.com^
-||b.ads2.msads.net^
 ||adnexus.net^
 ||adnxs.com^
-||az361816.vo.msecnd.net^
-||az512334.vo.msecnd.net^
-

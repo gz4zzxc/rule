@@ -268,7 +268,7 @@ rule-providers:
   GenAIExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/GenAiExtra.list
   Bing:
     <<: *x-rp-mrs
     behavior: domain
@@ -352,11 +352,11 @@ rule-providers:
   FinanceExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/FinanceExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/FinanceExtra.list
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/ProxyHighBandwidth.list
   Speedtest:
     <<: *x-rp-mrs
     behavior: domain
