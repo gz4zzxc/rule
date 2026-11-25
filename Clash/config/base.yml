@@ -426,7 +426,7 @@ rule-providers:
   TailscaleDERP_domain:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDerpDomain.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/TailscaleDerpDomain.list
   Tailscale_domain:
     <<: *x-rp-mrs
     behavior: domain
@@ -434,7 +434,7 @@ rule-providers:
   TailscaleDERP_ip:
     <<: *x-rp-text
     behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/TailscaleDerpCidr.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/TailscaleDerpCidr.list
   Tracker:
     <<: *x-rp-mrs
     behavior: domain
@@ -450,7 +450,7 @@ rule-providers:
   ProxyHighBandwidth:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/ProxyHighBandwidth.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/ProxyHighBandwidth.list
 
   # 5. main: p2
   Bing:
@@ -464,7 +464,7 @@ rule-providers:
   GoogleVoice:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GoogleVoice.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/GoogleVoice.list
   Telegram_domain:
     <<: *x-rp-mrs
     behavior: domain
@@ -558,11 +558,11 @@ rule-providers:
   GenAIExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/GenAiExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/GenAiExtra.list
   PolymarketExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/PolymarketExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/PolymarketExtra.list
   Crypto:
     <<: *x-rp-mrs
     behavior: domain
@@ -570,7 +570,7 @@ rule-providers:
   CryptoExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/CryptoExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/CryptoExtra.list
   HongKongBank:
     <<: *x-rp-text
     behavior: domain
@@ -582,7 +582,7 @@ rule-providers:
   FinanceExtra:
     <<: *x-rp-text
     behavior: domain
-    url: https://fastly.jsdelivr.net/gh/jimlee2048/atc-config@main/clash/rules/FinanceExtra.list
+    url: https://fastly.jsdelivr.net/gh/jimlee2048/config-atc@main/clash/rules/FinanceExtra.list
 
   # 7. main: p4
   MicrosoftDirect:
